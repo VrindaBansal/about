@@ -1,14 +1,363 @@
 <!DOCTYPE html>
-<html>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<html lang="en">
 
 <head>
-  <title>Vrinda Bansal's Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vrinda Bansal - Personal Webpage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-color: #f0f0f0;
+      --card-background: #ffffff;
+      --text-color: #333333;
+      --accent-color: #6b9891;
+      --header-color: #2c3e50;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .binary-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      color: #e0e0e0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 20px);
+      grid-auto-rows: 20px;
+    }
+
+    .binary-char {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: color 0.3s ease;
+      cursor: default;
+    }
+
+    .binary-char:hover {
+      color: var(--accent-color);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 300px;
+      background-image: url('/Users/vrinda/Downloads/1592599892797.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid var(--card-background);
+      position: absolute;
+      bottom: -75px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url('/Users/vrinda/Downloads/Prof. Headshots (Vrinda)/DSC_0010.JPG');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--card-background);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 75px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Roboto Mono', monospace;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: var(--header-color);
+    }
+
+    h2 {
+      font-size: 1.2em;
+      color: var(--accent-color);
+      margin-top: 10px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: var(--card-background);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background-color: var(--accent-color);
+    }
+
+    .card:last-child::after {
+      display: none;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    .card p {
+      margin-bottom: 10px;
+    }
+
+    .note-parrot-card {
+      background-color: var(--accent-color);
+      color: var(--card-background);
+    }
+
+    .note-parrot-card h3 {
+      color: var(--card-background);
+    }
+
+    .note-parrot-card a {
+      color: var(--card-background);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: var(--header-color);
+      color: var(--card-background);
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: var(--card-background);
+      font-size: 24px;
+      transition: color 0.3s ease;
+      text-decoration: none !important;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+
+    .fa-x-twitter {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      text-decoration: none !important;
+    }
+
+    .social-icons a .fa-x-twitter {
+      text-decoration: none !important;
+      font-size: 20px;
+    }
+
+    .social-icons a:hover,
+    .social-icons a:focus,
+    .social-icons a:active {
+      text-decoration: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <H1>My Family</H1>  
-  <H2>Siblings</H2>
-  <p>Brother: Sahaj Bansal</p>
-  <p>Sahaj Bansal is my little brother who is about 11 years old. He attends Windemere Ranch Middle School as a sixth grader. Some of his favouurite hobbies include biking, watching TV, playing on his iPad, inventing new desserts and playing with his friends. </p>
-  </body>
+  <div class="binary-background" id="binary-bg"></div>
+  <div class="hero-image">
+    <div class="profile-image"></div>
+  </div>
+  <header>
+    <h1>Vrinda Bansal</h1>
+    <h2>Computational Cognitive Science @ UC Davis</h2>
+  </header>
+  <div class="container">
+    <div class="card-container">
+      <div class="card">
+        <h3>About Me</h3>
+        <p>Hi, I'm Vrinda! I'm currently developing noteparrot, a study buddy that converts your notes into practice
+          quizzes. I'm eager to learn more about product management, blending my technical background with strategic
+          thinking. My interests lie in leveraging emerging technologies like AI and robotics to create impactful
+          products that enhance lives.</p>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <p><strong>University of California, Davis</strong><br>
+          Bachelor of Science - BS, Computer Science and Cognitive Science<br>
+          2022 - 2026</p>
+        <p><strong>Relevant Coursework:</strong> Signals & Systems, Engineering Problem Solving, Minds Brains & Computers,
+          Object Oriented Programming, Circuits I, Discrete Math for CS, and Symbolic Logic.</p>
+      </div>
+      <div class="card">
+        <h3>Experience</h3>
+        <p><strong>Product Manager (part-time)</strong> at Starspark<br>
+          June 2023 - Present</p>
+        <ul>
+          <li>Conducting customer interviews for research</li>
+          <li>Market research and comparison</li>
+          <li>Compiling product requirements document</li>
+          <li>Leading cognitive science based research paper seminars</li>
+        </ul>
+      
+        <p><strong>Product Development Intern</strong> at Teens in AI<br>
+          Jun 2024 - Present</p>
+        <ul>
+          <li>Working on developing AI-driven educational Robotics pathways</li>
+          <li>Collaborating with the team to create innovative solutions for teen engagement in AI</li>
+        </ul>
+      
+        <p><strong>Multi-Robot Pathfinding Research Intern</strong> at USC ACT Lab<br>
+          Summer 2020, 2021</p>
+        <ul>
+          <li>Worked on solving multi-robot pathfinding (MAPF) with drones using PyTorch, MatLab, OpenAIGym, reinforcement &
+            deep learning, & OpenCV</li>
+          <li>Prototyped an autonomous snow-blowing robot using collision avoidance, QR codes for localization, and A*
+            algorithms</li>
+        </ul>
+      
+        <p><strong>Founder</strong> at Think Fast Robotics, 2772J<br>
+          2020 - 2022</p>
+        <ul>
+          <li>Founded Women in Robotics organization and launched 2772J female VEX robotics team</li>
+          <li>Secured $7,000+ in international funding and recruited 17 team members from 4 countries</li>
+          <li>Led team to Worlds (2021) and U.S. Open Nationals (2022), winning 8 awards including Robot Skills Champion &
+            Inspire award at Worlds</li>
+        </ul>
+      </div>
+      <div class="card note-parrot-card">
+        <h3>Check out Note Parrot</h3>
+        <p>Note Parrot is a study buddy that converts your notes into practice quizzes. It's designed to help students
+          learn more effectively and efficiently.</p>
+        <p><a href="https://noteparrot.com" target="_blank">Learn more about Note Parrot →</a></p>
+      </div>
+        <div class="card">
+          <h3>Skills</h3>
+          <p><strong>Languages:</strong> Python, C++, HTML/CSS, JavaScript</p>
+          <p><strong>Development:</strong> OpenCV, Django, React, Node.js</p>
+          <p><strong>Machine Learning:</strong> PyTorch, TensorFlow, Reinforcement Learning, LLMs (OpenAI, Gemini)</p>
+          <p><strong>UI/UX:</strong> Figma, Photoshop & Illustrator</p>
+        </div>
+    </div>
+  </div>
+  <footer>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/VrindaBansal" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/VrindaBansal11" target="_blank"><i class="fa-x-twitter">𝕏</i></a>
+        <a href="mailto:vrindabansal2@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+  </footer>
+  <script>
+    function createBinaryBackground() {
+      const binaryBg = document.getElementById('binary-bg');
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const charsPerLine = Math.floor(width / 20);
+      const lines = Math.floor(height / 20);
+
+      for (let i = 0; i < lines * charsPerLine; i++) {
+        const char = document.createElement('div');
+        char.className = 'binary-char';
+        char.textContent = Math.random() > 0.5 ? '1' : '0';
+        binaryBg.appendChild(char);
+      }
+    }
+
+    function checkCardVisibility() {
+      const cards = document.querySelectorAll('.card:not(.visible)');
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const isVisible = (rect.top <= window.innerHeight * 0.8) && (rect.bottom >= 0);
+        if (isVisible) {
+          requestAnimationFrame(() => {
+            card.classList.add('visible');
+          });
+        }
+      });
+    }
+
+    createBinaryBackground();
+    checkCardVisibility();
+
+    window.addEventListener('resize', () => {
+      document.getElementById('binary-bg').innerHTML = '';
+      createBinaryBackground();
+    });
+
+    window.addEventListener('scroll', () => {
+      requestAnimationFrame(checkCardVisibility);
+    });
+  </script>
+</body>
+
 </html>
