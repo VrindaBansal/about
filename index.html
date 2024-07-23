@@ -51,6 +51,10 @@
       cursor: default;
     }
 
+    .binary-char.darken {
+      color: #6b9891; /* Adjust to the darkened color */
+    }
+
     .binary-char:hover {
       color: var(--accent-color);
     }
@@ -346,17 +350,70 @@
       });
     }
 
-    createBinaryBackground();
-    checkCardVisibility();
+    document.addEventListener('DOMContentLoaded', () => {
+      const binaryBg = document.getElementById('binary-bg');
 
-    window.addEventListener('resize', () => {
-      document.getElementById('binary-bg').innerHTML = '';
+      function createBinaryBackground() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const charsPerLine = Math.floor(width / 20);
+        const lines = Math.floor(height / 20);
+
+        for (let i = 0; i < lines * charsPerLine; i++) {
+          const char = document.createElement('div');
+          char.className = 'binary-char';
+          char.textContent = Math.random() > 0.5 ? '1' : '0';
+          binaryBg.appendChild(char);
+        }
+      }
+
+      function handleMouseMove(event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        const radius = 35; 
+
+        document.querySelectorAll('.binary-char').forEach(char => {
+          const rect = char.getBoundingClientRect();
+          const charX = rect.left + rect.width / 2;
+          const charY = rect.top + rect.height / 2;
+          const distance = Math.hypot(charX - mouseX, charY - mouseY);
+
+          if (distance < radius) {
+            char.classList.add('darken');
+          } else {
+            char.classList.remove('darken');
+          }
+        });
+      }
+
+      function checkCardVisibility() {
+        const cards = document.querySelectorAll('.card:not(.visible)');
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const isVisible = (rect.top <= window.innerHeight * 0.8) && (rect.bottom >= 0);
+          if (isVisible) {
+            requestAnimationFrame(() => {
+              card.classList.add('visible');
+            });
+          }
+        });
+      }
+
       createBinaryBackground();
+      checkCardVisibility();
+
+      window.addEventListener('resize', () => {
+        binaryBg.innerHTML = '';
+        createBinaryBackground();
+      });
+
+      window.addEventListener('scroll', () => {
+        requestAnimationFrame(checkCardVisibility);
+      });
+
+      document.addEventListener('mousemove', handleMouseMove);
     });
 
-    window.addEventListener('scroll', () => {
-      requestAnimationFrame(checkCardVisibility);
-    });
   </script>
 </body>
 
