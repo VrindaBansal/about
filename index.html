@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vrinda Bansal - Personal Webpage</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --background-color: #f0f0f0;
@@ -52,7 +54,7 @@
     }
 
     .binary-char.darken {
-      color: #6b9891; /* Adjust to the darkened color */
+      color: #6b9891;
     }
 
     .binary-char:hover {
@@ -97,7 +99,9 @@
       margin-top: 75px;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: 'Roboto Mono', monospace;
       text-align: center;
     }
@@ -133,11 +137,20 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
       opacity: 0;
       transform: translateY(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .card.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .card-content {
+      width: 100%;
+      text-align: left;
     }
 
     .card:hover {
@@ -161,11 +174,13 @@
 
     .card h3 {
       margin-top: 0;
+      margin-bottom: 10px;
       color: var(--accent-color);
       font-weight: 700;
     }
 
     .card p {
+      margin-top: 0;
       margin-bottom: 10px;
     }
 
@@ -178,10 +193,55 @@
       color: var(--card-background);
     }
 
-    .note-parrot-card a {
+    .note-parrot-cta {
+      display: inline-block;
       color: var(--card-background);
       text-decoration: none;
       font-weight: bold;
+      border: 2px solid var(--card-background);
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .note-parrot-cta .cta-text {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      padding-right: 15px; /* Add padding to the right to create space */
+    }
+
+    .note-parrot-cta span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .note-parrot-cta::after {
+      content: '→';
+      position: absolute;
+      top: 50%;
+      right: 15px; /* Adjust right position to create space */
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .note-parrot-cta:hover {
+      background-color: var(--card-background);
+      color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-parrot-cta:hover .cta-text {
+      transform: translateX(-5px); /* Adjust the value to control the text movement */
+    }
+
+    .note-parrot-cta:hover::after {
+      right: 20px; /* Adjust right position to control arrow movement */
+      opacity: 1;
     }
 
     footer {
@@ -228,6 +288,12 @@
       text-decoration: none !important;
     }
 
+    .section-icon {
+      font-size: 2em;
+      color: var(--accent-color);
+      margin-bottom: 5px;
+    }
+
     @media (max-width: 768px) {
       .card {
         width: 90%;
@@ -255,101 +321,85 @@
           products that enhance lives.</p>
       </div>
       <div class="card note-parrot-card">
-        <h3>Check out Note Parrot</h3>
+        <h3>About Note Parrot</h3>
         <p>Note Parrot is a study buddy that converts your notes into practice quizzes. It's designed to help students
           learn more effectively and efficiently.</p>
-        <p><a href="https://noteparrot.com" target="_blank">Check it out →</a></p>
+        <a href="https://noteparrot.com" target="_blank" class="note-parrot-cta"><span class="cta-text">Check it out</span></a>
       </div>
       <div class="card">
+        <i class="fas fa-graduation-cap section-icon"></i>
         <h3>Education</h3>
-        <p><strong>University of California, Davis</strong><br>
-          Bachelor of Science - BS, Computer Science and Cognitive Science<br>
-          2022 - 2026</p>
-        <p><strong>Relevant Coursework:</strong> Signals & Systems, Engineering Problem Solving, Minds Brains & Computers,
-          Object Oriented Programming, Circuits I, Discrete Math for CS, and Symbolic Logic.</p>
+        <div class="card-content">
+          <p><strong>University of California, Davis</strong><br>
+            Bachelor of Science - BS, Computer Science and Cognitive Science<br>
+            2022 - 2026</p>
+          <p><strong>Relevant Coursework:</strong> Signals & Systems, Engineering Problem Solving, Minds Brains &
+            Computers,
+            Object Oriented Programming, Circuits I, Discrete Math for CS, and Symbolic Logic.</p>
+        </div>
       </div>
       <div class="card">
+        <i class="fas fa-briefcase section-icon"></i>
         <h3>Experience</h3>
-        <p><strong>Product Manager (part-time)</strong> at Starspark<br>
-          June 2023 - Present</p>
-        <ul>
-          <li>Conducting customer interviews for research</li>
-          <li>Market research and comparison</li>
-          <li>Compiling product requirements document</li>
-          <li>Leading cognitive science based research paper seminars</li>
-        </ul>
-      
-        <p><strong>Product Development Intern</strong> at Teens in AI<br>
-          Jun 2024 - Present</p>
-        <ul>
-          <li>Working on developing AI-driven educational Robotics pathways</li>
-          <li>Collaborating with the team to create innovative solutions for teen engagement in AI</li>
-        </ul>
-      
-        <p><strong>Multi-Robot Pathfinding Research Intern</strong> at USC ACT Lab<br>
-          Summer 2020, 2021</p>
-        <ul>
-          <li>Worked on solving multi-robot pathfinding (MAPF) with drones using PyTorch, MatLab, OpenAIGym, reinforcement &
-            deep learning, & OpenCV</li>
-          <li>Prototyped an autonomous snow-blowing robot using collision avoidance, QR codes for localization, and A*
-            algorithms</li>
-        </ul>
-      
-        <p><strong>Founder</strong> at Think Fast Robotics, 2772J<br>
-          2020 - 2022</p>
-        <ul>
-          <li>Founded Women in Robotics organization and launched 2772J female VEX robotics team</li>
-          <li>Secured $7,000+ in international funding and recruited 17 team members from 4 countries</li>
-          <li>Led team to Worlds (2021) and U.S. Open Nationals (2022), winning 8 awards including Robot Skills Champion &
-            Inspire award at Worlds</li>
-        </ul>
+        <div class="card-content">
+          <p><strong>Product Manager (part-time)</strong> at Starspark<br>
+            June 2023 - Present</p>
+          <ul>
+            <li>Conducting customer interviews for research</li>
+            <li>Market research and comparison</li>
+            <li>Compiling product requirements document</li>
+            <li>Leading cognitive science based research paper seminars</li>
+          </ul>
+
+          <p><strong>Product Development Intern</strong> at Teens in AI<br>
+            Jun 2024 - Present</p>
+          <ul>
+            <li>Working on developing AI-driven educational Robotics pathways</li>
+            <li>Collaborating with the team to create innovative solutions for teen engagement in AI</li>
+          </ul>
+
+          <p><strong>Multi-Robot Pathfinding Research Intern</strong> at USC ACT Lab<br>
+            Summer 2020, 2021</p>
+          <ul>
+            <li>Worked on solving multi-robot pathfinding (MAPF) with drones using PyTorch, MatLab, OpenAIGym,
+              reinforcement &
+              deep learning, & OpenCV</li>
+            <li>Prototyped an autonomous snow-blowing robot using collision avoidance, QR codes for localization, and A*
+              algorithms</li>
+          </ul>
+
+          <p><strong>Founder</strong> at Think Fast Robotics, 2772J<br>
+            2020 - 2022</p>
+          <ul>
+            <li>Founded Women in Robotics organization and launched 2772J female VEX robotics team</li>
+            <li>Secured $7,000+ in international funding and recruited 17 team members from 4 countries</li>
+            <li>Led team to Worlds (2021) and U.S. Open Nationals (2022), winning 8 awards including Robot Skills
+              Champion &
+              Inspire award at Worlds</li>
+          </ul>
+        </div>
       </div>
-        <div class="card">
-          <h3>Skills</h3>
+      <div class="card">
+        <i class="fas fa-cogs section-icon"></i>
+        <h3>Skills</h3>
+        <div class="card-content">
           <p><strong>Languages:</strong> Python, C++, HTML/CSS, JavaScript</p>
           <p><strong>Development:</strong> OpenCV, Django, React, Node.js</p>
           <p><strong>Machine Learning:</strong> PyTorch, TensorFlow, Reinforcement Learning, LLMs (OpenAI, Gemini)</p>
           <p><strong>UI/UX:</strong> Figma, Photoshop & Illustrator</p>
         </div>
+      </div>
     </div>
   </div>
   <footer>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/VrindaBansal" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/VrindaBansal11" target="_blank"><i class="fa-x-twitter">𝕏</i></a>
-        <a href="mailto:vrindabansal2@gmail.com"><i class="fas fa-envelope"></i></a>
-      </div>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/VrindaBansal" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/VrindaBansal11" target="_blank"><i class="fa-x-twitter">𝕏</i></a>
+      <a href="mailto:vrindabansal2@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
   </footer>
   <script>
-    function createBinaryBackground() {
-      const binaryBg = document.getElementById('binary-bg');
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const charsPerLine = Math.floor(width / 20);
-      const lines = Math.floor(height / 20);
-
-      for (let i = 0; i < lines * charsPerLine; i++) {
-        const char = document.createElement('div');
-        char.className = 'binary-char';
-        char.textContent = Math.random() > 0.5 ? '1' : '0';
-        binaryBg.appendChild(char);
-      }
-    }
-
-    function checkCardVisibility() {
-      const cards = document.querySelectorAll('.card:not(.visible)');
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const isVisible = (rect.top <= window.innerHeight * 0.8) && (rect.bottom >= 0);
-        if (isVisible) {
-          requestAnimationFrame(() => {
-            card.classList.add('visible');
-          });
-        }
-      });
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
       const binaryBg = document.getElementById('binary-bg');
 
@@ -370,7 +420,7 @@
       function handleMouseMove(event) {
         const mouseX = event.clientX;
         const mouseY = event.clientY;
-        const radius = 35; 
+        const radius = 35;
 
         document.querySelectorAll('.binary-char').forEach(char => {
           const rect = char.getBoundingClientRect();
@@ -413,7 +463,6 @@
 
       document.addEventListener('mousemove', handleMouseMove);
     });
-
   </script>
 </body>
 
