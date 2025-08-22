@@ -40,6 +40,40 @@ The site is deployed via GitHub Pages and accessible at `https://vrindabansal.gi
 - All external dependencies loaded via CDN (Font Awesome icons)
 - Experience data is stored in JavaScript object `experienceData` for modal content
 
+## Development Workflow
+
+Since this is a static site with no build process:
+- All changes are made directly to `index.html`
+- CSS is embedded in `<style>` tags within the document head
+- JavaScript is embedded in `<script>` tags at the end of the body
+- Static assets (images, favicon) are referenced with `/about/` prefix for GitHub Pages compatibility
+- Test changes locally by opening `index.html` in a browser
+- Deploy by pushing to the `main` branch (automatic via GitHub Pages)
+
+## Code Architecture
+
+### Single-File Structure
+- **HTML Structure**: Semantic layout with header, sidebar, and main content areas
+- **CSS Styling**: GitHub-inspired dark theme with responsive grid layout and animations
+- **JavaScript Functionality**: Interactive modal system, smooth scrolling, typing effects, and particle animations
+
+### Key JavaScript Components
+- `experienceData` object: Contains detailed information for modal popups
+- Modal system: Handles experience card interactions and detailed views
+- Animation system: Intersection Observer for scroll-triggered animations, typing effects, and floating particles
+- Navigation: Smooth scrolling between sections
+
+### Data Management
+- Experience details stored in JavaScript object for modal content
+- Skills organized by categories with proficiency levels (expert, advanced, intermediate, beginner)
+- No external data sources or APIs
+
+## Asset Requirements
+
+- Profile images must be sized appropriately (260px x 260px for main profile)
+- All image paths use `/about/` prefix for GitHub Pages deployment
+- Font Awesome icons loaded via CDN for UI elements
+
 ## Recent Updates
 
 - Fixed Roadmap project URL to point to correct Vercel deployment
