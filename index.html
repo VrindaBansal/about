@@ -2102,15 +2102,12 @@
             }
         }
 
-        // Scroll to profile image on page load
-        function scrollToProfile() {
-            const profileImage = document.querySelector('.profile-image');
-            if (profileImage) {
-                profileImage.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+        // Scroll to top on page load
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
         // Initialize all interactive features
@@ -2119,7 +2116,7 @@
             enhanceCardInteractions();
             addParallaxEffect();
             initMobileMenu();
-            scrollToProfile();
+            scrollToTop();
         }, 500);
     </script>
 </body>
