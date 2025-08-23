@@ -315,8 +315,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(8px);
+            background-color: rgba(13, 17, 23, 0.75);
+            backdrop-filter: blur(8px) saturate(1.2);
         }
 
         .modal-content {
@@ -359,25 +359,17 @@
         .modal-header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 8px;
+            left: 12px;
             width: 12px;
             height: 12px;
             background: #ff5f56;
             border-radius: 50%;
-            margin: 8px;
+            box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca3f;
         }
 
         .modal-header::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 28px;
-            width: 12px;
-            height: 12px;
-            background: #ffbd2e;
-            border-radius: 50%;
-            box-shadow: 16px 0 0 #27ca3f;
+            display: none;
         }
 
         .modal-title {
@@ -1464,7 +1456,7 @@
                     <div style="font-size: 12px; color: #7d8590;">Product Development • Founder Experience • Technical Innovation</div>
                 </div>
                 <div class="cards-grid">
-                    <div class="card featured-card">
+                    <div class="card featured-card" data-experience="noteparrot">
                         <div class="card-header">
                             <a href="https://powerful-mountain-87804-279a8ffbcdf1.herokuapp.com/" class="card-title" target="_blank">
                                 <i class="fas fa-feather-alt"></i>
@@ -1486,9 +1478,10 @@
                             </div>
                             <div class="card-impact">500+ global users</div>
                         </div>
+                        <div class="click-hint">Click to explore</div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" data-experience="roadmap">
                         <div class="card-header">
                             <a href="https://roadmap-omega-sable.vercel.app/" class="card-title" target="_blank">
                                 <i class="fas fa-car"></i>
@@ -1511,9 +1504,10 @@
                             </div>
                             <div class="card-impact">AI-powered matching</div>
                         </div>
+                        <div class="click-hint">Click to explore</div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" data-experience="portfolio">
                         <div class="card-header">
                             <a href="https://vrindabansal.github.io/about/" class="card-title" target="_blank">
                                 <i class="fas fa-globe"></i>
@@ -1535,6 +1529,7 @@
                             </div>
                             <div class="card-impact">Interactive portfolio</div>
                         </div>
+                        <div class="click-hint">Click to explore</div>
                     </div>
             </section>
 
@@ -1597,7 +1592,6 @@
                             <div class="skill-tag advanced" data-skill="80">Agentic Frameworks</div>
                             <div class="skill-tag intermediate" data-skill="75">Computer Vision</div>
                             <div class="skill-tag intermediate" data-skill="75">NLP</div>
-                            <div class="skill-tag intermediate" data-skill="70">BERT</div>
                         </div>
                     </div>
 
@@ -1630,9 +1624,7 @@
                         <div class="skill-list">
                             <div class="skill-tag expert" data-skill="95">PostgreSQL</div>
                             <div class="skill-tag advanced" data-skill="85">Supabase</div>
-                            <div class="skill-tag advanced" data-skill="80">MongoDB</div>
                             <div class="skill-tag advanced" data-skill="85">RESTful APIs</div>
-                            <div class="skill-tag intermediate" data-skill="70">GraphQL</div>
                             <div class="skill-tag intermediate" data-skill="65">Redis</div>
                         </div>
                     </div>
@@ -1669,8 +1661,6 @@
                             <div class="skill-tag advanced" data-skill="85">Jira</div>
                             <div class="skill-tag advanced" data-skill="85">Tailwind CSS</div>
                             <div class="skill-tag intermediate" data-skill="70">Webpack</div>
-                            <div class="skill-tag intermediate" data-skill="70">Jest</div>
-                            <div class="skill-tag beginner" data-skill="50">Kubernetes</div>
                         </div>
                     </div>
                 </div>
@@ -1753,6 +1743,51 @@
                     'Published research contributions in multi-robot systems and autonomous vehicle coordination'
                 ],
                 techStack: ['PyTorch', 'OpenCV', 'SLAM', 'Reinforcement Learning', 'MATLAB', 'Robotics', 'Computer Vision']
+            },
+            'noteparrot': {
+                title: 'NoteParrot.com - AI Study Platform',
+                meta: 'Founder & Lead Engineer · Jun 2024 - Present',
+                description: 'AI-powered study platform that revolutionizes how students learn and study. Built from the ground up with advanced AI integration and user-centered design.',
+                achievements: [
+                    'Scaled from 0 to 500+ users worldwide through strategic customer development and go-to-market execution',
+                    'Integrated GPT-4.0 and Gemini 1.5 Flash APIs to reduce response hallucinations by 65%',
+                    'Implemented contextually grounded question generation system for personalized learning paths',
+                    'Led full product lifecycle from market research and competitive analysis to MVP launch',
+                    'Conducted extensive user interviews and feedback sessions to drive product-market fit',
+                    'Built scalable backend architecture supporting concurrent user sessions',
+                    'Implemented advanced AI algorithms for adaptive learning and content recommendation'
+                ],
+                techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript']
+            },
+            'roadmap': {
+                title: 'Roadmap - Car Customization Platform',
+                meta: 'Full-Stack Developer · June 2025',
+                description: 'Comprehensive automotive platform enabling users to design, share, and build their dream vehicles with AI-powered recommendations and community features.',
+                achievements: [
+                    'Built AI-powered car matchmaker quiz with machine learning recommendation engine',
+                    'Implemented geolocation-based mod shop directory with real-time search capabilities',
+                    'Developed visual car modification tools with 3D preview functionality',
+                    'Architected Row Level Security (RLS) system for user data protection',
+                    'Created responsive design optimized for both desktop and mobile experiences',
+                    'Integrated third-party APIs for car specifications and pricing data',
+                    'Implemented user authentication and profile management system'
+                ],
+                techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js']
+            },
+            'portfolio': {
+                title: 'Portfolio Website - Interactive Portfolio',
+                meta: 'Full-Stack Development · Live Site',
+                description: 'Modern, responsive portfolio website showcasing technical skills and projects with interactive animations and GitHub-inspired design.',
+                achievements: [
+                    'Designed and developed responsive portfolio website with mobile-first approach',
+                    'Implemented interactive background effects with floating particle animations',
+                    'Created smooth scrolling navigation with intersection observer animations',
+                    'Built modal popup system for detailed project and experience information',
+                    'Optimized for performance with vanilla JavaScript and efficient CSS',
+                    'Deployed via GitHub Pages with automated CI/CD pipeline',
+                    'Achieved 100% accessibility score and mobile responsiveness'
+                ],
+                techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Performance Optimization']
             }
         };
 
@@ -2067,12 +2102,24 @@
             }
         }
 
+        // Scroll to profile image on page load
+        function scrollToProfile() {
+            const profileImage = document.querySelector('.profile-image');
+            if (profileImage) {
+                profileImage.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
         // Initialize all interactive features
         setTimeout(() => {
             animateSkillTags();
             enhanceCardInteractions();
             addParallaxEffect();
             initMobileMenu();
+            scrollToProfile();
         }, 500);
     </script>
 </body>
