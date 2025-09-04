@@ -37,6 +37,7 @@ The site is deployed via GitHub Pages and accessible at `https://vrindabansal.gi
 
 - No build process or package manager - pure static HTML/CSS/JS
 - Profile image path references `/about/DSC_0010.JPG` for GitHub Pages deployment
+- Favicon references `/about/favicon3.png` for GitHub Pages deployment
 - All external dependencies loaded via CDN (Font Awesome icons)
 - Experience data is stored in JavaScript object `experienceData` for modal content
 
