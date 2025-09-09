@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrinda Bansal - Design Portfolio</title>
+    <link rel="icon" href="/about/favicon3.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #1d1d1d;
+            line-height: 1.5;
+        }
+
+        /* Figma-style toolbar */
+        .figma-toolbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .figma-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1d1d1d;
+        }
+
+        .figma-logo::before {
+            content: "🎨";
+            font-size: 20px;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .toolbar-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toolbar-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .toolbar-btn.primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .toolbar-btn.primary:hover {
+            background: #7c3aed;
+        }
+
+        /* Main container */
+        .figma-canvas {
+            padding: 40px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+
+        /* Figma-style frame */
+        .figma-frame {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .frame-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            gap: 12px;
+        }
+
+        .frame-title {
+            font-weight: 600;
+            font-size: 16px;
+            color: #1d1d1d;
+        }
+
+        .frame-subtitle {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .frame-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .frame-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .frame-btn.close { background: #ef4444; }
+        .frame-btn.minimize { background: #f59e0b; }
+        .frame-btn.maximize { background: #10b981; }
+
+        /* Profile section */
+        .profile-section {
+            padding: 32px 24px;
+            text-align: center;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            background: url('/about/DSC_0010.JPG') center/cover;
+            margin: 0 auto 24px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-title {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-bio {
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Figma-style components */
+        .figma-component {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #f1f5f9;
+            position: relative;
+        }
+
+        .component-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .component-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .component-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1d;
+        }
+
+        .component-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Figma-style cards grid */
+        .figma-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .figma-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .figma-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b, #10b981);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .figma-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .figma-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: #8b5cf6;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1d1d1d;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .figma-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .figma-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Figma-style social links */
+        .figma-socials {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .social-link:hover {
+            border-color: #8b5cf6;
+            color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .figma-canvas {
+                padding: 20px 16px;
+            }
+            
+            .profile-name {
+                font-size: 24px;
+            }
+            
+            .figma-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .figma-socials {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Figma-style selection indicator */
+        .selected {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Figma-style toolbar -->
+    <div class="figma-toolbar">
+        <div class="figma-logo">Vrinda's Design Portfolio</div>
+        <div class="toolbar-actions">
+            <button class="toolbar-btn">View</button>
+            <button class="toolbar-btn">Share</button>
+            <button class="toolbar-btn primary">Get in Touch</button>
+        </div>
+    </div>
+
+    <!-- Main canvas -->
+    <div class="figma-canvas">
+        <!-- Profile Frame -->
+        <div class="figma-frame">
+            <div class="frame-header">
+                <div>
+                    <div class="frame-title">Profile Component</div>
+                    <div class="frame-subtitle">Personal branding & introduction</div>
+                </div>
+                <div class="frame-actions">
+                    <button class="frame-btn close"></button>
+                    <button class="frame-btn minimize"></button>
+                    <button class="frame-btn maximize"></button>
+                </div>
+            </div>
+            <div class="profile-section">
+                <div class="profile-avatar"></div>
+                <h1 class="profile-name">Vrinda Bansal</h1>
+                <p class="profile-title">Full-Stack Engineer & Product Designer</p>
+                <p class="profile-bio">Building AI-powered products that enhance learning experiences. Passionate about bridging technical innovation with user-centered design.</p>
+            </div>
+        </div>
+
+        <!-- Experience Components -->
+        <div class="figma-component">
+            <div class="component-header">
+                <div class="component-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div>
+                    <div class="component-title">Experience Components</div>
+                    <div class="component-subtitle">Professional journey & key achievements</div>
+                </div>
+            </div>
+            
+            <div class="figma-grid">
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-title">Dark Alpha Capital LLC</div>
+                    </div>
+                    <div class="card-meta">Aug 2025 - Dec 2025 • Investment Technology</div>
+                    <div class="card-description">
+                        Building web scraping infrastructure to collect 100+ investment opportunities from multiple databases. Developing grounding platform for investors with advanced chatbot capabilities.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Web Scraping</span>
+                        <span class="figma-tag">Investment Analysis</span>
+                        <span class="figma-tag">Chatbot Development</span>
+                    </div>
+                </div>
+
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="card-title">StarSpark AI</div>
+                    </div>
+                    <div class="card-meta">Jun 2025 - Aug 2025 • AI Education Platform</div>
+                    <div class="card-description">
+                        Led end-to-end product development of AI-powered educational tools. Built scalable AI applications with Google ADK reducing deployment time by 40%.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Django</span>
+                        <span class="figma-tag">React</span>
+                        <span class="figma-tag">Google ADK</span>
+                        <span class="figma-tag">GCP</span>
+                    </div>
+                </div>
+
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="card-title">Pinpoint - Product Manager</div>
+                    </div>
+                    <div class="card-meta">Sep 2024 - Jun 2025 • UC Davis Platform</div>
+                    <div class="card-description">
+                        Led cross-functional product development for UC Davis campus platform serving 40,000+ students. Managed 8-person team using agile methodologies.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Next.js</span>
+                        <span class="figma-tag">TypeScript</span>
+                        <span class="figma-tag">Supabase</span>
+                        <span class="figma-tag">Product Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Components -->
+        <div class="figma-component">
+            <div class="component-header">
+                <div class="component-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <div class="component-title">Project Components</div>
+                    <div class="component-subtitle">Featured projects & technical innovations</div>
+                </div>
+            </div>
+            
+            <div class="figma-grid">
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="card-title">Tech in Progress</div>
+                    </div>
+                    <div class="card-meta">Newsletter • Content Creation</div>
+                    <div class="card-description">
+                        Weekly Substack newsletter documenting my tech journey and sharing "What I Built This Week" updates. Chronicles the intersection of product development and entrepreneurial insights.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Substack</span>
+                        <span class="figma-tag">Content Writing</span>
+                        <span class="figma-tag">Community Building</span>
+                    </div>
+                </div>
+
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <div class="card-title">NoteParrot.com</div>
+                    </div>
+                    <div class="card-meta">Founder & Lead Engineer • 500+ Users</div>
+                    <div class="card-description">
+                        AI-powered study platform integrating GPT-4.0 and Gemini 1.5 Flash, reducing response hallucinations by 65% through contextually grounded question generation.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Django</span>
+                        <span class="figma-tag">GPT-4.0</span>
+                        <span class="figma-tag">Gemini 1.5</span>
+                        <span class="figma-tag">Vertex AI</span>
+                    </div>
+                </div>
+
+                <div class="figma-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="card-title">CareCart</div>
+                    </div>
+                    <div class="card-meta">Health-Tech Platform • 200k+ Products</div>
+                    <div class="card-description">
+                        Comprehensive full-stack platform empowering users with health conditions to make informed grocery choices. Analyzes products from 12 major retailers.
+                    </div>
+                    <div class="figma-tags">
+                        <span class="figma-tag">Next.js 14</span>
+                        <span class="figma-tag">React 18</span>
+                        <span class="figma-tag">TypeScript</span>
+                        <span class="figma-tag">Supabase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="figma-socials">
+            <a href="https://github.com/VrindaBansal" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+            <a href="https://techinprogress.substack.com" target="_blank" class="social-link">
+                <i class="fas fa-newspaper"></i>
+                Substack
+            </a>
+            <a href="https://noteparrot.com/" target="_blank" class="social-link">
+                <i class="fas fa-rocket"></i>
+                NoteParrot
+            </a>
+            <a href="mailto:vrindabansal2@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add Figma-like interactions
+        document.querySelectorAll('.figma-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selected class from all cards
+                document.querySelectorAll('.figma-card').forEach(c => c.classList.remove('selected'));
+                // Add selected class to clicked card
+                this.classList.add('selected');
+            });
+        });
+
+        // Toolbar interactions
+        document.querySelector('.toolbar-btn.primary').addEventListener('click', function() {
+            window.location.href = 'mailto:vrindabansal2@gmail.com';
+        });
+
+        // Add some Figma-like keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.figma-card').forEach(c => c.classList.remove('selected'));
+            }
+        });
+    </script>
+</body>
+</html>
