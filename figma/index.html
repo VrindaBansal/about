@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Figma Design System - Playful & Vibrant */
         :root {
             --figma-blue: #0D99FF;
             --figma-green: #1BC47D;
@@ -22,25 +21,18 @@
             --figma-light-green: #EBF8F2;
             --figma-light-purple: #F5EBFF;
             --figma-light-orange: #FFF4EB;
-
             --text-dark: #1E1E1E;
             --text-medium: #4A4A4A;
             --text-light: #7E7E7E;
-
             --bg-white: #FFFFFF;
             --bg-light-grey: #F8F9FA;
-            
             --border-subtle: #EBEBEB;
             --shadow-figma: 0px 4px 12px rgba(0, 0, 0, 0.06);
             --shadow-hover: 0px 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-white);
@@ -51,143 +43,165 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+        body.dragging-active {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
         .header {
             background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-subtle);
             padding: 12px 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 20px;
-        }
+        .header-content { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; color: var(--text-dark); text-decoration: none; font-weight: 700; font-size: 20px; }
         .logo img { width: 36px; height: 36px; }
-
         .nav-links { display: flex; gap: 32px; list-style: none; }
         .nav-links a { color: var(--text-medium); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: var(--figma-blue); }
         .mobile-menu-toggle { display: none; background: none; border: none; color: var(--text-dark); font-size: 24px; cursor: pointer; }
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(180deg, var(--bg-white) 0%, #F0F7FF 100%);
-            padding: 120px 24px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        .hero-title {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .hero-section { background: linear-gradient(180deg, var(--bg-white) 0%, #F0F7FF 100%); padding: 120px 24px; text-align: center; position: relative; overflow: hidden; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-title { font-size: 64px; font-weight: 800; line-height: 1.1; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
         .hero-title span { color: var(--figma-blue); }
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-medium);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
+        .hero-subtitle { font-size: 20px; color: var(--text-medium); max-width: 700px; margin: 0 auto 40px auto; }
         .hero-buttons { display: flex; justify-content: center; gap: 20px; }
         .btn { padding: 14px 28px; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow-figma); }
         .btn-primary { background-color: var(--figma-blue); color: var(--bg-white); border: none; }
-        .btn-primary:hover { background-color: #0A7CD9; box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .btn-primary:hover { background-color: #0A7CD9; box-shadow: var(--shadow-hover), 0 0 20px var(--figma-light-blue); transform: translateY(-2px); }
         .btn-secondary { background-color: var(--bg-white); color: var(--figma-blue); border: 1px solid var(--figma-blue); }
-        .btn-secondary:hover { background-color: var(--figma-light-blue); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .btn-secondary:hover { background-color: var(--figma-light-blue); box-shadow: var(--shadow-hover), 0 0 20px var(--figma-light-blue); transform: translateY(-2px); }
         
-        .shape { position: absolute; opacity: 0.7; animation: float 8s ease-in-out infinite; }
-        .shape-1 { top: 10%; left: 5%; width: 120px; height: 120px; background-color: var(--figma-blue); border-radius: 50%; opacity: 0.6; animation-delay: 0s; }
-        .shape-2 { top: 20%; right: 8%; width: 80px; height: 80px; background-color: var(--figma-green); border-radius: 20px; transform: rotate(25deg); animation-delay: 2s; }
-        .shape-3 { bottom: 15%; left: 15%; width: 150px; height: 50px; background-color: var(--figma-purple); border-radius: 25px; animation-delay: 4s; }
-        .shape-4 { bottom: 10%; right: 10%; width: 100px; height: 100px; background-color: var(--figma-orange); border-radius: 50% 0 50% 50%; transform: rotate(-30deg); opacity: 0.6; animation-delay: 6s; }
+        .shape { position: absolute; z-index: 1; animation: float 12s ease-in-out infinite; }
+        .hero-shape-1 { top: 10%; left: 5%; width: 120px; height: 120px; background-color: var(--figma-blue); border-radius: 50%; opacity: 0.6; animation-delay: 0s; }
+        .hero-shape-2 { top: 20%; right: 8%; width: 80px; height: 80px; background-color: var(--figma-green); border-radius: 20px; transform: rotate(25deg); animation-delay: 2s; }
+        .hero-shape-3 { bottom: 15%; left: 15%; width: 150px; height: 50px; background-color: var(--figma-purple); border-radius: 25px; animation-delay: 4s; }
+        .hero-shape-4 { bottom: 10%; right: 10%; width: 100px; height: 100px; background-color: var(--figma-orange); border-radius: 50% 0 50% 50%; transform: rotate(-30deg); opacity: 0.6; animation-delay: 6s; }
+        
+        .exp-shape-1 { bottom: -50px; right: -50px; width: 200px; height: 200px; background: var(--figma-pink); border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; opacity: 0.1; animation-delay: 1s; }
+        .proj-shape-1 { top: -40px; left: -60px; width: 250px; height: 250px; background: var(--figma-yellow); border-radius: 50%; opacity: 0.1; animation-delay: 3s; }
+        .skills-shape-1 { bottom: 10%; right: 5%; width: 150px; height: 150px; border: 20px solid var(--figma-green); border-radius: 50%; opacity: 0.1; animation-delay: 5s; }
+        .cta-shape-1 { top: 20%; left: 10%; width: 80px; height: 80px; background-color: var(--bg-white); border-radius: 50%; opacity: 0.15; animation-delay: 0s; }
+        .cta-shape-2 { bottom: 20%; right: 10%; width: 120px; height: 120px; background-color: var(--bg-white); border-radius: 10px; opacity: 0.1; transform: rotate(45deg); animation-delay: 2s; }
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        .hero-bg-shape { position: absolute; opacity: 0; animation: interlude-animate 15s infinite ease-in-out; border-radius: 50%; z-index: 1; }
+        .hero-bg-shape:nth-child(1) { width: 100px; height: 100px; background-color: var(--figma-blue); left: 10%; top: 20%; animation-delay: 0s; }
+        .hero-bg-shape:nth-child(2) { width: 80px; height: 80px; background-color: var(--figma-green); left: 30%; top: 60%; animation-delay: 3s; border-radius: 20px; }
+        .hero-bg-shape:nth-child(3) { width: 120px; height: 60px; background-color: var(--figma-purple); left: 50%; top: 10%; animation-delay: 6s; border-radius: 30px; }
+        .hero-bg-shape:nth-child(4) { width: 90px; height: 90px; background-color: var(--figma-orange); left: 70%; top: 40%; animation-delay: 9s; border-radius: 50% 0 50% 50%; }
+        .hero-bg-shape:nth-child(5) { width: 70px; height: 70px; background-color: var(--figma-pink); left: 85%; top: 70%; animation-delay: 12s; border-radius: 10px; }
+        
+        @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(8deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+        @keyframes interlude-animate {
+            0% { transform: translate(0, 0) scale(0.5) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.15; }
+            50% { transform: translate(100px, 50px) scale(1) rotate(180deg); opacity: 0.2; }
+            80% { opacity: 0.05; }
+            100% { transform: translate(200px, 100px) scale(0.6) rotate(360deg); opacity: 0; }
+        }
+        @keyframes floatDown {
+            0% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
         }
 
-        /* Generic Section Styling */
-        .section { padding: 100px 24px; }
+        .section { padding: 120px 24px; position: relative; overflow: hidden; }
+        .section .max-w-screen-xl { position: relative; z-index: 2; }
         .section-title { font-size: 44px; font-weight: 800; margin-bottom: 16px; text-align: center; }
         .section-subtitle { font-size: 18px; color: var(--text-light); text-align: center; max-width: 700px; margin: 0 auto 60px auto; }
         .section-title span { color: var(--figma-blue); }
         
-        /* Experience & Projects Grid */
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .card {
-            background-color: var(--bg-white);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
+        .card-canvas {
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.08) 1px, transparent 0),
+                radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+            background-size: 20px 20px, 20px 20px;
+            background-position: 0 0, 10px 10px;
+            border-radius: 24px;
             padding: 24px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
+            margin-top: 40px;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        #experience-canvas {
+            min-height: 800px;
+            background-color: transparent;
+        }
+        #projects-canvas {
+            min-height: 550px;
+            background-color: var(--bg-light-grey);
+        }
+
+        .card, .card-link {
+            background-color: var(--bg-white); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 20px; transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex; flex-direction: column; 
+            position: absolute; width: 340px;
+            cursor: grab; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+            touch-action: none; opacity: 0;
+        }
+        .card.floating, .card-link.floating {
+            animation: floatDown 0.6s ease-out forwards;
+        }
+        .card-link { text-decoration: none; }
+        
+        .card.dragging, .card-link.dragging {
+            cursor: grabbing; z-index: 1000;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02); transition: none;
+        }
+
+        .card-dot { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--bg-white); z-index: 10; }
+        .card:nth-of-type(6n+1) .card-dot, .card-link:nth-of-type(6n+1) .card-dot { background-color: var(--figma-blue); }
+        .card:nth-of-type(6n+2) .card-dot, .card-link:nth-of-type(6n+2) .card-dot { background-color: var(--figma-green); }
+        .card:nth-of-type(6n+3) .card-dot, .card-link:nth-of-type(6n+3) .card-dot { background-color: var(--figma-purple); }
+        .card:nth-of-type(6n+4) .card-dot, .card-link:nth-of-type(6n+4) .card-dot { background-color: var(--figma-orange); }
+        .card:nth-of-type(6n+5) .card-dot, .card-link:nth-of-type(6n+5) .card-dot { background-color: var(--figma-pink); }
+        .card:nth-of-type(6n+6) .card-dot, .card-link:nth-of-type(6n+6) .card-dot { background-color: var(--figma-yellow); }
+
+        .card-header, .card-title, .card-title i, .card-meta, .card-description, .card-footer, .badge, .tech-stack, .tech-tag { pointer-events: none; }
         .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
         .card-title { font-size: 18px; font-weight: 600; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
         .card-title i { color: var(--text-light); }
-        .card:hover .card-title { color: var(--figma-blue); }
         .card-meta { font-size: 14px; color: var(--text-light); margin-bottom: 12px; }
         .card-description { font-size: 15px; color: var(--text-medium); line-height: 1.6; flex-grow: 1; margin-bottom: 16px; }
         .card-footer { display: flex; align-items: center; justify-content: space-between; }
         .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; }
         .tech-tag { background-color: var(--figma-light-blue); color: var(--figma-blue); padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; }
         .badge { background-color: var(--bg-light-grey); color: var(--text-light); padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; border: 1px solid var(--border-subtle); }
+        
+        #drag-tooltip { position: absolute; top: 20px; right: 20px; background-color: var(--text-dark); color: var(--bg-white); padding: 8px 12px; border-radius: 8px; font-size: 14px; font-weight: 500; z-index: 1100; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; animation: pulse 2s infinite; }
+        #drag-tooltip.visible { opacity: 1; visibility: visible; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-        /* Skills Section */
         #skills { background-color: var(--bg-light-grey); }
         .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-        .skill-category { background: var(--bg-white); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-figma); }
+        .skill-category { background: var(--bg-white); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-figma); transition: all 0.3s ease; }
+        .skill-category:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
         .category-header { font-size: 18px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tag { padding: 6px 14px; border-radius: 8px; font-size: 14px; font-weight: 500; }
+        .skill-tag { padding: 6px 14px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.2s ease; }
+        .skill-tag:hover { transform: scale(1.05); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         .skill-tag.expert { background-color: var(--figma-light-green); color: #12835B; }
         .skill-tag.advanced { background-color: var(--figma-light-blue); color: #0D77D9; }
         .skill-tag.intermediate { background-color: var(--figma-light-orange); color: #D96B0D; }
         .skill-tag.beginner { background-color: var(--figma-light-purple); color: #8230D9; }
 
-        /* CTA Section */
-        .cta-section { background-color: var(--figma-blue); color: var(--bg-white); text-align: center; }
+        .cta-section { background: var(--figma-blue); color: var(--bg-white); text-align: center; }
         .cta-section h2 { font-size: 40px; font-weight: 800; margin-bottom: 16px; }
         .cta-section p { font-size: 18px; max-width: 600px; margin: 0 auto 32px auto; opacity: 0.9; }
 
-        /* Footer */
         .footer { background-color: var(--text-dark); color: var(--text-light); padding: 40px 24px; text-align: center; }
         .footer-socials { list-style: none; display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; }
         .footer-socials a { color: var(--text-light); text-decoration: none; font-size: 20px; transition: color 0.2s ease, transform 0.2s ease; }
         .footer-socials a:hover { color: var(--figma-white); transform: translateY(-2px); }
 
-        /* Modal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); align-items: center; justify-content: center; }
         .modal.active { display: flex; }
         .modal-content { background-color: var(--bg-white); border-radius: 16px; width: 90%; max-width: 720px; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; animation: modalFadeIn 0.3s ease-out; box-shadow: var(--shadow-hover); }
@@ -220,6 +234,8 @@
             .section { padding: 80px 16px; }
             .section-title { font-size: 36px; }
             .cta-section h2 { font-size: 32px; }
+            .card-canvas { min-height: auto; padding: 16px; }
+            .card, .card-link { position: relative !important; width: 100% !important; margin-bottom: 16px; left: auto !important; top: auto !important; transform: none !important; opacity: 1 !important; }
         }
     </style>
 </head>
@@ -244,10 +260,15 @@
 
     <main>
         <section id="hero" class="hero-section">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
+            <div class="shape hero-shape-1"></div>
+            <div class="shape hero-shape-2"></div>
+            <div class="shape hero-shape-3"></div>
+            <div class="shape hero-shape-4"></div>
+            <div class="hero-bg-shape"></div>
+            <div class="hero-bg-shape"></div>
+            <div class="hero-bg-shape"></div>
+            <div class="hero-bg-shape"></div>
+            <div class="hero-bg-shape"></div>
             <div class="hero-content">
                 <h1 class="hero-title">
                     Hi, I'm <span>Vrinda Bansal</span>
@@ -263,203 +284,141 @@
         </section>
 
         <section id="experience" class="section">
+            <div class="shape exp-shape-1"></div>
             <div class="max-w-screen-xl">
-                <h2 class="section-title">My <span>Experience</span></h2>
-                <p class="section-subtitle">A journey through full-stack engineering, product management, AI/ML, and research.</p>
-                <div class="cards-grid">
-                    <div class="card" data-modal-id="dark-alpha-capital">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-chart-line"></i> Dark Alpha Capital</h3>
-                            <span class="badge">Current</span>
-                        </div>
+                <h2 class="section-title reveal">My <span>Experience</span></h2>
+                <p class="section-subtitle reveal">A journey through full-stack engineering, product management, AI/ML, and research.</p>
+                <div class="card-canvas" id="experience-canvas">
+                    <div id="drag-tooltip">Click and drag to move me!</div>
+                    <div class="card reveal" data-modal-id="dark-alpha-capital">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-chart-line"></i> Dark Alpha Capital</h3><span class="badge">Current</span></div>
                         <div class="card-meta">Full Stack Intern • Investment Technology</div>
                         <p class="card-description">Building web scraping infrastructure to collect 100+ investment opportunities and developing a grounding platform for investors with advanced chatbot capabilities.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Web Scraping</span><span class="tech-tag">Chatbots</span><span class="tech-tag">Python</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Web Scraping</span><span class="tech-tag">Chatbots</span><span class="tech-tag">Python</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="starspark-current">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-rocket"></i> StarSpark AI</h3>
-                            <span class="badge">Recent</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="starspark-current">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-rocket"></i> StarSpark AI</h3><span class="badge">Recent</span></div>
                         <div class="card-meta">Fullstack & Product Intern • AI Education</div>
                         <p class="card-description">Led the 'Tutor Me' product, building scalable AI applications with Google ADK serving 10,000+ daily API requests.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Django</span><span class="tech-tag">React</span><span class="tech-tag">Google ADK</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Django</span><span class="tech-tag">React</span><span class="tech-tag">Google ADK</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="pinpoint">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-users-cog"></i> Pinpoint</h3>
-                            <span class="badge">Recent</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="pinpoint">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-users-cog"></i> Pinpoint</h3><span class="badge">Recent</span></div>
                         <div class="card-meta">Technical Product Manager & Lead</div>
                         <p class="card-description">Led an 8-person team building a platform for 40,000+ students, driving product strategy and optimizing database queries for high concurrency.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Next.js</span><span class="tech-tag">Supabase</span><span class="tech-tag">Agile</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Next.js</span><span class="tech-tag">Supabase</span><span class="tech-tag">Agile</span></div></div>
                     </div>
-                     <div class="card" data-modal-id="ferreira">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-brain"></i> Ferriera Lab</h3>
-                            <span class="badge">Active</span>
-                        </div>
+                     <div class="card reveal" data-modal-id="ferreira">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-brain"></i> Ferriera Lab</h3><span class="badge">Active</span></div>
                         <div class="card-meta">Undergraduate Researcher • Psycholinguistics</div>
                         <p class="card-description">Processing 15,000+ hours of audio data with OpenAI Whisper, improving transcription accuracy by 75% for psycholinguistics research.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Python</span><span class="tech-tag">OpenAI Whisper</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">OpenAI Whisper</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="starspark-previous">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-cogs"></i> StarSpark AI</h3>
-                            <span class="badge">Previous</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="starspark-previous">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-cogs"></i> StarSpark AI</h3><span class="badge">Previous</span></div>
                         <div class="card-meta">ML & Product Intern • AI Education</div>
                         <p class="card-description">Built a question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples and designed a Django ORM data model for 100,000+ tasks.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">GPT-4.0</span><span class="tech-tag">Django</span><span class="tech-tag">ML</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">GPT-4.0</span><span class="tech-tag">Django</span><span class="tech-tag">ML</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="usc">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-robot"></i> USC ACT Lab</h3>
-                            <span class="badge">Research</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="usc">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-robot"></i> USC ACT Lab</h3><span class="badge">Research</span></div>
                         <div class="card-meta">Multi-Robot Research Intern</div>
                         <p class="card-description">Solved multi-robot pathfinding (MAPF) problems with drones using PyTorch, implementing collision avoidance, SLAM, and autonomous navigation algorithms.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">PyTorch</span><span class="tech-tag">OpenCV</span><span class="tech-tag">SLAM</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">PyTorch</span><span class="tech-tag">OpenCV</span><span class="tech-tag">SLAM</span></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="projects" class="section" style="background-color: var(--bg-light-grey);">
+            <div class="shape proj-shape-1"></div>
             <div class="max-w-screen-xl">
-                <h2 class="section-title">Featured <span>Projects</span></h2>
-                <p class="section-subtitle">Bringing ideas to life through product development, founder experience, and technical innovation.</p>
-                <div class="cards-grid">
-                     <div class="card" data-modal-id="noteparrot">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-feather-alt"></i> NoteParrot.com</h3>
-                            <span class="badge">Live</span>
-                        </div>
+                <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+                <p class="section-subtitle reveal">Bringing ideas to life through product development, founder experience, and technical innovation.</p>
+                <div class="card-canvas" id="projects-canvas">
+                     <div class="card reveal" data-modal-id="noteparrot" data-external-link="https://noteparrot.com">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-feather-alt"></i> NoteParrot.com</h3><span class="badge">Live</span></div>
                         <div class="card-meta">Founder & Lead Engineer</div>
                         <p class="card-description">Scaled an AI-powered study platform from 0 to 500+ users worldwide, integrating GPT-4.0 and Gemini 1.5 to reduce response hallucinations by 65%.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Django</span><span class="tech-tag">GPT-4.0</span><span class="tech-tag">Vertex AI</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Django</span><span class="tech-tag">GPT-4.0</span><span class="tech-tag">Vertex AI</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="carecart">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-shopping-cart"></i> CareCart</h3>
-                            <span class="badge">Live</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="carecart" data-external-link="https://carecart.vercel.app">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-shopping-cart"></i> CareCart</h3><span class="badge">Live</span></div>
                         <div class="card-meta">Health-Focused Grocery Platform</div>
                         <p class="card-description">Full-stack platform analyzing 200,000+ products to provide health ratings for 30+ medical conditions, empowering users to make informed choices.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Next.js 14</span><span class="tech-tag">Supabase</span><span class="tech-tag">Python</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Next.js 14</span><span class="tech-tag">Supabase</span><span class="tech-tag">Python</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="substack">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-newspaper"></i> Tech in Progress</h3>
-                            <span class="badge">Newsletter</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="substack" data-external-link="https://techinprogress.substack.com">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-newspaper"></i> Tech in Progress</h3><span class="badge">Newsletter</span></div>
                         <div class="card-meta">Content Creation & Writing</div>
                         <p class="card-description">Weekly Substack newsletter documenting my tech journey and sharing "What I Built This Week" updates, focusing on practical learning and growth.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">Substack</span><span class="tech-tag">Writing</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">Substack</span><span class="tech-tag">Writing</span></div></div>
                     </div>
-                    <div class="card" data-modal-id="roadmap">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="fas fa-car"></i> Roadmap</h3>
-                             <span class="badge">Live</span>
-                        </div>
+                    <div class="card reveal" data-modal-id="roadmap" data-external-link="https://roadmap-omega-sable.vercel.app/">
+                        <div class="card-dot"></div>
+                        <div class="card-header"><h3 class="card-title"><i class="fas fa-car"></i> Roadmap</h3><span class="badge">Live</span></div>
                         <div class="card-meta">Car Customization Platform</div>
                         <p class="card-description">A car customization platform for designing and sharing dream vehicles, featuring an AI-powered matchmaker quiz and visual modification tools.</p>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">React</span><span class="tech-tag">Supabase</span><span class="tech-tag">TypeScript</span>
-                            </div>
-                        </div>
+                        <div class="card-footer"><div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Supabase</span><span class="tech-tag">TypeScript</span></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="skills" class="section">
+            <div class="shape skills-shape-1"></div>
             <div class="max-w-screen-xl">
-                <h2 class="section-title">My <span>Technical Skills</span></h2>
-                <p class="section-subtitle">A versatile toolkit for building modern applications, from programming and frameworks to AI and product design.</p>
+                <h2 class="section-title reveal">My <span>Technical Skills</span></h2>
+                <p class="section-subtitle reveal">A versatile toolkit for building modern applications, from programming and frameworks to AI and product design.</p>
                 <div class="skills-container">
-                    <div class="skill-category">
+                    <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-laptop-code"></i> Programming Languages</div>
-                        <div class="skill-list">
-                            <div class="skill-tag expert">Python</div><div class="skill-tag advanced">JavaScript</div><div class="skill-tag advanced">TypeScript</div><div class="skill-tag intermediate">C++</div><div class="skill-tag intermediate">HTML/CSS</div><div class="skill-tag beginner">MATLAB</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag expert">Python</div><div class="skill-tag advanced">JavaScript</div><div class="skill-tag advanced">TypeScript</div><div class="skill-tag intermediate">C++</div><div class="skill-tag intermediate">HTML/CSS</div><div class="skill-tag beginner">MATLAB</div></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-cogs"></i> Frameworks & Libraries</div>
-                        <div class="skill-list">
-                            <div class="skill-tag expert">Django</div><div class="skill-tag expert">React</div><div class="skill-tag advanced">Node.js</div><div class="skill-tag advanced">Next.js</div><div class="skill-tag advanced">PyTorch</div><div class="skill-tag advanced">TensorFlow</div><div class="skill-tag intermediate">OpenCV</div><div class="skill-tag intermediate">Langchain</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag expert">Django</div><div class="skill-tag expert">React</div><div class="skill-tag advanced">Node.js</div><div class="skill-tag advanced">Next.js</div><div class="skill-tag advanced">PyTorch</div><div class="skill-tag advanced">TensorFlow</div><div class="skill-tag intermediate">OpenCV</div><div class="skill-tag intermediate">Langchain</div></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-brain"></i> AI & Machine Learning</div>
-                        <div class="skill-list">
-                            <div class="skill-tag expert">GPT-4.0</div><div class="skill-tag expert">OpenAI APIs</div><div class="skill-tag advanced">Gemini APIs</div><div class="skill-tag advanced">Reinforcement Learning</div><div class="skill-tag advanced">Agentic Frameworks</div><div class="skill-tag intermediate">Computer Vision</div><div class="skill-tag intermediate">NLP</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag expert">GPT-4.0</div><div class="skill-tag expert">OpenAI APIs</div><div class="skill-tag advanced">Gemini APIs</div><div class="skill-tag advanced">Reinforcement Learning</div><div class="skill-tag advanced">Agentic Frameworks</div><div class="skill-tag intermediate">Computer Vision</div><div class="skill-tag intermediate">NLP</div></div>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-cloud"></i> Cloud & DevOps</div>
-                        <div class="skill-list">
-                            <div class="skill-tag advanced">GCP</div><div class="skill-tag advanced">AWS</div><div class="skill-tag advanced">Azure</div><div class="skill-tag advanced">Vercel</div><div class="skill-tag intermediate">Supabase</div><div class="skill-tag intermediate">Heroku</div><div class="skill-tag intermediate">CI/CD</div><div class="skill-tag beginner">Docker</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag advanced">GCP</div><div class="skill-tag advanced">AWS</div><div class="skill-tag advanced">Azure</div><div class="skill-tag advanced">Vercel</div><div class="skill-tag intermediate">Supabase</div><div class="skill-tag intermediate">Heroku</div><div class="skill-tag intermediate">CI/CD</div><div class="skill-tag beginner">Docker</div></div>
                     </div>
-                     <div class="skill-category">
+                     <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-database"></i> Databases & Backend</div>
-                        <div class="skill-list">
-                           <div class="skill-tag expert">PostgreSQL</div><div class="skill-tag advanced">Supabase</div><div class="skill-tag advanced">RESTful APIs</div><div class="skill-tag intermediate">Redis</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag expert">PostgreSQL</div><div class="skill-tag advanced">Supabase</div><div class="skill-tag advanced">RESTful APIs</div><div class="skill-tag intermediate">Redis</div></div>
                     </div>
-                     <div class="skill-category">
+                     <div class="skill-category reveal">
                         <div class="category-header"><i class="fas fa-chart-line"></i> Product & Design</div>
-                        <div class="skill-list">
-                           <div class="skill-tag expert">User Research</div><div class="skill-tag expert">Agile/Scrum</div><div class="skill-tag advanced">A/B Testing</div><div class="skill-tag advanced">Figma</div><div class="skill-tag advanced">Product Strategy</div><div class="skill-tag intermediate">UI/UX Design</div>
-                        </div>
+                        <div class="skill-list"><div class="skill-tag expert">User Research</div><div class="skill-tag expert">Agile/Scrum</div><div class="skill-tag advanced">A/B Testing</div><div class="skill-tag advanced">Figma</div><div class="skill-tag advanced">Product Strategy</div><div class="skill-tag intermediate">UI/UX Design</div><div class="skill-tag intermediate">Wireframing</div><div class="skill-tag intermediate">Analytics</div></div>
+                    </div>
+                    <div class="skill-category reveal">
+                        <div class="category-header"><i class="fas fa-tools"></i> Development Tools</div>
+                        <div class="skill-list"><div class="skill-tag expert">Git</div><div class="skill-tag expert">GitHub</div><div class="skill-tag advanced">Jira</div><div class="skill-tag advanced">Tailwind CSS</div><div class="skill-tag intermediate">Webpack</div></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="section cta-section">
+            <div class="shape cta-shape-1"></div>
+            <div class="shape cta-shape-2"></div>
             <div class="max-w-screen-xl">
-                <h2>Ready to Build Something Amazing Together?</h2>
-                <p>Let's connect and transform your ideas into exceptional digital experiences, just like Figma transforms design.</p>
-                <a href="mailto:vrindabansal2@gmail.com" class="btn" style="background-color: var(--bg-white); color: var(--figma-blue);">
+                <h2 class="reveal">Ready to Build Something Amazing Together?</h2>
+                <p class="reveal">Let's connect and transform your ideas into exceptional digital experiences, just like Figma transforms design.</p>
+                <a href="mailto:vrindabansal2@gmail.com" class="btn reveal" style="background-color: var(--bg-white); color: var(--figma-blue);">
                     Start a Conversation
                 </a>
             </div>
@@ -476,7 +435,7 @@
                 <li><a href="https://x.com/VrindaBansal11" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="https://techinprogress.substack.com" target="_blank" aria-label="Substack"><i class="fas fa-newspaper"></i></a></li>
             </ul>
-            <p>&copy; 2024 Vrinda Bansal. Inspired by Figma's design principles.</p>
+            <p>&copy; 2025 Vrinda Bansal. Inspired by Figma's design principles.</p>
         </div>
     </footer>
 
@@ -500,78 +459,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Data for Modals
+            // Ensure page loads at the top
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 100);
+            
             const modalData = {
-                'dark-alpha-capital': {
-                    title: 'Dark Alpha Capital LLC - Full Stack Intern',
-                    meta: 'Aug 2025 - Dec 2025 • Investment Technology',
-                    description: 'Building comprehensive web scraping infrastructure and grounding platform to revolutionize how investors discover and analyze investment opportunities.',
-                    achievements: ['Developing web scraping infrastructure to collect 100+ investment opportunities from multiple databases', 'Implementing automated screening algorithms to filter deals based on firm investment criteria', 'Building a grounding platform with advanced search to help investors look up accurate information', 'Creating an intelligent chatbot system for investor queries with real-time data integration'],
-                    techStack: ['Python', 'Web Scraping', 'Data Validation', 'Chatbot Development', 'Database Integration', 'AI Grounding']
-                },
-                'starspark-current': {
-                    title: 'StarSpark AI - Fullstack & Product Intern',
-                    meta: 'Jun 2025 - Aug 2025 • AI Education Platform',
-                    description: 'Led end-to-end product development of AI-powered educational tools, combining technical implementation with strategic product management.',
-                    achievements: ['Designed scalable AI applications with Google ADK, reducing deployment time by 40%', 'Built dynamic agentic frameworks serving 10,000+ daily API requests with high availability', 'Led the "Tutor Me" product end-to-end, using Django, Ninja APIs, ADK, GCP, React and PostgreSQL', 'Scraped 1,500+ SAT questions using advanced techniques with BeautifulSoup'],
-                    techStack: ['Django', 'React', 'Google ADK', 'GCP', 'PostgreSQL', 'Ninja APIs', 'Python']
-                },
-                'pinpoint': {
-                    title: 'Pinpoint - Technical Product Manager & Lead',
-                    meta: 'Sep 2024 - Jun 2025 • UC Davis Lost & Found Platform',
-                    description: 'Led cross-functional product development for a UC Davis campus platform, managing both technical implementation and product strategy.',
-                    achievements: ['Led product strategy and roadmap for a platform serving 40,000+ students', 'Managed an 8-person cross-functional team using agile methodologies', 'Conducted user interviews and market research to drive feature prioritization', 'Optimized database queries, reducing page load times by 60% to support 500+ concurrent users'],
-                    techStack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Agile/Scrum']
-                },
-                'ferreira': {
-                    title: 'Ferriera Lab - Undergraduate Researcher',
-                    meta: 'Nov 2024 - Present • UC Davis Psycholinguistics Research',
-                    description: 'Conducting computational research in psycholinguistics, applying machine learning and data analysis to understand language processing.',
-                    achievements: ['Processed 15,000+ hours of audio data, improving transcription accuracy by 75% using Python scripts', 'Applied OpenAI Whisper for advanced speech recognition in psycholinguistic studies', 'Conducted quantitative data analysis using Python and Praat software', 'Collaborated on eye-tracking research to find correlations between visual processing and speech'],
-                    techStack: ['Python', 'OpenAI Whisper', 'Praat', 'Data Analysis', 'Research Methods']
-                },
-                'starspark-previous': {
-                    title: 'StarSpark AI - ML & Product Intern',
-                    meta: 'May 2024 - Aug 2024 • AI Education Platform',
-                    description: 'Developed machine learning models and product features for an AI-powered educational platform, focusing on mathematical problem generation.',
-                    achievements: ['Built a question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples', 'Designed a Django ORM data model supporting 100,000+ mathematical tasks with sub-200ms response times', 'Enhanced a data preparation pipeline processing 25,000+ samples daily, reducing labeling time by 70%'],
-                    techStack: ['GPT-4.0', 'Django ORM', 'Python', 'ML Pipeline', 'Data Labeling']
-                },
-                'usc': {
-                    title: 'USC ACT Lab - Multi-Robot Research Intern',
-                    meta: 'May 2020 - Oct 2021 • USC Viterbi Engineering',
-                    description: 'Conducted advanced robotics research in multi-agent systems, developing autonomous navigation and pathfinding algorithms.',
-                    achievements: ['Solved multi-robot pathfinding (MAPF) problems with drones using PyTorch and reinforcement learning', 'Implemented collision avoidance, localization, path-planning, visual odometry, and SLAM systems', 'Applied A* and depth-first search algorithms for optimized autonomous navigation'],
-                    techStack: ['PyTorch', 'OpenCV', 'SLAM', 'Reinforcement Learning', 'MATLAB', 'Robotics']
-                },
-                'noteparrot': {
-                    title: 'NoteParrot.com - AI Study Platform',
-                    meta: 'Founder & Lead Engineer · Jun 2024 - Present',
-                    description: 'An AI-powered study platform that revolutionizes how students learn. Built from the ground up with advanced AI integration and user-centered design.',
-                    achievements: ['Scaled from 0 to 500+ users worldwide through strategic customer development and go-to-market execution', 'Integrated GPT-4.0 and Gemini 1.5 Flash APIs to reduce response hallucinations by 65%', 'Implemented a contextually grounded question generation system for personalized learning', 'Led the full product lifecycle from market research and competitive analysis to MVP launch'],
-                    techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku', 'Vertex AI', 'PostgreSQL']
-                },
-                'carecart': {
-                    title: 'CareCart - Health-Focused Grocery Platform',
-                    meta: 'Full-Stack Developer · Health-Tech Platform',
-                    description: 'A comprehensive full-stack web application empowering users with health conditions to make informed grocery choices through personalized product recommendations.',
-                    achievements: ['Analyzed over 200,000 products from 12 major retailers for 30+ medical conditions', 'Built intelligent health analysis algorithms for diabetes, heart disease, celiac disease, and PCOS', 'Developed a Python-powered web scraping pipeline to process nutritional data at scale', 'Implemented advanced React patterns with Next.js 14 App Router'],
-                    techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'Python', 'Tailwind CSS']
-                },
-                'roadmap': {
-                    title: 'Roadmap - Car Customization Platform',
-                    meta: 'Full-Stack Developer · June 2025',
-                    description: 'A comprehensive automotive platform enabling users to design, share, and build their dream vehicles with AI-powered recommendations and community features.',
-                    achievements: ['Built an AI-powered car matchmaker quiz with a machine learning recommendation engine', 'Implemented a geolocation-based mod shop directory with real-time search', 'Developed visual car modification tools with 3D preview functionality', 'Architected a Row Level Security (RLS) system for user data protection'],
-                    techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Next.js']
-                },
-                'substack': {
-                    title: 'Tech in Progress - Weekly Newsletter',
-                    meta: 'Content Creation · Tech Journey Documentation',
-                    description: 'Weekly Substack newsletter chronicling my tech journey, sharing insights from product development, engineering challenges, and entrepreneurial experiences.',
-                    achievements: ['Document weekly progress and learnings from building tech products', 'Share practical insights on product development, coding challenges, and startup experiences', 'Create valuable content for the tech community focusing on real-world applications'],
-                    techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Community Building']
-                }
+                'dark-alpha-capital': { title: 'Dark Alpha Capital LLC - Full Stack Intern', meta: 'Aug 2025 - Dec 2025 • Investment Technology', description: 'Building comprehensive web scraping infrastructure and grounding platform to revolutionize how investors discover and analyze investment opportunities.', achievements: ['Developing web scraping infrastructure to collect 100+ investment opportunities from multiple databases', 'Implementing automated screening algorithms to filter deals based on firm investment criteria', 'Building a grounding platform with advanced search to help investors look up accurate information', 'Creating an intelligent chatbot system for investor queries with real-time data integration'], techStack: ['Python', 'Web Scraping', 'Data Validation', 'Chatbot Development', 'Database Integration', 'AI Grounding'] },
+                'starspark-current': { title: 'StarSpark AI - Fullstack & Product Intern', meta: 'Jun 2025 - Aug 2025 • AI Education Platform', description: 'Led end-to-end product development of AI-powered educational tools, combining technical implementation with strategic product management.', achievements: ['Designed scalable AI applications with Google ADK, reducing deployment time by 40%', 'Built dynamic agentic frameworks serving 10,000+ daily API requests with high availability', 'Led the "Tutor Me" product end-to-end, using Django, Ninja APIs, ADK, GCP, React and PostgreSQL', 'Scraped 1,500+ SAT questions using advanced techniques with BeautifulSoup'], techStack: ['Django', 'React', 'Google ADK', 'GCP', 'PostgreSQL', 'Ninja APIs', 'Python'] },
+                'pinpoint': { title: 'Pinpoint - Technical Product Manager & Lead', meta: 'Sep 2024 - Jun 2025 • UC Davis Lost & Found Platform', description: 'Led cross-functional product development for a UC Davis campus platform, managing both technical implementation and product strategy.', achievements: ['Led product strategy and roadmap for a platform serving 40,000+ students', 'Managed an 8-person cross-functional team using agile methodologies', 'Conducted user interviews and market research to drive feature prioritization', 'Optimized database queries, reducing page load times by 60% to support 500+ concurrent users'], techStack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Agile/Scrum'] },
+                'ferreira': { title: 'Ferriera Lab - Undergraduate Researcher', meta: 'Nov 2024 - Present • UC Davis Psycholinguistics Research', description: 'Conducting computational research in psycholinguistics, applying machine learning and data analysis to understand language processing.', achievements: ['Processed 15,000+ hours of audio data, improving transcription accuracy by 75% using Python scripts', 'Applied OpenAI Whisper for advanced speech recognition in psycholinguistic studies', 'Conducted quantitative data analysis using Python and Praat software', 'Collaborated on eye-tracking research to find correlations between visual processing and speech'], techStack: ['Python', 'OpenAI Whisper', 'Praat', 'Data Analysis', 'Research Methods'] },
+                'starspark-previous': { title: 'StarSpark AI - ML & Product Intern', meta: 'May 2024 - Aug 2024 • AI Education Platform', description: 'Developed machine learning models and product features for an AI-powered educational platform, focusing on mathematical problem generation.', achievements: ['Built a question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples', 'Designed a Django ORM data model supporting 100,000+ mathematical tasks with sub-200ms response times', 'Enhanced a data preparation pipeline processing 25,000+ samples daily, reducing labeling time by 70%'], techStack: ['GPT-4.0', 'Django ORM', 'Python', 'ML Pipeline', 'Data Labeling'] },
+                'usc': { title: 'USC ACT Lab - Multi-Robot Research Intern', meta: 'May 2020 - Oct 2021 • USC Viterbi Engineering', description: 'Conducted advanced robotics research in multi-agent systems, developing autonomous navigation and pathfinding algorithms.', achievements: ['Solved multi-robot pathfinding (MAPF) problems with drones using PyTorch and reinforcement learning', 'Implemented collision avoidance, localization, path-planning, visual odometry, and SLAM systems', 'Applied A* and depth-first search algorithms for optimized autonomous navigation'], techStack: ['PyTorch', 'OpenCV', 'SLAM', 'Reinforcement Learning', 'MATLAB', 'Robotics'] },
+                'noteparrot': { title: 'NoteParrot.com - AI Study Platform', meta: 'Founder & Lead Engineer · Jun 2024 - Present', description: 'AI-powered study platform that revolutionizes how students learn and study. Built from the ground up with advanced AI integration and user-centered design.', achievements: ['Scaled from 0 to 500+ users worldwide through strategic customer development and go-to-market execution', 'Integrated GPT-4.0 and Gemini 1.5 Flash APIs to reduce response hallucinations by 65%', 'Implemented contextually grounded question generation system for personalized learning paths', 'Led full product lifecycle from market research and competitive analysis to MVP launch', 'Conducted extensive user interviews and feedback sessions to drive product-market fit', 'Built scalable backend architecture supporting concurrent user sessions', 'Implemented advanced AI algorithms for adaptive learning and content recommendation'], techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript'] },
+                'carecart': { title: 'CareCart - Personalized Health-Focused Grocery Platform', meta: 'Full-Stack Developer · Health-Tech Platform', description: 'Comprehensive full-stack web application empowering users with health conditions to make informed grocery choices through personalized product recommendations and intelligent shopping lists.', achievements: ['Analyzed over 200,000 products from 12 major retailers with health-specific ratings for 30+ medical conditions', 'Built intelligent health analysis algorithms for diabetes, heart disease, celiac disease, and PCOS', 'Developed Python-powered web scraping pipeline processing nutritional data at scale', 'Implemented advanced React patterns with Server and Client Components using Next.js 14 App Router', 'Architected real-time database operations with Supabase and Row Level Security (RLS)', 'Created sophisticated design system using Tailwind CSS with custom health-focused color palette', 'Deployed production-ready application with proper error handling, loading states, and accessibility', 'Integrated cloud storage for optimized image processing and real-time data synchronization'], techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Vercel'] },
+                'roadmap': { title: 'Roadmap - Car Customization Platform', meta: 'Full-Stack Developer · June 2025', description: 'Comprehensive automotive platform enabling users to design, share, and build their dream vehicles with AI-powered recommendations and community features.', achievements: ['Built AI-powered car matchmaker quiz with machine learning recommendation engine', 'Implemented geolocation-based mod shop directory with real-time search capabilities', 'Developed visual car modification tools with 3D preview functionality', 'Architected Row Level Security (RLS) system for user data protection', 'Created responsive design optimized for both desktop and mobile experiences', 'Integrated third-party APIs for car specifications and pricing data', 'Implemented user authentication and profile management system'], techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js'] },
+                'substack': { title: 'Tech in Progress - Weekly Newsletter', meta: 'Content Creation · Tech Journey Documentation', description: 'Weekly Substack newsletter chronicling my tech journey, sharing insights from product development, engineering challenges, and entrepreneurial experiences.', achievements: ['Document weekly progress and learnings from building tech products', 'Share practical insights on product development, coding challenges, and startup experiences', 'Create valuable content for the tech community focusing on real-world applications', 'Build consistent writing discipline while documenting the intersection of technology and entrepreneurship', 'Provide transparent look into the journey of building and scaling technical products', 'Connect with fellow entrepreneurs and developers through authentic storytelling'], techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Weekly Updates', 'Community Building', 'Storytelling'] }
             };
 
             const modal = document.getElementById('experienceModal');
@@ -581,32 +484,49 @@
             const modalAchievements = document.getElementById('modalAchievements');
             const modalTechStack = document.getElementById('modalTechStack');
             const closeBtn = modal.querySelector('.close');
-
-            document.querySelectorAll('[data-modal-id]').forEach(card => {
-                card.addEventListener('click', () => {
-                    const modalId = card.getAttribute('data-modal-id');
-                    const data = modalData[modalId];
-                    if (data) {
-                        modalTitle.textContent = data.title;
-                        modalMeta.textContent = data.meta;
-                        modalDescription.textContent = data.description;
-                        modalAchievements.innerHTML = data.achievements.map(item => `<li>${item}</li>`).join('');
-                        modalTechStack.innerHTML = data.techStack.map(tech => `<span class="modal-tech-tag">${tech}</span>`).join('');
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+            
+            const openModal = (modalId) => {
+                const data = modalData[modalId];
+                if (data) {
+                    modalTitle.textContent = data.title;
+                    modalMeta.textContent = data.meta;
+                    modalDescription.textContent = data.description;
+                    modalAchievements.innerHTML = data.achievements.map(item => `<li>${item}</li>`).join('');
+                    modalTechStack.innerHTML = data.techStack.map(tech => `<span class="modal-tech-tag">${tech}</span>`).join('');
+                    
+                    // Add Visit Project button for project cards
+                    const existingBtn = modalTechStack.parentElement.querySelector('.visit-project-btn');
+                    if (existingBtn) {
+                        existingBtn.remove();
                     }
-                });
-            });
+                    
+                    if (['noteparrot', 'carecart', 'roadmap', 'substack'].includes(modalId)) {
+                        const visitBtn = document.createElement('a');
+                        const links = {
+                            'noteparrot': 'https://noteparrot.com',
+                            'carecart': 'https://carecart.vercel.app',
+                            'roadmap': 'https://roadmap-omega-sable.vercel.app/',
+                            'substack': 'https://techinprogress.substack.com'
+                        };
+                        visitBtn.href = links[modalId];
+                        visitBtn.target = '_blank';
+                        visitBtn.className = 'visit-project-btn';
+                        visitBtn.textContent = 'Visit Project';
+                        visitBtn.style.cssText = 'display: inline-block; margin-top: 16px; padding: 12px 24px; background-color: var(--figma-blue); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;';
+                        modalTechStack.parentElement.appendChild(visitBtn);
+                    }
+                    
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
 
             const closeModal = () => {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             };
-
             closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) closeModal();
-            });
+            modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
 
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const navLinks = document.getElementById('navLinks');
@@ -614,15 +534,178 @@
                 navLinks.classList.toggle('active');
                 mobileMenuToggle.querySelector('i').className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
             });
-            
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navLinks.classList.contains('active')) {
-                         navLinks.classList.remove('active');
-                         mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                        navLinks.classList.remove('active');
+                        mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
                     }
                 });
             });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { 
+                    if (entry.isIntersecting) { 
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => {
+                if (!el.classList.contains('card') && !el.classList.contains('card-link')) {
+                    revealObserver.observe(el);
+                }
+            });
+
+            const tooltip = document.getElementById('drag-tooltip');
+            let tooltipShown = localStorage.getItem('dragTooltipShown');
+            const showTooltip = () => {
+                if (tooltipShown || window.innerWidth <= 768) return;
+                tooltip.classList.add('visible');
+                localStorage.setItem('dragTooltipShown', 'true');
+                setTimeout(() => { hideTooltip(); }, 5000);
+            };
+            const hideTooltip = () => { tooltip.classList.remove('visible'); };
+            
+            function initializeDraggableCanvas(canvasId) {
+                const canvas = document.getElementById(canvasId);
+                if (!canvas) return;
+                
+                const cards = canvas.querySelectorAll('.card, .card-link');
+                let activeItem = null, isDragging = false;
+                let initialMouseX, initialMouseY, offsetX, offsetY;
+
+                const placeCards = () => {
+                    if (window.innerWidth <= 768) {
+                        cards.forEach(card => card.style.opacity = 1);
+                        return;
+                    };
+                    
+                    const placedCards = [];
+                    cards.forEach((card, index) => {
+                        let placed = false;
+                        let attempts = 0;
+                        while (!placed && attempts < 100) {
+                            const canvasRect = canvas.getBoundingClientRect();
+                            if (canvasRect.width === 0) return;
+                            const cardWidth = card.offsetWidth;
+                            const cardHeight = card.offsetHeight;
+                            const padding = 24;
+
+                            const newPos = { 
+                                left: Math.random() * (canvas.clientWidth - cardWidth - (padding * 2)) + padding, 
+                                top: Math.random() * (canvas.clientHeight - cardHeight - (padding * 2)) + padding
+                            };
+                            newPos.right = newPos.left + cardWidth; 
+                            newPos.bottom = newPos.top + cardHeight;
+
+                            let overlaps = placedCards.some(p => !(newPos.right < p.left || newPos.left > p.right || newPos.bottom < p.top || newPos.top > p.bottom));
+
+                            if (!overlaps) {
+                                card.style.left = `${newPos.left}px`; card.style.top = `${newPos.top}px`;
+                                card.classList.add('visible'); // Use reveal animation
+                                placedCards.push(newPos); placed = true;
+                            }
+                            attempts++;
+                        }
+                        if (!placed) { 
+                            card.style.left = `${(index % 2) * 360 + 24}px`;
+                            card.style.top = `${Math.floor(index / 2) * 280 + 24}px`;
+                            card.classList.add('visible');
+                        }
+                    });
+                };
+
+                const startDrag = (e) => {
+                    if (window.innerWidth <= 768) return;
+                    activeItem = e.currentTarget;
+                    
+                    e.preventDefault();
+                    
+                    const rect = activeItem.getBoundingClientRect();
+                    offsetX = e.clientX - rect.left;
+                    offsetY = e.clientY - rect.top;
+                    
+                    initialMouseX = e.clientX;
+                    initialMouseY = e.clientY;
+                    
+                    document.addEventListener('mousemove', drag);
+                    document.addEventListener('mouseup', stopDrag);
+                };
+                
+                const drag = (e) => {
+                    if (!activeItem) return;
+                    e.preventDefault();
+
+                    if (!isDragging && (Math.abs(e.clientX - initialMouseX) > 5 || Math.abs(e.clientY - initialMouseY) > 5)) {
+                        isDragging = true;
+                        activeItem.classList.add('dragging');
+                        document.body.classList.add('dragging-active');
+                        hideTooltip();
+                    }
+                    
+                    if (isDragging) {
+                        const parentRect = canvas.getBoundingClientRect();
+                        let newLeft = e.clientX - parentRect.left - offsetX;
+                        let newTop = e.clientY - parentRect.top - offsetY;
+
+                        const padding = 10;
+                        if (newLeft < padding) newLeft = padding;
+                        if (newTop < padding) newTop = padding;
+                        if (newLeft + activeItem.offsetWidth > canvas.clientWidth - padding) newLeft = canvas.clientWidth - activeItem.offsetWidth - padding;
+                        if (newTop + activeItem.offsetHeight > canvas.clientHeight - padding) newTop = canvas.clientHeight - activeItem.offsetHeight - padding;
+
+                        activeItem.style.left = `${newLeft}px`;
+                        activeItem.style.top = `${newTop}px`;
+                    }
+                };
+
+                const stopDrag = () => {
+                    if (!isDragging && activeItem) {
+                        if (activeItem.dataset.modalId) {
+                            openModal(activeItem.dataset.modalId);
+                        }
+                    }
+
+                    if (activeItem) { 
+                        activeItem.classList.remove('dragging'); 
+                        if (isDragging) {
+                            // Bring card to top by updating z-index
+                            activeItem.style.zIndex = Date.now();
+                            
+                            activeItem.classList.add('floating');
+                            setTimeout(() => {
+                                if (activeItem) {
+                                    activeItem.classList.remove('floating');
+                                }
+                            }, 600);
+                        }
+                    }
+                    document.body.classList.remove('dragging-active');
+                    document.removeEventListener('mousemove', drag);
+                    document.removeEventListener('mouseup', stopDrag);
+                    
+                    setTimeout(() => { 
+                        isDragging = false; 
+                        activeItem = null; 
+                    }, 50);
+                };
+
+                cards.forEach(card => {
+                    card.addEventListener('mousedown', startDrag);
+                    card.addEventListener('mouseover', showTooltip, { once: true });
+                });
+                
+                window.addEventListener('load', placeCards);
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(placeCards, 250);
+                });
+            }
+            
+            initializeDraggableCanvas('experience-canvas');
+            initializeDraggableCanvas('projects-canvas');
         });
     </script>
 </body>
