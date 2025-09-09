@@ -574,6 +574,7 @@
                 const cards = canvas.querySelectorAll('.card, .card-link');
                 let activeItem = null, isDragging = false;
                 let initialMouseX, initialMouseY, offsetX, offsetY;
+                let zIndexCounter = 100;
 
                 const placeCards = () => {
                     if (window.innerWidth <= 768) {
@@ -640,6 +641,8 @@
                     if (!isDragging && (Math.abs(e.clientX - initialMouseX) > 5 || Math.abs(e.clientY - initialMouseY) > 5)) {
                         isDragging = true;
                         activeItem.classList.add('dragging');
+                        // Bring to front immediately when dragging starts
+                        activeItem.style.zIndex = ++zIndexCounter;
                         document.body.classList.add('dragging-active');
                         hideTooltip();
                     }
@@ -670,9 +673,6 @@
                     if (activeItem) { 
                         activeItem.classList.remove('dragging'); 
                         if (isDragging) {
-                            // Bring card to top by updating z-index
-                            activeItem.style.zIndex = Date.now();
-                            
                             activeItem.classList.add('floating');
                             setTimeout(() => {
                                 if (activeItem) {
