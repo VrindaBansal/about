@@ -570,6 +570,48 @@
         .skill-category-table.hidden {
             display: none;
         }
+        
+        /* Easter Egg Footer */
+        .easter-egg-footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            z-index: 50;
+        }
+        
+        .easter-egg-footer:hover {
+            opacity: 1;
+        }
+        
+        .footer-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            filter: grayscale(0.3);
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.1);
+            filter: grayscale(0);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer-logo.current {
+            opacity: 0.4;
+            cursor: default;
+            transform: none;
+        }
+        
+        .footer-logo.current:hover {
+            transform: none;
+            box-shadow: none;
+        }
 
         @media (max-width: 768px) {
             .notion-sidebar {
@@ -953,6 +995,13 @@
         <!-- Bottom spacing -->
         <div style="height: 80px;"></div>
     </main>
+    
+    <!-- Easter Egg Footer Navigation -->
+    <div class="easter-egg-footer">
+        <img src="../faviconfigma2.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='../figma/'" title="View Figma Version">
+        <img src="../favicon3.png" alt="GitHub Version" class="footer-logo" onclick="window.location.href='../github/'" title="View GitHub Version">
+        <img src="../notionfavicon.png" alt="Notion Version" class="footer-logo current" title="Current: Notion Version">
+    </div>
 
     <div id="itemModal" class="modal">
         <div class="modal-content">
