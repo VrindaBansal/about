@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vrinda Bansal - Portfolio</title>
+    <link rel="icon" href="../notionfavicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -416,6 +417,71 @@
         .visit-site-btn:hover {
             background-color: #0a5a8a !important;
         }
+        
+        /* Kanban Board Styles */
+        .skills-kanban {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+        
+        .kanban-column {
+            background-color: #f7f6f3;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid rgba(55, 53, 47, 0.09);
+        }
+        
+        .kanban-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+        }
+        
+        .kanban-header-icon {
+            font-size: 16px;
+        }
+        
+        .kanban-header-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-default);
+        }
+        
+        .kanban-header-count {
+            font-size: 12px;
+            color: var(--color-text-gray);
+            background-color: rgba(55, 53, 47, 0.08);
+            padding: 2px 6px;
+            border-radius: 12px;
+            margin-left: auto;
+        }
+        
+        .kanban-skills {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .kanban-skill-card {
+            background-color: var(--color-bg-default);
+            border: 1px solid rgba(55, 53, 47, 0.09);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: var(--color-text-default);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+        
+        .kanban-skill-card:hover {
+            border-color: rgba(55, 53, 47, 0.16);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
         @media (max-width: 768px) {
             .notion-sidebar {
@@ -661,25 +727,87 @@
         <section id="skills">
             <h2 class="notion-block notion-h2">Skills</h2>
             
-            <div class="notion-block notion-toggle">
-                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">💻 Programming Languages</div></div>
-                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-green">Python</span><span class="notion-pill pill-blue">JavaScript</span><span class="notion-pill pill-blue">TypeScript</span><span class="notion-pill pill-orange">C++</span><span class="notion-pill pill-yellow">HTML/CSS</span><span class="notion-pill pill-gray">MATLAB</span></p></div>
-            </div>
-            <div class="notion-block notion-toggle">
-                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🛠️ Frameworks & Libraries</div></div>
-                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-green">Django</span><span class="notion-pill pill-blue">React</span><span class="notion-pill pill-green">Node.js</span><span class="notion-pill pill-gray">Next.js</span><span class="notion-pill pill-orange">PyTorch</span><span class="notion-pill pill-orange">TensorFlow</span></p></div>
-            </div>
-            <div class="notion-block notion-toggle">
-                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🤖 AI & Machine Learning</div></div>
-                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-purple">GPT-4.0</span><span class="notion-pill pill-purple">OpenAI APIs</span><span class="notion-pill pill-red">Gemini APIs</span><span class="notion-pill pill-orange">Reinforcement Learning</span><span class="notion-pill pill-blue">Agentic Frameworks</span><span class="notion-pill pill-yellow">NLP</span></p></div>
-            </div>
-            <div class="notion-block notion-toggle">
-                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">☁️ Cloud & Databases</div></div>
-                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-blue">GCP</span><span class="notion-pill pill-orange">AWS</span><span class="notion-pill pill-gray">Vercel</span><span class="notion-pill pill-green">Supabase</span><span class="notion-pill pill-purple">Heroku</span><span class="notion-pill pill-blue">PostgreSQL</span><span class="notion-pill pill-red">Redis</span></p></div>
-            </div>
-            <div class="notion-block notion-toggle">
-                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🎨 Product & Design</div></div>
-                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-brown">User Research</span><span class="notion-pill pill-blue">Agile/Scrum</span><span class="notion-pill pill-yellow">A/B Testing</span><span class="notion-pill pill-pink">Figma</span><span class="notion-pill pill-brown">Product Strategy</span><span class="notion-pill pill-pink">UI/UX Design</span></p></div>
+            <div class="skills-kanban">
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-header-icon">💻</span>
+                        <span class="kanban-header-title">Programming Languages</span>
+                        <span class="kanban-header-count">6</span>
+                    </div>
+                    <div class="kanban-skills">
+                        <div class="kanban-skill-card">Python</div>
+                        <div class="kanban-skill-card">JavaScript</div>
+                        <div class="kanban-skill-card">TypeScript</div>
+                        <div class="kanban-skill-card">C++</div>
+                        <div class="kanban-skill-card">HTML/CSS</div>
+                        <div class="kanban-skill-card">MATLAB</div>
+                    </div>
+                </div>
+                
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-header-icon">🛠️</span>
+                        <span class="kanban-header-title">Frameworks & Libraries</span>
+                        <span class="kanban-header-count">6</span>
+                    </div>
+                    <div class="kanban-skills">
+                        <div class="kanban-skill-card">Django</div>
+                        <div class="kanban-skill-card">React</div>
+                        <div class="kanban-skill-card">Node.js</div>
+                        <div class="kanban-skill-card">Next.js</div>
+                        <div class="kanban-skill-card">PyTorch</div>
+                        <div class="kanban-skill-card">TensorFlow</div>
+                    </div>
+                </div>
+                
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-header-icon">🤖</span>
+                        <span class="kanban-header-title">AI & Machine Learning</span>
+                        <span class="kanban-header-count">6</span>
+                    </div>
+                    <div class="kanban-skills">
+                        <div class="kanban-skill-card">GPT-4.0</div>
+                        <div class="kanban-skill-card">OpenAI APIs</div>
+                        <div class="kanban-skill-card">Gemini APIs</div>
+                        <div class="kanban-skill-card">Reinforcement Learning</div>
+                        <div class="kanban-skill-card">Agentic Frameworks</div>
+                        <div class="kanban-skill-card">NLP</div>
+                    </div>
+                </div>
+                
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-header-icon">☁️</span>
+                        <span class="kanban-header-title">Cloud & Databases</span>
+                        <span class="kanban-header-count">7</span>
+                    </div>
+                    <div class="kanban-skills">
+                        <div class="kanban-skill-card">GCP</div>
+                        <div class="kanban-skill-card">AWS</div>
+                        <div class="kanban-skill-card">Vercel</div>
+                        <div class="kanban-skill-card">Supabase</div>
+                        <div class="kanban-skill-card">Heroku</div>
+                        <div class="kanban-skill-card">PostgreSQL</div>
+                        <div class="kanban-skill-card">Redis</div>
+                    </div>
+                </div>
+                
+                <div class="kanban-column">
+                    <div class="kanban-header">
+                        <span class="kanban-header-icon">🎨</span>
+                        <span class="kanban-header-title">Product & Design</span>
+                        <span class="kanban-header-count">6</span>
+                    </div>
+                    <div class="kanban-skills">
+                        <div class="kanban-skill-card">User Research</div>
+                        <div class="kanban-skill-card">Agile/Scrum</div>
+                        <div class="kanban-skill-card">A/B Testing</div>
+                        <div class="kanban-skill-card">Figma</div>
+                        <div class="kanban-skill-card">Product Strategy</div>
+                        <div class="kanban-skill-card">UI/UX Design</div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -794,19 +922,6 @@
                 'portfolio': { title: 'Portfolio Website - Interactive Portfolio', meta: 'Full-Stack Development · Live Site', description: 'Modern, responsive portfolio website showcasing technical skills and projects with interactive animations and GitHub-inspired design.', achievements: ['Designed and developed responsive portfolio website with mobile-first approach', 'Implemented interactive background effects with floating particle animations', 'Created smooth scrolling navigation with intersection observer animations', 'Built modal popup system for detailed project and experience information', 'Optimized for performance with vanilla JavaScript and efficient CSS', 'Deployed via GitHub Pages with automated CI/CD pipeline', 'Achieved 100% accessibility score and mobile responsiveness'], techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Performance Optimization'], url: 'https://vrindabansal.github.io/about/' }
             };
 
-            // Toggle Functionality
-            const toggles = document.querySelectorAll('.toggle-header');
-            toggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    toggle.classList.toggle('open');
-                    const content = toggle.nextElementSibling;
-                    if (content.style.display === 'block') {
-                        content.style.display = 'none';
-                    } else {
-                        content.style.display = 'block';
-                    }
-                });
-            });
 
             // Modal Functionality
             const modal = document.getElementById('itemModal');
