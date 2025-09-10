@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrinda Bansal - Portfolio</title>
+    <link rel="icon" href="/about/favicon3.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #f0f6fc;
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(88, 166, 255, 0.2);
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 0;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f0f6fc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f0f6fc;
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #58a6ff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 16px;
+            display: grid;
+            grid-template-columns: 296px 1fr;
+            gap: 24px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 24px;
+            height: fit-content;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .profile-image {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid #30363d;
+            background-image: url('/about/DSC_0010.JPG');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-info h1 {
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 4px;
+        }
+
+        .profile-info .username {
+            font-size: 20px;
+            font-weight: 300;
+            color: #7d8590;
+            margin-bottom: 16px;
+        }
+
+        .bio {
+            font-size: 16px;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 8px;
+            font-size: 14px;
+            color: #7d8590;
+            margin-bottom: 16px;
+        }
+
+        .stats a {
+            color: #f0f6fc;
+            text-decoration: none;
+        }
+
+        .stats a:hover {
+            color: #58a6ff;
+        }
+
+        .achievements {
+            margin-bottom: 8px;
+        }
+
+        .achievements h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f0f6fc;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 4px 0;
+        }
+
+        .social-links a:hover {
+            color: #58a6ff;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section {
+            background-color: #0d1117;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            transition: all 0.4s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 166, 255, 0.1);
+        }
+
+        #experience .card:hover,
+        #projects .card:hover {
+            border-color: #238636;
+            box-shadow: 0 8px 25px rgba(35, 134, 54, 0.2);
+        }
+
+        #experience .card:hover .card-title,
+        #projects .card:hover .card-title {
+            color: #238636;
+        }
+
+        #experience .card:hover .card-impact,
+        #projects .card:hover .card-impact {
+            color: #238636;
+        }
+
+        #experience .card:hover .click-hint,
+        #projects .card:hover .click-hint {
+            background-color: rgba(35, 134, 54, 0.1);
+            color: #238636;
+            border: 1px solid rgba(35, 134, 54, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #58a6ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title:hover {
+            text-decoration: underline;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: #7d8590;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: #7d8590;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #7d8590;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background-color: #21262d;
+            color: #f0f6fc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        .card-impact {
+            font-size: 11px;
+            color: #58a6ff;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .featured-card {
+            border-left: 3px solid #58a6ff;
+            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+        }
+
+        .featured-card:hover {
+            border-color: #79c0ff;
+            box-shadow: 0 8px 25px rgba(88, 166, 255, 0.25);
+        }
+
+        /* Modal Styles - Code Editor Theme */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 17, 23, 0.75);
+            backdrop-filter: blur(8px) saturate(1.2);
+        }
+
+        .modal-content {
+            background-color: #0d1117;
+            border: 2px solid #21262d;
+            border-radius: 8px;
+            margin: 3% auto;
+            padding: 0;
+            width: 85%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(90deg, #21262d 0%, #30363d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            border-bottom: 1px solid #30363d;
+            position: relative;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            width: 12px;
+            height: 12px;
+            background: #ff5f56;
+            border-radius: 50%;
+            box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca3f;
+        }
+
+        .modal-header::after {
+            display: none;
+        }
+
+        .modal-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #7d8590;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin-left: 60px;
+        }
+
+        .close {
+            color: #7d8590;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.2s;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        .close:hover {
+            color: #f0f6fc;
+        }
+
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(85vh - 60px);
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.5;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .modal-meta {
+            color: #7c3aed;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .modal-meta::before {
+            content: '// ';
+            color: #6a737d;
+        }
+
+        .modal-description {
+            color: #e6edf3;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 16px;
+            background-color: #161b22;
+            border-left: 3px solid #58a6ff;
+            border-radius: 0 4px 4px 0;
+            font-size: 13px;
+        }
+
+        .modal-description::before {
+            content: '/*\A * ';
+            color: #6a737d;
+            white-space: pre;
+        }
+
+        .modal-description::after {
+            content: '\A */';
+            color: #6a737d;
+            white-space: pre;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            background-color: #0d1117;
+        }
+
+        .achievements-list li {
+            background-color: transparent;
+            padding: 4px 0;
+            margin-bottom: 2px;
+            color: #e6edf3;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.4;
+            padding-left: 20px;
+        }
+
+        .achievements-list li::before {
+            content: "$ ";
+            color: #7ee787;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        .achievements-list li::after {
+            content: " ✓";
+            color: #238636;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .modal-tech-section {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #30363d;
+        }
+
+        .tech-section-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #f79000;
+            margin-bottom: 12px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        .tech-section-title::before {
+            content: 'const technologies = [';
+            color: #ff7b72;
+        }
+
+        .modal-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-tech-tag {
+            background-color: transparent;
+            color: #7ee787;
+            padding: 2px 0;
+            font-size: 13px;
+            font-weight: 400;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        .modal-tech-tag::before {
+            content: '"';
+            color: #7ee787;
+        }
+
+        .modal-tech-tag::after {
+            content: '",';
+            color: #7ee787;
+        }
+
+        .modal-tech-stack::after {
+            content: '];';
+            color: #ff7b72;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            width: 100%;
+            margin-left: -20px;
+            margin-top: 8px;
+        }
+
+        /* Click to explore hint */
+        .click-hint {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: rgba(88, 166, 255, 0.1);
+            color: #58a6ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .card[data-experience]:hover .private-badge {
+            opacity: 0;
+        }
+
+        .card[data-experience]:hover .click-hint {
+            opacity: 1;
+        }
+
+        /* Pulse animation for interactive elements */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(88, 166, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(88, 166, 255, 0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(88, 166, 255, 0.8), 0 0 30px rgba(88, 166, 255, 0.6);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card[data-experience]:hover {
+            animation: pulse 3s ease-in-out infinite;
+            cursor: pointer;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 12px 30px rgba(88, 166, 255, 0.2) !important;
+            transition: all 0.5s ease-out !important;
+        }
+
+        .profile-image {
+            transition: all 0.6s ease-out;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .logo {
+            transition: all 0.3s ease-out;
+        }
+
+        .logo:hover {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .sidebar {
+            animation: slideInFromLeft 1.2s ease-out;
+        }
+
+        .main-content {
+            animation: slideInFromRight 1.2s ease-out;
+        }
+
+        .section-title {
+            transition: all 0.4s ease-out;
+        }
+
+        .section-title:hover {
+            color: #58a6ff;
+            transform: translateX(8px);
+        }
+
+        .graph-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #f0f6fc;
+        }
+
+        /* Interactive skill system */
+        .skills-section {
+            margin: 16px 0;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #f0f6fc;
+        }
+
+        .skill-count {
+            margin-left: auto;
+            font-size: 11px;
+            color: #7d8590;
+            font-weight: 400;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+        }
+
+        .skill-tag.expert {
+            background-color: #a7d3b0;
+            color: #2d5f3f;
+            border-color: #7fb889;
+        }
+
+        .skill-tag.expert:hover {
+            background-color: #7fb889;
+            box-shadow: 0 4px 12px rgba(127, 184, 137, 0.3);
+        }
+
+        .skill-tag.advanced {
+            background-color: #a8c8f0;
+            color: #2b4a73;
+            border-color: #7db0ea;
+        }
+
+        .skill-tag.advanced:hover {
+            background-color: #7db0ea;
+            box-shadow: 0 4px 12px rgba(125, 176, 234, 0.3);
+        }
+
+        .skill-tag.intermediate {
+            background-color: #f5c99b;
+            color: #8b5a00;
+            border-color: #edb574;
+        }
+
+        .skill-tag.intermediate:hover {
+            background-color: #edb574;
+            box-shadow: 0 4px 12px rgba(237, 181, 116, 0.3);
+        }
+
+        .skill-tag.beginner {
+            background-color: #c8a8e8;
+            color: #5d3a7a;
+            border-color: #b894d9;
+        }
+
+        .skill-tag.beginner:hover {
+            background-color: #b894d9;
+            box-shadow: 0 4px 12px rgba(184, 148, 217, 0.3);
+        }
+
+        .skill-tag::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease-out;
+        }
+
+        .skill-tag:hover::after {
+            left: 100%;
+        }
+
+        .education-section {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 24px;
+            margin-top: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #21262d;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #58a6ff;
+            flex-shrink: 0;
+        }
+
+        .education-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .education-content .degree {
+            font-size: 14px;
+            color: #7d8590;
+            margin-bottom: 4px;
+        }
+
+        .education-content .duration {
+            font-size: 12px;
+            color: #7d8590;
+        }
+
+        .coursework {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #7d8590;
+        }
+
+        .private-badge {
+            background-color: #21262d;
+            color: #f0f6fc;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            border: 1px solid #30363d;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Mobile Navigation Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f0f6fc;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-toggle:hover {
+            color: #58a6ff;
+        }
+
+        @media (max-width: 768px) {
+            /* Header and Navigation */
+            .header-content {
+                padding: 0 12px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #161b22;
+                border-top: 1px solid #30363d;
+                flex-direction: column;
+                gap: 0;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid #30363d;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+
+            .header {
+                position: relative;
+            }
+
+            /* Container and Layout */
+            .container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 16px 12px;
+            }
+
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+
+            /* Profile Section */
+            .profile-card {
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .profile-image {
+                width: 160px;
+                height: 160px;
+            }
+
+            .profile-info h1 {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            .profile-info .username {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .bio {
+                font-size: 14px;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            .stats {
+                justify-content: center;
+                margin-bottom: 12px;
+            }
+
+            /* Skills Section */
+            .skills-section {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .skill-category {
+                margin-bottom: 16px;
+            }
+
+            .category-header {
+                flex-wrap: wrap;
+                font-size: 13px;
+            }
+
+            .skill-count {
+                margin-left: 0;
+                margin-top: 4px;
+                width: 100%;
+            }
+
+            .skill-tag {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+
+            /* Social Links */
+            .achievements h3 {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .social-links {
+                align-items: center;
+            }
+
+            .social-links a {
+                justify-content: center;
+                padding: 6px 0;
+                font-size: 13px;
+            }
+
+            /* Main Content */
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .section-header {
+                margin-bottom: 12px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            /* Cards Grid */
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card {
+                padding: 12px;
+            }
+
+            .card-title {
+                font-size: 13px;
+            }
+
+            .card-meta {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+
+            .card-description {
+                font-size: 11px;
+                line-height: 1.4;
+                margin-bottom: 6px;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .tech-stack {
+                gap: 4px;
+            }
+
+            .tech-tag {
+                font-size: 9px;
+                padding: 2px 4px;
+            }
+
+            .card-impact {
+                font-size: 10px;
+                align-self: flex-end;
+            }
+
+            /* Education Section */
+            .education-section {
+                padding: 16px;
+                margin-top: 16px;
+            }
+
+            .education-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .education-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .education-content h4 {
+                font-size: 15px;
+            }
+
+            .education-content .degree {
+                font-size: 13px;
+            }
+
+            .education-content .duration {
+                font-size: 11px;
+            }
+
+            .coursework {
+                font-size: 11px;
+                text-align: left;
+                margin-top: 6px;
+            }
+
+            /* Modal Responsiveness */
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+                padding: 20px;
+                max-height: 90vh;
+            }
+
+            .modal-title {
+                font-size: 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .modal-meta {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .modal-description {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+
+            .achievements-list li {
+                font-size: 12px;
+                padding: 8px 12px;
+                padding-left: 32px;
+            }
+
+            .modal-tech-stack {
+                gap: 6px;
+                margin-top: 16px;
+                padding-top: 12px;
+            }
+
+            .modal-tech-tag {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+
+            /* Hide click hints on mobile */
+            .click-hint {
+                display: none;
+            }
+
+            /* Adjust animations for mobile */
+            .profile-image:hover {
+                transform: none;
+                animation: none;
+            }
+
+            .card:hover {
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 15px rgba(88, 166, 255, 0.15) !important;
+            }
+
+            /* Improve touch targets */
+            .card[data-experience] {
+                min-height: 120px;
+            }
+
+            .nav-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .social-links a {
+                min-height: 36px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px 8px;
+            }
+
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+
+            .profile-info h1 {
+                font-size: 20px;
+            }
+
+            .profile-info .username {
+                font-size: 16px;
+            }
+
+            .bio {
+                font-size: 13px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 10px;
+            }
+
+            .skills-section {
+                padding: 10px;
+            }
+
+            .skill-tag {
+                font-size: 9px;
+                padding: 2px 4px;
+            }
+
+            .modal-content {
+                width: 98%;
+                margin: 1% auto;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <i class="fab fa-github"></i>
+                VrindaBansal
+            </a>
+            <nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="mailto:vrindabansal2@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="profile-image"></div>
+                <div class="profile-info">
+                    <h1>Vrinda Bansal</h1>
+                    <div class="username">VrindaBansal</div>
+                    <div class="bio">
+                        Building AI-powered products that enhance learning experiences. Passionate about bridging technical innovation with user-centered design. Currently developing NoteParrot and exploring the intersection of cognitive science and technology.
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <h3><i class="fas fa-share-alt"></i> Socials</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/VrindaBansal" target="_blank">
+                            <i class="fab fa-github"></i> GitHub Profile
+                        </a>
+                        <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                        <a href="https://noteparrot.com/" target="_blank">
+                            <i class="fas fa-rocket"></i> NoteParrot Founder
+                        </a>
+                        <a href="mailto:vrindabansal2@gmail.com">
+                            <i class="fas fa-envelope"></i> vrindabansal2@gmail.com
+                        </a>
+                        <a href="https://x.com/VrindaBansal11" target="_blank">
+                            <i class="fab fa-twitter"></i> @VrindaBansal11
+                        </a>
+                        <a href="https://techinprogress.substack.com" target="_blank">
+                            <i class="fas fa-newspaper"></i> Tech in Progress
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="education-section">
+                    <h3 class="section-title" style="margin-bottom: 16px;">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </h3>
+                    
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="education-content">
+                            <h4>University of California, Davis</h4>
+                            <div class="degree">B.S. Computational Cognitive Science, Computer Science Minor</div>
+                            <div class="duration">2022 - 2026</div>
+                            <div class="coursework">
+                                <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Object Oriented Programming, Introduction to Artificial Intelligence, Computational Linguistics, Minds Brains & Computers, Symbolic Logic II, Engineering Problem Solving, Circuits I, Discrete Math for CS, Linear Algebra, Calculus III
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="experience" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Experience Portfolio</h2>
+                    <div style="font-size: 12px; color: #7d8590;">Full-Stack Engineering • Product Management • AI/ML • Research</div>
+                </div>
+                <div class="cards-grid">
+                    <div class="card featured-card" data-experience="dark-alpha-capital">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-chart-line"></i>
+                                Dark Alpha Capital LLC - Full Stack Intern
+                            </a>
+                            <span class="private-badge">Current</span>
+                        </div>
+                        <div class="card-meta">Aug 2025 - Dec 2025 • Investment Technology</div>
+                        <div class="card-description">
+                            Building web scraping infrastructure to collect <strong>100+ investment opportunities</strong> from multiple databases with automated screening algorithms. Developing grounding platform for investors with advanced chatbot capabilities and data validation protocols to filter deals based on firm investment criteria.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Web Scraping</span>
+                                <span class="tech-tag">Data Validation</span>
+                                <span class="tech-tag">Investment Analysis</span>
+                                <span class="tech-tag">Chatbot Development</span>
+                                <span class="tech-tag">Database Integration</span>
+                            </div>
+                            <div class="card-impact">100+ opportunities analyzed</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card featured-card" data-experience="starspark-current">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-rocket"></i>
+                                StarSpark AI - Fullstack & Product Intern
+                            </a>
+                            <span class="private-badge">Recent</span>
+                        </div>
+                        <div class="card-meta">Jun 2025 - Aug 2025 • AI Education Platform</div>
+                        <div class="card-description">
+                            <strong>Leading 'Tutor Me' product end-to-end</strong> - Full product lifecycle from user research to deployment. Built scalable AI applications with Google ADK reducing deployment time by 40% across 3 production environments. Architected dynamic agentic frameworks serving 10,000+ daily API requests.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Google ADK</span>
+                                <span class="tech-tag">GCP</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Ninja APIs</span>
+                            </div>
+                            <div class="card-impact">10K+ daily API requests</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="pinpoint">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-users-cog"></i>
+                                Pinpoint - Technical Product Manager & Lead
+                            </a>
+                            <span class="private-badge">Recent</span>
+                        </div>
+                        <div class="card-meta">Sep 2024 - Jun 2025 • UC Davis Lost & Found Platform</div>
+                        <div class="card-description">
+                            <strong>Led 8-person cross-functional team</strong> using Agile methodologies to build platform serving 40,000+ students. Drove product strategy through user interviews and market research. Optimized database queries reducing page load times by 60% to support 500+ concurrent users.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Tailwind</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+                            <div class="card-impact">40K+ students served</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="ferreira">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-brain"></i>
+                                Ferriera Lab - Undergraduate Researcher
+                            </a>
+                            <span class="private-badge">Active</span>
+                        </div>
+                        <div class="card-meta">Nov 2024 - Present • UC Davis Psycholinguistics Research</div>
+                        <div class="card-description">
+                            Processing 15,000+ hours of audio data with 75% transcription accuracy improvement using Python and OpenAI Whisper. Conducting quantitative analysis using Python and Praat software. Collaborating on eye-tracking research.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenAI Whisper</span>
+                                <span class="tech-tag">Praat</span>
+                                <span class="tech-tag">Data Analysis</span>
+                            </div>
+                            <div class="card-impact">15K+ hours processed</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="starspark-previous">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-cogs"></i>
+                                StarSpark AI - ML & Product Intern
+                            </a>
+                            <span class="private-badge">Previous</span>
+                        </div>
+                        <div class="card-meta">May 2024 - Aug 2024 • AI Education Platform</div>
+                        <div class="card-description">
+                            Built question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples. Designed Django ORM data model supporting 100,000+ mathematical tasks with sub-200ms query response times.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">GPT-4.0</span>
+                                <span class="tech-tag">Django ORM</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ML Pipeline</span>
+                            </div>
+                            <div class="card-impact">92% accuracy, 100K+ tasks</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="usc">
+                        <div class="card-header">
+                            <a href="#" class="card-title">
+                                <i class="fas fa-robot"></i>
+                                USC ACT Lab - Multi-Robot Research Intern
+                            </a>
+                            <span class="private-badge">Research</span>
+                        </div>
+                        <div class="card-meta">May 2020 - Oct 2021 • USC Viterbi Engineering</div>
+                        <div class="card-description">
+                            Solved multi-robot pathfinding (MAPF) problems with drones using PyTorch. Implemented collision avoidance, localization, path-planning, visual odometry, and SLAM. Applied A* and depth-first search algorithms for autonomous navigation.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">SLAM</span>
+                                <span class="tech-tag">Reinforcement Learning</span>
+                                <span class="tech-tag">MATLAB</span>
+                            </div>
+                            <div class="card-impact">Autonomous robotics</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Detail Modal -->
+            <div id="experienceModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title" id="modalTitle">
+                            <i class="fas fa-briefcase"></i>
+                            Experience Details
+                        </div>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-meta" id="modalMeta"></div>
+                        <div class="modal-description" id="modalDescription"></div>
+                        <ul class="achievements-list" id="modalAchievements"></ul>
+                        <div class="modal-tech-section">
+                            <h3 class="tech-section-title">
+                                <i class="fas fa-tools"></i>
+                                Technologies Used
+                            </h3>
+                            <div class="modal-tech-stack" id="modalTechStack"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="projects" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects & Leadership</h2>
+                    <div style="font-size: 12px; color: #7d8590;">Product Development • Founder Experience • Technical Innovation</div>
+                </div>
+                <div class="cards-grid">
+                    <div class="card featured-card" data-experience="substack">
+                        <div class="card-header">
+                            <a href="https://techinprogress.substack.com" class="card-title" target="_blank">
+                                <i class="fas fa-newspaper"></i>
+                                Tech in Progress
+                            </a>
+                            <span class="private-badge">Newsletter</span>
+                        </div>
+                        <div class="card-meta">Content Creation · Tech Journey Documentation</div>
+                        <div class="card-description">
+                            Weekly Substack newsletter documenting my tech journey and sharing "What I Built This Week" updates. Chronicles the intersection of product development, engineering challenges, and entrepreneurial insights with a focus on practical learning and growth.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Substack</span>
+                                <span class="tech-tag">Content Writing</span>
+                                <span class="tech-tag">Tech Documentation</span>
+                                <span class="tech-tag">Weekly Updates</span>
+                            </div>
+                            <div class="card-impact">Tech journey insights</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="noteparrot">
+                        <div class="card-header">
+                            <a href="https://noteparrot.com" class="card-title" target="_blank">
+                                <i class="fas fa-feather-alt"></i>
+                                NoteParrot.com
+                            </a>
+                            <span class="private-badge">Live</span>
+                        </div>
+                        <div class="card-meta">Founder & Lead Engineer · Jun 2024 - Present</div>
+                        <div class="card-description">
+                            <strong>0→500+ users worldwide</strong> through customer development and go-to-market strategy. AI-powered study platform integrating GPT-4.0 and Gemini 1.5 Flash, reducing response hallucinations by 65% through contextually grounded question generation. Led full product lifecycle from ideation to launch with user interviews and competitive analysis.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">GPT-4.0</span>
+                                <span class="tech-tag">Gemini 1.5</span>
+                                <span class="tech-tag">Heroku-22</span>
+                                <span class="tech-tag">Vertex AI</span>
+                            </div>
+                            <div class="card-impact">500+ global users</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="carecart">
+                        <div class="card-header">
+                            <a href="https://carecart.vercel.app" class="card-title" target="_blank">
+                                <i class="fas fa-shopping-cart"></i>
+                                CareCart - Health-Focused Grocery Platform
+                            </a>
+                            <span class="private-badge">Live</span>
+                        </div>
+                        <div class="card-meta">Full-Stack Developer · Health-Tech Platform</div>
+                        <div class="card-description">
+                            Comprehensive full-stack platform empowering users with health conditions to make informed grocery choices. Analyzes <strong>200,000+ products from 12 major retailers</strong>, providing health-specific ratings for 30+ medical conditions including diabetes, heart disease, and PCOS through intelligent algorithms and real-time data processing.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">Next.js 14</span>
+                                <span class="tech-tag">React 18</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                            </div>
+                            <div class="card-impact">200k+ products analyzed</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="roadmap">
+                        <div class="card-header">
+                            <a href="https://roadmap-omega-sable.vercel.app/" class="card-title" target="_blank">
+                                <i class="fas fa-car"></i>
+                                Roadmap - Car Customization Platform
+                            </a>
+                            <span class="private-badge">Recent</span>
+                        </div>
+                        <div class="card-meta">Full-Stack Developer · June 2025</div>
+                        <div class="card-description">
+                            Comprehensive car customization platform for designing, sharing, and building dream vehicles. Built AI-powered car matchmaker quiz and implemented mod shop directory with geolocation-based search. Features visual modification tools and Row Level Security (RLS).
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Vercel</span>
+                            </div>
+                            <div class="card-impact">AI-powered matching</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="portfolio">
+                        <div class="card-header">
+                            <a href="https://vrindabansal.github.io/about/" class="card-title" target="_blank">
+                                <i class="fas fa-globe"></i>
+                                Portfolio Website
+                            </a>
+                            <span class="private-badge">Public</span>
+                        </div>
+                        <div class="card-meta">Full-Stack Development · Live Site</div>
+                        <div class="card-description">
+                            Responsive portfolio website with interactive binary background effects and smooth animations. GitHub-inspired design with full frontend/backend functionality, optimized for both desktop and mobile experiences.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">GitHub Pages</span>
+                                <span class="tech-tag">Responsive Design</span>
+                            </div>
+                            <div class="card-impact">Interactive portfolio</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+            </section>
+
+            <section id="skills" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div style="font-size: 12px; color: #7d8590;">Programming • Frameworks • AI/ML • Cloud • Product Development</div>
+                </div>
+                
+                <!-- Skills section -->
+                <div class="skills-section">
+                    <!-- Programming Languages -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Programming Languages</span>
+                            <span class="skill-count">6 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">Python</div>
+                            <div class="skill-tag advanced" data-skill="85">JavaScript</div>
+                            <div class="skill-tag advanced" data-skill="85">TypeScript</div>
+                            <div class="skill-tag intermediate" data-skill="70">C++</div>
+                            <div class="skill-tag intermediate" data-skill="70">HTML/CSS</div>
+                            <div class="skill-tag beginner" data-skill="50">MATLAB</div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & Libraries -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-cogs"></i>
+                            <span>Frameworks & Libraries</span>
+                            <span class="skill-count">8 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">Django</div>
+                            <div class="skill-tag expert" data-skill="90">React</div>
+                            <div class="skill-tag advanced" data-skill="80">Node.js</div>
+                            <div class="skill-tag advanced" data-skill="85">Next.js</div>
+                            <div class="skill-tag advanced" data-skill="80">PyTorch</div>
+                            <div class="skill-tag advanced" data-skill="80">TensorFlow</div>
+                            <div class="skill-tag intermediate" data-skill="70">OpenCV</div>
+                            <div class="skill-tag intermediate" data-skill="70">Langchain</div>
+                        </div>
+                    </div>
+
+                    <!-- AI & Machine Learning -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-brain"></i>
+                            <span>AI & Machine Learning</span>
+                            <span class="skill-count">8 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">GPT-4.0</div>
+                            <div class="skill-tag expert" data-skill="90">OpenAI APIs</div>
+                            <div class="skill-tag advanced" data-skill="85">Gemini APIs</div>
+                            <div class="skill-tag advanced" data-skill="80">Reinforcement Learning</div>
+                            <div class="skill-tag advanced" data-skill="80">Agentic Frameworks</div>
+                            <div class="skill-tag intermediate" data-skill="75">Computer Vision</div>
+                            <div class="skill-tag intermediate" data-skill="75">NLP</div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud & DevOps</span>
+                            <span class="skill-count">8 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag advanced" data-skill="85">GCP</div>
+                            <div class="skill-tag advanced" data-skill="80">AWS</div>
+                            <div class="skill-tag advanced" data-skill="80">Azure</div>
+                            <div class="skill-tag advanced" data-skill="85">Vercel</div>
+                            <div class="skill-tag intermediate" data-skill="70">Supabase</div>
+                            <div class="skill-tag intermediate" data-skill="70">Heroku</div>
+                            <div class="skill-tag intermediate" data-skill="65">CI/CD</div>
+                            <div class="skill-tag beginner" data-skill="50">Docker</div>
+                        </div>
+                    </div>
+
+                    <!-- Databases & Backend -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-database"></i>
+                            <span>Databases & Backend</span>
+                            <span class="skill-count">6 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">PostgreSQL</div>
+                            <div class="skill-tag advanced" data-skill="85">Supabase</div>
+                            <div class="skill-tag advanced" data-skill="85">RESTful APIs</div>
+                            <div class="skill-tag intermediate" data-skill="65">Redis</div>
+                        </div>
+                    </div>
+
+                    <!-- Product & Design -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Product & Design</span>
+                            <span class="skill-count">8 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">User Research</div>
+                            <div class="skill-tag expert" data-skill="90">Agile/Scrum</div>
+                            <div class="skill-tag advanced" data-skill="85">A/B Testing</div>
+                            <div class="skill-tag advanced" data-skill="80">Figma</div>
+                            <div class="skill-tag advanced" data-skill="80">Product Strategy</div>
+                            <div class="skill-tag intermediate" data-skill="75">UI/UX Design</div>
+                            <div class="skill-tag intermediate" data-skill="70">Wireframing</div>
+                            <div class="skill-tag intermediate" data-skill="70">Analytics</div>
+                        </div>
+                    </div>
+
+                    <!-- Development Tools -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-tools"></i>
+                            <span>Development Tools</span>
+                            <span class="skill-count">7 skills</span>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-tag expert" data-skill="95">Git</div>
+                            <div class="skill-tag expert" data-skill="95">GitHub</div>
+                            <div class="skill-tag advanced" data-skill="85">Jira</div>
+                            <div class="skill-tag advanced" data-skill="85">Tailwind CSS</div>
+                            <div class="skill-tag intermediate" data-skill="70">Webpack</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Experience data with detailed bullet points
+        const experienceData = {
+            'dark-alpha-capital': {
+                title: 'Dark Alpha Capital LLC - Full Stack Intern',
+                meta: 'Aug 2025 - Dec 2025 • Investment Technology',
+                description: 'Building comprehensive web scraping infrastructure and grounding platform to revolutionize how investors discover and analyze investment opportunities.',
+                achievements: [
+                    'Developing web scraping infrastructure to collect 100+ investment opportunities from multiple databases',
+                    'Implementing automated screening algorithms to filter deals based on firm investment criteria (sector, deal size, financials)',
+                    'Building grounding platform that helps investors look up accurate information with advanced search capabilities',
+                    'Creating intelligent chatbot system for investor queries with real-time data integration',
+                    'Architecting data validation and error handling protocols to ensure data accuracy and reliability',
+                    'Developing ranking algorithms to score opportunities by investment fit and potential returns',
+                    'Improving AI grounding techniques to reduce hallucinations and provide factual investment insights'
+                ],
+                techStack: ['Python', 'Web Scraping', 'Data Validation', 'Investment Analysis', 'Chatbot Development', 'Database Integration', 'AI Grounding']
+            },
+            'starspark-current': {
+                title: 'StarSpark AI - Fullstack & Product Intern',
+                meta: 'Jun 2025 - Aug 2025 • AI Education Platform',
+                description: 'Leading end-to-end product development of AI-powered educational tools, combining technical implementation with strategic product management.',
+                achievements: [
+                    'Designed scalable AI applications with Google ADK, reducing deployment time by 40% across 3 production environments',
+                    'Built dynamic agentic frameworks serving 10,000+ daily API requests with high availability',
+                    'Leading "Tutor Me" product end-to-end, using Django, Ninja APIs, ADK, GCP, React and PostgreSQL',
+                    'Scraped 1,500+ SAT questions using advanced scraping techniques with BeautifulSoup',
+                    'Handled dynamic content and bypassed rate limits for comprehensive educational content',
+                    'Managed API product strategy and coordinated cross-functional teams for optimal user experience'
+                ],
+                techStack: ['Django', 'React', 'Google ADK', 'GCP', 'PostgreSQL', 'Ninja APIs', 'BeautifulSoup', 'Python']
+            },
+            'pinpoint': {
+                title: 'Pinpoint - Technical Product Manager & Lead',
+                meta: 'Sep 2024 - Jun 2025 • UC Davis Lost & Found Platform',
+                description: 'Led cross-functional product development for UC Davis campus platform, managing both technical implementation and product strategy.',
+                achievements: [
+                    'Led product strategy and roadmap for UC Davis Lost and Found platform serving 40,000+ students',
+                    'Managed 8-person cross-functional team using agile methodologies and sprint planning',
+                    'Conducted user interviews and market research to drive feature prioritization',
+                    'Optimized database queries reducing page load times by 60% to support 500+ concurrent users',
+                    'Drove A/B testing and performance optimization initiatives based on user behavior analytics',
+                    'Facilitated sprint planning and coordinated between backend, frontend, and design teams',
+                    'Implemented key features including user authentication, geolocation services, and real-time notifications'
+                ],
+                techStack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Agile/Scrum']
+            },
+            'ferreira': {
+                title: 'Ferriera Lab - Undergraduate Researcher',
+                meta: 'Nov 2024 - Present • UC Davis Psycholinguistics Research',
+                description: 'Conducting computational research in psycholinguistics, applying machine learning and data analysis to understand language processing.',
+                achievements: [
+                    'Processed 15,000+ hours of audio data improving transcription accuracy by 75% using Python scripts',
+                    'Applied OpenAI Whisper for advanced speech recognition in psycholinguistic studies',
+                    'Conducted quantitative data analysis using Python and Praat software for computational methods',
+                    'Collaborated on eye-tracking research with participants, contributing to visual processing findings',
+                    'Established correlations between visual processing and speech research outcomes',
+                    'Demonstrated proficiency in computational methods for psycholinguistic studies'
+                ],
+                techStack: ['Python', 'OpenAI Whisper', 'Praat', 'Data Analysis', 'Research Methods', 'Statistical Analysis']
+            },
+            'starspark-previous': {
+                title: 'StarSpark AI - ML & Product Intern',
+                meta: 'May 2024 - Aug 2024 • AI Education Platform',
+                description: 'Developed machine learning models and product features for AI-powered educational platform, focusing on mathematical problem generation.',
+                achievements: [
+                    'Built question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples',
+                    'Designed Django ORM data model supporting 100,000+ mathematical tasks with sub-200ms response times',
+                    'Enhanced data preparation pipeline processing 25,000+ samples daily, reducing labeling time by 70%',
+                    'Developed backend features including parent dashboard and automated problem generation',
+                    'Conducted customer interviews and analyzed feedback to inform product strategy',
+                    'Contributed to data labeling, cleaning, and augmentation for machine learning model training',
+                    'Ensured alignment with user needs and drove increased product adoption through feedback analysis'
+                ],
+                techStack: ['GPT-4.0', 'Django ORM', 'Python', 'ML Pipeline', 'Data Labeling', 'Customer Research']
+            },
+            'usc': {
+                title: 'USC ACT Lab - Multi-Robot Research Intern',
+                meta: 'May 2020 - Oct 2021 • USC Viterbi Engineering',
+                description: 'Conducted advanced robotics research in multi-agent systems, developing autonomous navigation and pathfinding algorithms.',
+                achievements: [
+                    'Worked on solving multi-robot pathfinding (MAPF) with drones using PyTorch and reinforcement learning',
+                    'Implemented collision avoidance algorithms with PyTorch for safe autonomous navigation',
+                    'Developed localization, path-planning, visual odometry, and SLAM systems',
+                    'Applied A* and depth-first search algorithms for optimized autonomous navigation',
+                    'Prototyped autonomous snow-blowing robot with advanced navigation capabilities',
+                    'Analyzed user requirements for autonomous navigation in real-world applications',
+                    'Published research contributions in multi-robot systems and autonomous vehicle coordination'
+                ],
+                techStack: ['PyTorch', 'OpenCV', 'SLAM', 'Reinforcement Learning', 'MATLAB', 'Robotics', 'Computer Vision']
+            },
+            'noteparrot': {
+                title: 'NoteParrot.com - AI Study Platform',
+                meta: 'Founder & Lead Engineer · Jun 2024 - Present',
+                description: 'AI-powered study platform that revolutionizes how students learn and study. Built from the ground up with advanced AI integration and user-centered design.',
+                achievements: [
+                    'Scaled from 0 to 500+ users worldwide through strategic customer development and go-to-market execution',
+                    'Integrated GPT-4.0 and Gemini 1.5 Flash APIs to reduce response hallucinations by 65%',
+                    'Implemented contextually grounded question generation system for personalized learning paths',
+                    'Led full product lifecycle from market research and competitive analysis to MVP launch',
+                    'Conducted extensive user interviews and feedback sessions to drive product-market fit',
+                    'Built scalable backend architecture supporting concurrent user sessions',
+                    'Implemented advanced AI algorithms for adaptive learning and content recommendation'
+                ],
+                techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript']
+            },
+            'roadmap': {
+                title: 'Roadmap - Car Customization Platform',
+                meta: 'Full-Stack Developer · June 2025',
+                description: 'Comprehensive automotive platform enabling users to design, share, and build their dream vehicles with AI-powered recommendations and community features.',
+                achievements: [
+                    'Built AI-powered car matchmaker quiz with machine learning recommendation engine',
+                    'Implemented geolocation-based mod shop directory with real-time search capabilities',
+                    'Developed visual car modification tools with 3D preview functionality',
+                    'Architected Row Level Security (RLS) system for user data protection',
+                    'Created responsive design optimized for both desktop and mobile experiences',
+                    'Integrated third-party APIs for car specifications and pricing data',
+                    'Implemented user authentication and profile management system'
+                ],
+                techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js']
+            },
+            'portfolio': {
+                title: 'Portfolio Website - Interactive Portfolio',
+                meta: 'Full-Stack Development · Live Site',
+                description: 'Modern, responsive portfolio website showcasing technical skills and projects with interactive animations and GitHub-inspired design.',
+                achievements: [
+                    'Designed and developed responsive portfolio website with mobile-first approach',
+                    'Implemented interactive background effects with floating particle animations',
+                    'Created smooth scrolling navigation with intersection observer animations',
+                    'Built modal popup system for detailed project and experience information',
+                    'Optimized for performance with vanilla JavaScript and efficient CSS',
+                    'Deployed via GitHub Pages with automated CI/CD pipeline',
+                    'Achieved 100% accessibility score and mobile responsiveness'
+                ],
+                techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Performance Optimization']
+            },
+            'substack': {
+                title: 'Tech in Progress - Weekly Newsletter',
+                meta: 'Content Creation · Tech Journey Documentation',
+                description: 'Weekly Substack newsletter chronicling my tech journey, sharing insights from product development, engineering challenges, and entrepreneurial experiences.',
+                achievements: [
+                    'Document weekly progress and learnings from building tech products',
+                    'Share practical insights on product development, coding challenges, and startup experiences',
+                    'Create valuable content for the tech community focusing on real-world applications',
+                    'Build consistent writing discipline while documenting the intersection of technology and entrepreneurship',
+                    'Provide transparent look into the journey of building and scaling technical products',
+                    'Connect with fellow entrepreneurs and developers through authentic storytelling'
+                ],
+                techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Weekly Updates', 'Community Building', 'Storytelling']
+            },
+            'carecart': {
+                title: 'CareCart - Personalized Health-Focused Grocery Platform',
+                meta: 'Full-Stack Developer · Health-Tech Platform',
+                description: 'Comprehensive full-stack web application empowering users with health conditions to make informed grocery choices through personalized product recommendations and intelligent shopping lists.',
+                achievements: [
+                    'Analyzed over 200,000 products from 12 major retailers with health-specific ratings for 30+ medical conditions',
+                    'Built intelligent health analysis algorithms for diabetes, heart disease, celiac disease, and PCOS',
+                    'Developed Python-powered web scraping pipeline processing nutritional data at scale',
+                    'Implemented advanced React patterns with Server and Client Components using Next.js 14 App Router',
+                    'Architected real-time database operations with Supabase and Row Level Security (RLS)',
+                    'Created sophisticated design system using Tailwind CSS with custom health-focused color palette',
+                    'Deployed production-ready application with proper error handling, loading states, and accessibility',
+                    'Integrated cloud storage for optimized image processing and real-time data synchronization'
+                ],
+                techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Vercel']
+            }
+        };
+
+        // Modal functionality
+        const modal = document.getElementById('experienceModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMeta = document.getElementById('modalMeta');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalAchievements = document.getElementById('modalAchievements');
+        const modalTechStack = document.getElementById('modalTechStack');
+        const closeBtn = document.querySelector('.close');
+
+        // Open modal when clicking on experience cards
+        document.querySelectorAll('[data-experience]').forEach(card => {
+            card.addEventListener('click', function() {
+                const experienceKey = this.getAttribute('data-experience');
+                const data = experienceData[experienceKey];
+                
+                if (data) {
+                    modalTitle.innerHTML = `<i class="fas fa-briefcase"></i> ${data.title}`;
+                    modalMeta.textContent = data.meta;
+                    modalDescription.textContent = data.description;
+                    
+                    // Clear and populate achievements
+                    modalAchievements.innerHTML = '';
+                    data.achievements.forEach(achievement => {
+                        const li = document.createElement('li');
+                        li.textContent = achievement;
+                        modalAchievements.appendChild(li);
+                    });
+                    
+                    // Clear and populate tech stack
+                    modalTechStack.innerHTML = '';
+                    data.techStack.forEach(tech => {
+                        const span = document.createElement('span');
+                        span.className = 'modal-tech-tag';
+                        span.textContent = tech;
+                        modalTechStack.appendChild(span);
+                    });
+                    
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.8s ease-out ${index * 0.1}s, transform 0.8s ease-out ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Enhanced hover effects for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                if (this.hasAttribute('data-experience')) {
+                    this.style.boxShadow = '0 8px 25px rgba(88, 166, 255, 0.15)';
+                } else {
+                    this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Add typing effect to bio
+        const bioText = "Building AI-powered products that enhance learning experiences. Passionate about bridging technical innovation with user-centered design. Currently developing NoteParrot and exploring the intersection of cognitive science and technology.";
+        const bioElement = document.querySelector('.bio');
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < bioText.length) {
+                bioElement.textContent = bioText.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, 20);
+            }
+        }
+        
+        // Start typing effect after page load
+        setTimeout(() => {
+            bioElement.textContent = '';
+            typeWriter();
+        }, 1000);
+
+        // Add floating particles effect
+        function createFloatingParticles() {
+            const particleCount = 50;
+            const particles = [];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '2px';
+                particle.style.height = '2px';
+                particle.style.backgroundColor = '#58a6ff';
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '1';
+                particle.style.opacity = '0.6';
+                particle.style.boxShadow = '0 0 6px rgba(88, 166, 255, 0.4)';
+                
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const speedX = (Math.random() - 0.5) * 2;
+                const speedY = (Math.random() - 0.5) * 2;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                document.body.appendChild(particle);
+                
+                particles.push({
+                    element: particle,
+                    x: x,
+                    y: y,
+                    speedX: speedX,
+                    speedY: speedY
+                });
+            }
+            
+            function animateParticles() {
+                particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if (particle.x < 0 || particle.x > window.innerWidth) {
+                        particle.speedX *= -1;
+                    }
+                    if (particle.y < 0 || particle.y > window.innerHeight) {
+                        particle.speedY *= -1;
+                    }
+                    
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+            
+            animateParticles();
+        }
+        
+        // Initialize particles after page load
+        setTimeout(createFloatingParticles, 2000);
+
+
+        // Animate skill tags with staggered entrance
+        function animateSkillTags() {
+            const skillTags = document.querySelectorAll('.skill-tag');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const categoryIndex = Array.from(entry.target.closest('.skills-section').children).indexOf(entry.target.closest('.skill-category'));
+                        const tagIndex = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                        
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                        }, categoryIndex * 100 + tagIndex * 50);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            skillTags.forEach(tag => {
+                tag.style.opacity = '0';
+                tag.style.transform = 'translateY(10px) scale(0.9)';
+                tag.style.transition = 'all 0.4s ease-out';
+                observer.observe(tag);
+            });
+        }
+
+        // Enhanced card interactions
+        function enhanceCardInteractions() {
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(88, 166, 255, 0.1)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = '50%';
+                    ripple.style.top = '50%';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.marginLeft = '-10px';
+                    ripple.style.marginTop = '-10px';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        }
+
+        // Add ripple keyframes
+        const rippleKeyframes = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = rippleKeyframes;
+        document.head.appendChild(style);
+
+        // Parallax scroll effect for background
+        function addParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.header');
+                const speed = scrolled * 0.5;
+                
+                if (parallax) {
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    // Change icon based on state
+                    const icon = this.querySelector('i');
+                    if (navLinks.classList.contains('active')) {
+                        icon.className = 'fas fa-times';
+                    } else {
+                        icon.className = 'fas fa-bars';
+                    }
+                });
+
+                // Close mobile menu when clicking on a nav link
+                navLinks.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenuToggle.querySelector('i');
+                        icon.className = 'fas fa-bars';
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileMenuToggle.querySelector('i');
+                        icon.className = 'fas fa-bars';
+                    }
+                });
+            }
+        }
+
+        // Scroll to top on page load
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize all interactive features
+        setTimeout(() => {
+            animateSkillTags();
+            enhanceCardInteractions();
+            addParallaxEffect();
+            initMobileMenu();
+            scrollToTop();
+        }, 500);
+    </script>
+</body>
+</html>

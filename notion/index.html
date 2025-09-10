@@ -221,9 +221,11 @@
         }
         
         .notion-page {
-            max-width: var(--notion-max-width);
+            max-width: none;
+            width: calc(100% - var(--content-left-margin) - 100px);
             margin-left: var(--content-left-margin);
-            padding: calc(var(--spacing-base) * 4) calc(var(--spacing-base) * 2);
+            margin-right: 100px;
+            padding: calc(var(--spacing-base) * 4) 0;
         }
 
         .notion-block {
@@ -418,69 +420,155 @@
             background-color: #0a5a8a !important;
         }
         
-        /* Kanban Board Styles */
-        .skills-kanban {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* Skills Database Styles */
+        .skills-databases {
             margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+            width: 100%;
         }
         
-        .kanban-column {
-            background-color: #f7f6f3;
-            border-radius: 8px;
-            padding: 16px;
-            border: 1px solid rgba(55, 53, 47, 0.09);
+        .notion-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            width: 100%;
         }
         
-        .kanban-header {
+        .notion-filter {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-        }
-        
-        .kanban-header-icon {
-            font-size: 16px;
-        }
-        
-        .kanban-header-title {
+            gap: 6px;
+            background-color: var(--color-bg-default);
+            border: 1px solid rgba(55, 53, 47, 0.16);
+            border-radius: 6px;
+            padding: 6px 10px;
             font-size: 14px;
+            color: var(--color-text-default);
+            cursor: pointer;
+            transition: all 0.1s ease;
+            white-space: nowrap;
+        }
+        
+        .notion-filter:hover {
+            background-color: rgba(55, 53, 47, 0.05);
+        }
+        
+        .notion-filter.active {
+            background-color: #2383e2;
+            color: white;
+            border-color: #2383e2;
+        }
+        
+        .filter-icon {
+            font-size: 12px;
+        }
+        
+        .skill-category-table {
+            background-color: var(--color-bg-default);
+            border-radius: 8px;
+            border: 1px solid rgba(55, 53, 47, 0.09);
+            overflow: hidden;
+            width: 100%;
+            min-width: 0;
+        }
+        
+        .category-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .category-title {
+            font-size: 16px;
             font-weight: 600;
             color: var(--color-text-default);
+            flex: 1;
+            min-width: 0;
         }
         
-        .kanban-header-count {
+        .category-count {
             font-size: 12px;
             color: var(--color-text-gray);
             background-color: rgba(55, 53, 47, 0.08);
-            padding: 2px 6px;
+            padding: 4px 8px;
             border-radius: 12px;
-            margin-left: auto;
+            flex-shrink: 0;
         }
         
-        .kanban-skills {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        /* Category color coding */
+        .category-programming { border-left: 4px solid var(--color-text-blue); }
+        .category-frameworks { border-left: 4px solid var(--color-text-green); }
+        .category-ai { border-left: 4px solid var(--color-text-purple); }
+        .category-cloud { border-left: 4px solid var(--color-text-orange); }
+        .category-design { border-left: 4px solid var(--color-text-pink); }
+        
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
         }
         
-        .kanban-skill-card {
-            background-color: var(--color-bg-default);
-            border: 1px solid rgba(55, 53, 47, 0.09);
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 13px;
+        .skills-table-row {
+            transition: background-color 0.1s ease;
+        }
+        
+        .skills-table-row:hover {
+            background-color: rgba(55, 53, 47, 0.03);
+        }
+        
+        .skills-table-row td {
+            padding: 12px 20px;
+            font-size: 14px;
             color: var(--color-text-default);
-            transition: all 0.2s ease;
-            cursor: default;
+            border-bottom: 1px solid rgba(55, 53, 47, 0.06);
+            word-wrap: break-word;
         }
         
-        .kanban-skill-card:hover {
-            border-color: rgba(55, 53, 47, 0.16);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        .skills-table-row:last-child td {
+            border-bottom: none;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            width: 65%;
+        }
+        
+        .skill-level {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        
+        .level-beginner {
+            background-color: var(--color-bg-red);
+            color: var(--color-text-red);
+        }
+        
+        .level-intermediate {
+            background-color: var(--color-bg-orange);
+            color: var(--color-text-orange);
+        }
+        
+        .level-advanced {
+            background-color: var(--color-bg-green);
+            color: var(--color-text-green);
+        }
+        
+        .skill-category-table.hidden {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -496,6 +584,8 @@
             
             .notion-page {
                 margin-left: 0;
+                margin-right: 0;
+                width: 100%;
                 padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 2);
             }
             
@@ -530,6 +620,40 @@
                 color: var(--color-text-gray);
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
+            
+            /* Skills responsive styles */
+            .skills-databases {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .notion-filters {
+                gap: 6px;
+                margin-bottom: 16px;
+            }
+            
+            .notion-filter {
+                font-size: 13px;
+                padding: 5px 8px;
+            }
+            
+            .category-header {
+                padding: 12px 16px;
+            }
+            
+            .category-title {
+                font-size: 15px;
+            }
+            
+            .skills-table-row td {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .skill-level {
+                font-size: 11px;
+                padding: 3px 8px;
+            }
         }
         
         .mobile-menu-toggle {
@@ -546,6 +670,12 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 99;
+        }
+        
+        @media (max-width: 1200px) {
+            .skills-databases {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
         }
         
         @media (max-width: 768px) {
@@ -578,10 +708,10 @@
     </nav>
     
     <!-- Banner -->
-    <div class="notion-banner"></div>
+    <div class="notion-banner" id="intro"></div>
     
     <main class="notion-page">
-        <div class="page-header" id="intro">
+        <div class="page-header">
             <img src="../notionfavicon.png" alt="Vrinda Bansal">
             <h1 class="page-title">Vrinda Bansal</h1>
         </div>
@@ -727,86 +857,95 @@
         <section id="skills">
             <h2 class="notion-block notion-h2">Skills</h2>
             
-            <div class="skills-kanban">
-                <div class="kanban-column">
-                    <div class="kanban-header">
-                        <span class="kanban-header-icon">💻</span>
-                        <span class="kanban-header-title">Programming Languages</span>
-                        <span class="kanban-header-count">6</span>
+            <div class="notion-filters">
+                <div class="notion-filter active" data-level="all">
+                    <span class="filter-icon">🎯</span>
+                    <span>All Levels</span>
+                </div>
+                <div class="notion-filter" data-level="Advanced">
+                    <span class="filter-icon">🔥</span>
+                    <span>Advanced</span>
+                </div>
+                <div class="notion-filter" data-level="Intermediate">
+                    <span class="filter-icon">⚡</span>
+                    <span>Intermediate</span>
+                </div>
+                <div class="notion-filter" data-level="Beginner">
+                    <span class="filter-icon">🌱</span>
+                    <span>Beginner</span>
+                </div>
+            </div>
+            
+            <div class="skills-databases">
+                <!-- Programming Languages -->
+                <div class="skill-category-table category-programming" data-category="Programming Languages">
+                    <div class="category-header">
+                        <span class="category-icon">💻</span>
+                        <span class="category-title">Programming Languages</span>
+                        <span class="category-count">6 skills</span>
                     </div>
-                    <div class="kanban-skills">
-                        <div class="kanban-skill-card">Python</div>
-                        <div class="kanban-skill-card">JavaScript</div>
-                        <div class="kanban-skill-card">TypeScript</div>
-                        <div class="kanban-skill-card">C++</div>
-                        <div class="kanban-skill-card">HTML/CSS</div>
-                        <div class="kanban-skill-card">MATLAB</div>
-                    </div>
+                    <table class="skills-table">
+                        <tbody id="programmingSkills">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
                 
-                <div class="kanban-column">
-                    <div class="kanban-header">
-                        <span class="kanban-header-icon">🛠️</span>
-                        <span class="kanban-header-title">Frameworks & Libraries</span>
-                        <span class="kanban-header-count">6</span>
+                <!-- Frameworks & Libraries -->
+                <div class="skill-category-table category-frameworks" data-category="Frameworks & Libraries">
+                    <div class="category-header">
+                        <span class="category-icon">🛠️</span>
+                        <span class="category-title">Frameworks & Libraries</span>
+                        <span class="category-count">6 skills</span>
                     </div>
-                    <div class="kanban-skills">
-                        <div class="kanban-skill-card">Django</div>
-                        <div class="kanban-skill-card">React</div>
-                        <div class="kanban-skill-card">Node.js</div>
-                        <div class="kanban-skill-card">Next.js</div>
-                        <div class="kanban-skill-card">PyTorch</div>
-                        <div class="kanban-skill-card">TensorFlow</div>
-                    </div>
+                    <table class="skills-table">
+                        <tbody id="frameworksSkills">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
                 
-                <div class="kanban-column">
-                    <div class="kanban-header">
-                        <span class="kanban-header-icon">🤖</span>
-                        <span class="kanban-header-title">AI & Machine Learning</span>
-                        <span class="kanban-header-count">6</span>
+                <!-- AI & Machine Learning -->
+                <div class="skill-category-table category-ai" data-category="AI & Machine Learning">
+                    <div class="category-header">
+                        <span class="category-icon">🤖</span>
+                        <span class="category-title">AI & Machine Learning</span>
+                        <span class="category-count">6 skills</span>
                     </div>
-                    <div class="kanban-skills">
-                        <div class="kanban-skill-card">GPT-4.0</div>
-                        <div class="kanban-skill-card">OpenAI APIs</div>
-                        <div class="kanban-skill-card">Gemini APIs</div>
-                        <div class="kanban-skill-card">Reinforcement Learning</div>
-                        <div class="kanban-skill-card">Agentic Frameworks</div>
-                        <div class="kanban-skill-card">NLP</div>
-                    </div>
+                    <table class="skills-table">
+                        <tbody id="aiSkills">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
                 
-                <div class="kanban-column">
-                    <div class="kanban-header">
-                        <span class="kanban-header-icon">☁️</span>
-                        <span class="kanban-header-title">Cloud & Databases</span>
-                        <span class="kanban-header-count">7</span>
+                <!-- Cloud & Databases -->
+                <div class="skill-category-table category-cloud" data-category="Cloud & Databases">
+                    <div class="category-header">
+                        <span class="category-icon">☁️</span>
+                        <span class="category-title">Cloud & Databases</span>
+                        <span class="category-count">7 skills</span>
                     </div>
-                    <div class="kanban-skills">
-                        <div class="kanban-skill-card">GCP</div>
-                        <div class="kanban-skill-card">AWS</div>
-                        <div class="kanban-skill-card">Vercel</div>
-                        <div class="kanban-skill-card">Supabase</div>
-                        <div class="kanban-skill-card">Heroku</div>
-                        <div class="kanban-skill-card">PostgreSQL</div>
-                        <div class="kanban-skill-card">Redis</div>
-                    </div>
+                    <table class="skills-table">
+                        <tbody id="cloudSkills">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
                 
-                <div class="kanban-column">
-                    <div class="kanban-header">
-                        <span class="kanban-header-icon">🎨</span>
-                        <span class="kanban-header-title">Product & Design</span>
-                        <span class="kanban-header-count">6</span>
+                <!-- Product & Design -->
+                <div class="skill-category-table category-design" data-category="Product & Design">
+                    <div class="category-header">
+                        <span class="category-icon">🎨</span>
+                        <span class="category-title">Product & Design</span>
+                        <span class="category-count">6 skills</span>
                     </div>
-                    <div class="kanban-skills">
-                        <div class="kanban-skill-card">User Research</div>
-                        <div class="kanban-skill-card">Agile/Scrum</div>
-                        <div class="kanban-skill-card">A/B Testing</div>
-                        <div class="kanban-skill-card">Figma</div>
-                        <div class="kanban-skill-card">Product Strategy</div>
-                        <div class="kanban-skill-card">UI/UX Design</div>
-                    </div>
+                    <table class="skills-table">
+                        <tbody id="designSkills">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
         </section>
@@ -880,7 +1019,7 @@
             });
             
             // Update active link on scroll
-            const sections = document.querySelectorAll('section, header');
+            const sections = document.querySelectorAll('section, header, .notion-banner');
             const observerOptions = {
                 rootMargin: '-20% 0px -70% 0px',
                 threshold: 0
@@ -906,6 +1045,126 @@
                 if (section.getAttribute('id')) {
                     observer.observe(section);
                 }
+            });
+            
+            // Skills Database
+            const skillsData = {
+                'Programming Languages': [
+                    { name: 'Python', level: 'Advanced' },
+                    { name: 'JavaScript', level: 'Beginner' },
+                    { name: 'TypeScript', level: 'Intermediate' },
+                    { name: 'C++', level: 'Beginner' },
+                    { name: 'HTML/CSS', level: 'Advanced' },
+                    { name: 'MATLAB', level: 'Beginner' }
+                ],
+                'Frameworks & Libraries': [
+                    { name: 'Django', level: 'Advanced' },
+                    { name: 'React', level: 'Intermediate' },
+                    { name: 'Node.js', level: 'Intermediate' },
+                    { name: 'Next.js', level: 'Intermediate' },
+                    { name: 'PyTorch', level: 'Intermediate' },
+                    { name: 'TensorFlow', level: 'Intermediate' }
+                ],
+                'AI & Machine Learning': [
+                    { name: 'GPT-4.0', level: 'Advanced' },
+                    { name: 'OpenAI APIs', level: 'Advanced' },
+                    { name: 'Gemini APIs', level: 'Intermediate' },
+                    { name: 'Reinforcement Learning', level: 'Intermediate' },
+                    { name: 'Agentic Frameworks', level: 'Intermediate' },
+                    { name: 'NLP', level: 'Intermediate' }
+                ],
+                'Cloud & Databases': [
+                    { name: 'GCP', level: 'Advanced' },
+                    { name: 'AWS', level: 'Beginner' },
+                    { name: 'Vercel', level: 'Advanced' },
+                    { name: 'Supabase', level: 'Advanced' },
+                    { name: 'Heroku', level: 'Intermediate' },
+                    { name: 'PostgreSQL', level: 'Advanced' },
+                    { name: 'Redis', level: 'Beginner' }
+                ],
+                'Product & Design': [
+                    { name: 'User Research', level: 'Advanced' },
+                    { name: 'Agile/Scrum', level: 'Intermediate' },
+                    { name: 'A/B Testing', level: 'Advanced' },
+                    { name: 'Figma', level: 'Intermediate' },
+                    { name: 'Product Strategy', level: 'Advanced' },
+                    { name: 'UI/UX Design', level: 'Intermediate' }
+                ]
+            };
+            
+            const tableIds = {
+                'Programming Languages': 'programmingSkills',
+                'Frameworks & Libraries': 'frameworksSkills',
+                'AI & Machine Learning': 'aiSkills',
+                'Cloud & Databases': 'cloudSkills',
+                'Product & Design': 'designSkills'
+            };
+            
+            function renderCategoryTable(category, skills, tableId) {
+                const tableBody = document.getElementById(tableId);
+                tableBody.innerHTML = '';
+                
+                skills.forEach(skill => {
+                    const row = document.createElement('tr');
+                    row.className = 'skills-table-row';
+                    row.dataset.level = skill.level;
+                    
+                    const levelClass = skill.level.toLowerCase().replace(' ', '-');
+                    
+                    row.innerHTML = `
+                        <td class="skill-name">${skill.name}</td>
+                        <td><span class="skill-level level-${levelClass}">${skill.level}</span></td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            }
+            
+            function filterByLevel(selectedLevel) {
+                const categoryTables = document.querySelectorAll('.skill-category-table');
+                
+                categoryTables.forEach(table => {
+                    const rows = table.querySelectorAll('.skills-table-row');
+                    let visibleCount = 0;
+                    
+                    rows.forEach(row => {
+                        const rowLevel = row.dataset.level;
+                        if (selectedLevel === 'all' || rowLevel === selectedLevel) {
+                            row.style.display = '';
+                            visibleCount++;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide entire table if no skills match filter
+                    if (selectedLevel !== 'all' && visibleCount === 0) {
+                        table.style.display = 'none';
+                    } else {
+                        table.style.display = 'block';
+                    }
+                });
+            }
+            
+            // Initial render
+            Object.entries(skillsData).forEach(([category, skills]) => {
+                const tableId = tableIds[category];
+                renderCategoryTable(category, skills, tableId);
+            });
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.notion-filter');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const selectedLevel = button.dataset.level;
+                    filterByLevel(selectedLevel);
+                });
             });
             // Data for Modals
             const modalData = {
