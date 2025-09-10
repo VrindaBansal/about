@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrinda Bansal - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Layout Variables */
+            --sidebar-width: 240px;
+            --banner-height: 200px;
+            --content-left-margin: calc(var(--sidebar-width) + 60px);
+            /* Notion Color Palette (Light Mode) */
+            --color-text-default: #37352F;
+            --color-bg-default: #FFFFFF;
+            --color-border: rgba(55, 53, 47, 0.09);
+            --color-selection: rgba(206, 205, 202, 0.5);
+
+            --color-text-gray: #9B9A97;
+            --color-bg-gray: #EBECED;
+            --color-text-brown: #64473A;
+            --color-bg-brown: #E9E5E3;
+            --color-text-orange: #D9730D;
+            --color-bg-orange: #FAEBDD;
+            --color-text-yellow: #DFAB01;
+            --color-bg-yellow: #FBF3DB;
+            --color-text-green: #0F7B6C;
+            --color-bg-green: #DDEDEA;
+            --color-text-blue: #0B6E99;
+            --color-bg-blue: #DDEBF1;
+            --color-text-purple: #6940A5;
+            --color-bg-purple: #EAE4F2;
+            --color-text-pink: #AD1A72;
+            --color-bg-pink: #F4DFEB;
+            --color-text-red: #E03E3E;
+            --color-bg-red: #FBE4E4;
+
+            /* Typography & Layout */
+            --notion-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            --notion-max-width: 720px;
+            --spacing-base: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--notion-font-family);
+            background-color: var(--color-bg-default);
+            color: var(--color-text-default);
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        ::selection {
+            background: var(--color-selection);
+        }
+
+        /* Page Header */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 40px 0 16px 0;
+            margin-bottom: 24px;
+        }
+        
+        .page-header img {
+            width: 78px;
+            height: 78px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .page-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--color-text-default);
+            line-height: 1.2;
+            margin: 0;
+        }
+        
+        /* Banner Styles */
+        .notion-banner {
+            width: 100%;
+            height: var(--banner-height);
+            background-image: url('../notionbannercode.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            margin-bottom: 0;
+        }
+        
+        .notion-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Sidebar Styles */
+        .notion-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: #f7f6f3;
+            border-right: 1px solid rgba(55, 53, 47, 0.09);
+            z-index: 100;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Sidebar Header */
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+            background-color: #f7f6f3;
+        }
+        
+        .sidebar-header img {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+        }
+        
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-default);
+        }
+        
+        .sidebar-content {
+            flex: 1;
+            padding: 8px 0;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+        
+        .sidebar-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9b9a97;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0 16px;
+            margin-bottom: 4px;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0 8px;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 1px;
+        }
+        
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 8px;
+            color: #37352f;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.1s ease;
+            min-height: 27px;
+        }
+        
+        .sidebar-nav a:hover {
+            background-color: rgba(55, 53, 47, 0.08);
+        }
+        
+        .sidebar-nav a.active {
+            background-color: #2383e2;
+            color: white;
+        }
+        
+        .sidebar-nav a.active:hover {
+            background-color: #1a73d1;
+        }
+        
+        .sidebar-nav i {
+            width: 16px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .sidebar-nav .emoji {
+            font-size: 16px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .notion-page {
+            max-width: var(--notion-max-width);
+            margin-left: var(--content-left-margin);
+            padding: calc(var(--spacing-base) * 4) calc(var(--spacing-base) * 2);
+        }
+
+        .notion-block {
+            margin: 1px 0;
+            padding: 3px 2px;
+        }
+
+        .notion-header {
+            margin-bottom: calc(var(--spacing-base) * 2);
+        }
+        
+        .notion-header .notion-icon {
+            display: none;
+        }
+        
+        .notion-header .notion-h1 {
+            display: none;
+        }
+        
+        .notion-icon {
+            font-size: 78px;
+            margin-bottom: calc(var(--spacing-base) * 2);
+            user-select: none;
+        }
+
+        .notion-h1 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: calc(var(--spacing-base) * 0.5);
+            letter-spacing: -0.02em;
+        }
+
+        .notion-h2 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: calc(var(--spacing-base) * 3);
+            margin-bottom: calc(var(--spacing-base) * 1);
+            padding-bottom: calc(var(--spacing-base) * 0.5);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .notion-h3 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: calc(var(--spacing-base) * 1.5);
+            margin-bottom: calc(var(--spacing-base) * 0.5);
+        }
+
+        .notion-paragraph {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text-default);
+        }
+        
+        .notion-paragraph a {
+            color: var(--color-text-default);
+            border-bottom: 1px solid rgba(55, 53, 47, 0.4);
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+        
+        .notion-paragraph a:hover {
+            background-color: var(--color-selection);
+        }
+
+        .notion-properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-base);
+            padding: var(--spacing-base) 0;
+            margin-top: calc(var(--spacing-base) * 2);
+            margin-bottom: calc(var(--spacing-base) * 2);
+        }
+
+        .notion-link-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .notion-link-block a {
+            color: var(--color-text-default);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .notion-link-block a:hover {
+            text-decoration: underline;
+        }
+
+        .notion-link-block i {
+            width: 20px;
+            text-align: center;
+            color: var(--color-text-gray);
+        }
+
+        .notion-callout {
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            margin: calc(var(--spacing-base) * 2) 0;
+            transition: background-color 0.2s ease;
+            background-color: rgba(55, 53, 47, 0.04);
+            cursor: pointer;
+        }
+        
+        .notion-callout:hover {
+            background-color: rgba(55, 53, 47, 0.08);
+        }
+
+        .callout-icon { font-size: 18px; line-height: 1.4; user-select: none; }
+        .callout-content .title { font-weight: 600; color: var(--color-text-default); margin-bottom: 2px; }
+        .callout-content .title a:hover { background-color: var(--color-selection); }
+        .callout-content .meta { font-size: 14px; color: var(--color-text-gray); margin-bottom: 8px; }
+        .callout-content .description { font-size: 15px; line-height: 1.6; }
+        .callout-content .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .notion-pill { display: inline-flex; align-items: center; border-radius: 3px; padding: 4px 8px; font-size: 14px; font-weight: 500; line-height: 1; }
+        .pill-gray { background-color: var(--color-bg-gray); color: var(--color-text-default); }
+        .pill-brown { background-color: var(--color-bg-brown); color: var(--color-text-default); }
+        .pill-orange { background-color: var(--color-bg-orange); color: var(--color-text-default); }
+        .pill-yellow { background-color: var(--color-bg-yellow); color: var(--color-text-default); }
+        .pill-green { background-color: var(--color-bg-green); color: var(--color-text-default); }
+        .pill-blue { background-color: var(--color-bg-blue); color: var(--color-text-default); }
+        .pill-purple { background-color: var(--color-bg-purple); color: var(--color-text-default); }
+        .pill-pink { background-color: var(--color-bg-pink); color: var(--color-text-default); }
+        .pill-red { background-color: var(--color-bg-red); color: var(--color-text-default); }
+
+        .notion-toggle { margin-bottom: 4px; }
+        .toggle-header { display: flex; align-items: center; cursor: pointer; padding: 4px; border-radius: 3px; }
+        .toggle-header:hover { background-color: rgba(55, 53, 47, 0.08); }
+        .toggle-arrow { font-size: 14px; width: 20px; text-align: center; transition: transform 0.2s ease; user-select: none; }
+        .toggle-header.open .toggle-arrow { transform: rotate(90deg); }
+        .toggle-title { font-weight: 600; margin-left: 4px; }
+        .toggle-content { display: none; padding-left: 24px; border-left: 2px solid var(--color-border); margin-left: 9px; margin-top: 4px; }
+        .toggle-content .notion-paragraph { padding: 8px 0; }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(21, 21, 21, 0.5);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background-color: var(--color-bg-default);
+            border-radius: 8px;
+            width: 90%;
+            max-width: var(--notion-max-width);
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalFadeIn 0.3s ease-out;
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--color-border);
+        }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; border-bottom: 1px solid var(--color-border); flex-shrink: 0;}
+        .modal-title { font-size: 20px; font-weight: 700; color: var(--color-text-default); }
+        .close { color: var(--color-text-gray); font-size: 24px; cursor: pointer; transition: color 0.2s; background: none; border: none; }
+        .close:hover { color: var(--color-text-default); }
+        
+        .modal-body { padding: 24px; overflow-y: auto; }
+        .modal-meta { font-size: 14px; font-weight: 500; color: var(--color-text-gray); margin-bottom: 16px; }
+        .modal-description { font-size: 16px; color: var(--color-text-default); line-height: 1.7; margin-bottom: 24px; }
+        
+        .achievements-list { list-style: none; padding: 0; margin: 0 0 24px 0; display: flex; flex-direction: column; gap: 12px; }
+        .achievements-list li { position: relative; padding-left: 24px; font-size: 15px; color: var(--color-text-default); line-height: 1.6; }
+        .achievements-list li::before { content: "✓"; color: var(--color-text-green); font-weight: bold; position: absolute; left: 0; top: 1px; }
+        
+        .modal-tech-section { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+        .tech-section-title { font-size: 16px; font-weight: 600; color: var(--color-text-default); margin-bottom: 16px; }
+        .modal-tech-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+        
+        .visit-site-btn:hover {
+            background-color: #0a5a8a !important;
+        }
+
+        @media (max-width: 768px) {
+            .notion-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .notion-sidebar.open {
+                transform: translateX(0);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .notion-page {
+                margin-left: 0;
+                padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 2);
+            }
+            
+            .page-header {
+                padding: 20px 0 16px 0;
+            }
+            
+            .page-title {
+                font-size: 32px;
+            }
+            
+            .page-header img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .notion-h1 { font-size: 28px; }
+            .notion-h2 { font-size: 22px; }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 101;
+                background: var(--color-bg-default);
+                border: 1px solid var(--color-border);
+                border-radius: 6px;
+                padding: 8px 12px;
+                cursor: pointer;
+                font-size: 16px;
+                color: var(--color-text-gray);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+        }
+        
+        /* Close mobile sidebar when clicking outside */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-toggle">☰</button>
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="notion-sidebar">
+        <div class="sidebar-header">
+            <img src="../notionfavicon.png" alt="Logo">
+            <span class="sidebar-title">Vrinda's Notion</span>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <ul class="sidebar-nav">
+                    <li><a href="#intro" class="active"><span class="emoji">👋</span>About</a></li>
+                    <li><a href="#experience"><span class="emoji">💼</span>Experience</a></li>
+                    <li><a href="#projects"><span class="emoji">🚀</span>Projects</a></li>
+                    <li><a href="#skills"><span class="emoji">💻</span>Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Banner -->
+    <div class="notion-banner"></div>
+    
+    <main class="notion-page">
+        <div class="page-header" id="intro">
+            <img src="../notionfavicon.png" alt="Vrinda Bansal">
+            <h1 class="page-title">Vrinda Bansal</h1>
+        </div>
+        
+        <header class="notion-header">
+            <div class="notion-block notion-icon">👋</div>
+            <h1 class="notion-block notion-h1">Vrinda Bansal</h1>
+            <p class="notion-block notion-paragraph">
+                I build <strong>AI-powered products</strong> that enhance learning experiences. I'm passionate about bridging technical innovation with user-centered design, currently developing <a href="https://noteparrot.com" target="_blank">NoteParrot</a> and exploring the intersection of cognitive science and technology.
+            </p>
+        </header>
+
+        <div class="notion-properties">
+            <div class="notion-link-block">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank">/in/vrinda-bansal</a>
+            </div>
+            <div class="notion-link-block">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/VrindaBansal" target="_blank">/VrindaBansal</a>
+            </div>
+            <div class="notion-link-block">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:vrindabansal2@gmail.com">vrindabansal2@gmail.com</a>
+            </div>
+             <div class="notion-link-block">
+                <i class="fas fa-rocket"></i>
+                <a href="https://noteparrot.com/" target="_blank">NoteParrot.com</a>
+            </div>
+             <div class="notion-link-block">
+                <i class="fas fa-newspaper"></i>
+                <a href="https://techinprogress.substack.com" target="_blank">Tech in Progress</a>
+            </div>
+        </div>
+
+        <section id="experience">
+            <h2 class="notion-block notion-h2">Experience</h2>
+            
+            <div class="notion-block notion-callout" data-modal-id="dark-alpha-capital">
+                <div class="callout-icon">💼</div>
+                <div class="callout-content">
+                    <div class="title">Dark Alpha Capital</div>
+                    <div class="meta">Full Stack Intern • Aug 2025 - Dec 2025</div>
+                    <div class="description">Building web scraping infrastructure to collect 100+ investment opportunities and developing a grounding platform for investors...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="starspark-current">
+                <div class="callout-icon">🚀</div>
+                <div class="callout-content">
+                    <div class="title">StarSpark AI</div>
+                    <div class="meta">Fullstack & Product Intern • Jun 2025 - Aug 2025</div>
+                    <div class="description">Led the 'Tutor Me' product, building scalable AI applications with Google ADK serving 10,000+ daily API requests...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="pinpoint">
+                <div class="callout-icon">🎯</div>
+                <div class="callout-content">
+                    <div class="title">Pinpoint</div>
+                    <div class="meta">Technical Product Manager & Lead • Sep 2024 - Jun 2025</div>
+                    <div class="description">Led an 8-person team building a platform for 40,000+ students, driving product strategy and optimizing database queries...</div>
+                </div>
+            </div>
+            
+            <div class="notion-block notion-callout" data-modal-id="ferreira">
+                <div class="callout-icon">🧠</div>
+                <div class="callout-content">
+                    <div class="title">Ferriera Lab</div>
+                    <div class="meta">Undergraduate Researcher • Nov 2024 - Present</div>
+                    <div class="description">Processing 15,000+ hours of audio data with OpenAI Whisper, improving transcription accuracy by 75% for psycholinguistics research...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="starspark-previous">
+                <div class="callout-icon">⚙️</div>
+                <div class="callout-content">
+                    <div class="title">StarSpark AI</div>
+                    <div class="meta">ML & Product Intern • May 2024 - Aug 2024</div>
+                    <div class="description">Built a question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples and designed a Django ORM data model...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="usc">
+                <div class="callout-icon">🤖</div>
+                <div class="callout-content">
+                    <div class="title">USC ACT Lab</div>
+                    <div class="meta">Multi-Robot Research Intern • May 2020 - Oct 2021</div>
+                    <div class="description">Solved multi-robot pathfinding (MAPF) problems with drones using PyTorch, implementing collision avoidance, SLAM, and autonomous navigation...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="notion-block notion-h2">Projects</h2>
+            
+            <div class="notion-block notion-callout" data-modal-id="noteparrot">
+                <div class="callout-icon">🦜</div>
+                <div class="callout-content">
+                    <div class="title"><a href="https://noteparrot.com" target="_blank" style="color: inherit; text-decoration: none; transition: background-color 0.2s;">NoteParrot.com</a></div>
+                    <div class="meta">Founder & Lead Engineer</div>
+                    <div class="description">Scaled an AI-powered study platform from 0 to 500+ users worldwide, integrating GPT-4.0 and Gemini 1.5 to reduce response hallucinations...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="substack">
+                <div class="callout-icon">📰</div>
+                <div class="callout-content">
+                    <div class="title"><a href="https://techinprogress.substack.com" target="_blank" style="color: inherit; text-decoration: none; transition: background-color 0.2s;">Tech in Progress</a></div>
+                    <div class="meta">Content Creation & Writing</div>
+                    <div class="description">Weekly Substack newsletter documenting my tech journey and sharing "What I Built This Week" updates...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="carecart">
+                <div class="callout-icon">🛒</div>
+                <div class="callout-content">
+                    <div class="title"><a href="https://carecart.vercel.app" target="_blank" style="color: inherit; text-decoration: none; transition: background-color 0.2s;">CareCart</a></div>
+                    <div class="meta">Health-Focused Grocery Platform</div>
+                    <div class="description">Full-stack platform analyzing 200,000+ products to provide health ratings for 30+ medical conditions...</div>
+                </div>
+            </div>
+
+            <div class="notion-block notion-callout" data-modal-id="roadmap">
+                <div class="callout-icon">🚗</div>
+                <div class="callout-content">
+                    <div class="title"><a href="https://roadmap-omega-sable.vercel.app/" target="_blank" style="color: inherit; text-decoration: none; transition: background-color 0.2s;">Roadmap</a></div>
+                    <div class="meta">Car Customization Platform</div>
+                    <div class="description">A car customization platform for designing and sharing dream vehicles, featuring an AI-powered matchmaker quiz...</div>
+                </div>
+            </div>
+            
+            <div class="notion-block notion-callout" data-modal-id="portfolio">
+                <div class="callout-icon">💼</div>
+                <div class="callout-content">
+                    <div class="title"><a href="https://vrindabansal.github.io/about/" target="_blank" style="color: inherit; text-decoration: none; transition: background-color 0.2s;">Portfolio Website</a></div>
+                    <div class="meta">Full-Stack Development · Live Site</div>
+                    <div class="description">Responsive portfolio website with interactive binary background effects and smooth animations. GitHub-inspired design with full frontend/backend functionality...</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2 class="notion-block notion-h2">Skills</h2>
+            
+            <div class="notion-block notion-toggle">
+                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">💻 Programming Languages</div></div>
+                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-green">Python</span><span class="notion-pill pill-blue">JavaScript</span><span class="notion-pill pill-blue">TypeScript</span><span class="notion-pill pill-orange">C++</span><span class="notion-pill pill-yellow">HTML/CSS</span><span class="notion-pill pill-gray">MATLAB</span></p></div>
+            </div>
+            <div class="notion-block notion-toggle">
+                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🛠️ Frameworks & Libraries</div></div>
+                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-green">Django</span><span class="notion-pill pill-blue">React</span><span class="notion-pill pill-green">Node.js</span><span class="notion-pill pill-gray">Next.js</span><span class="notion-pill pill-orange">PyTorch</span><span class="notion-pill pill-orange">TensorFlow</span></p></div>
+            </div>
+            <div class="notion-block notion-toggle">
+                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🤖 AI & Machine Learning</div></div>
+                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-purple">GPT-4.0</span><span class="notion-pill pill-purple">OpenAI APIs</span><span class="notion-pill pill-red">Gemini APIs</span><span class="notion-pill pill-orange">Reinforcement Learning</span><span class="notion-pill pill-blue">Agentic Frameworks</span><span class="notion-pill pill-yellow">NLP</span></p></div>
+            </div>
+            <div class="notion-block notion-toggle">
+                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">☁️ Cloud & Databases</div></div>
+                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-blue">GCP</span><span class="notion-pill pill-orange">AWS</span><span class="notion-pill pill-gray">Vercel</span><span class="notion-pill pill-green">Supabase</span><span class="notion-pill pill-purple">Heroku</span><span class="notion-pill pill-blue">PostgreSQL</span><span class="notion-pill pill-red">Redis</span></p></div>
+            </div>
+            <div class="notion-block notion-toggle">
+                <div class="toggle-header"><div class="toggle-arrow">▶</div><div class="toggle-title">🎨 Product & Design</div></div>
+                <div class="toggle-content"><p class="notion-paragraph"><span class="notion-pill pill-brown">User Research</span><span class="notion-pill pill-blue">Agile/Scrum</span><span class="notion-pill pill-yellow">A/B Testing</span><span class="notion-pill pill-pink">Figma</span><span class="notion-pill pill-brown">Product Strategy</span><span class="notion-pill pill-pink">UI/UX Design</span></p></div>
+            </div>
+        </section>
+        
+        <!-- Bottom spacing -->
+        <div style="height: 80px;"></div>
+    </main>
+
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Details</h3>
+                <button class="close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta" id="modalMeta"></div>
+                <p class="modal-description" id="modalDescription"></p>
+                <ul class="achievements-list" id="modalAchievements"></ul>
+                <div class="modal-tech-section">
+                    <h4 class="tech-section-title">Technologies Used</h4>
+                    <div class="modal-tech-stack" id="modalTechStack"></div>
+                </div>
+                <div class="modal-actions" id="modalActions" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--color-border); display: none;">
+                    <button id="visitSiteBtn" class="visit-site-btn" style="background-color: var(--color-text-blue); color: white; border: none; padding: 10px 16px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.2s;">Visit Site</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar Navigation
+            const sidebar = document.querySelector('.notion-sidebar');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                sidebarOverlay.classList.toggle('active');
+            });
+            
+            // Close sidebar when clicking overlay
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('active');
+            });
+            
+            // Smooth scrolling and active link management
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Remove active class from all links
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        // Add active class to clicked link
+                        link.classList.add('active');
+                        
+                        // Smooth scroll to section
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Close mobile menu if open
+                        sidebar.classList.remove('open');
+                        sidebarOverlay.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Update active link on scroll
+            const sections = document.querySelectorAll('section, header');
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        if (id) {
+                            sidebarLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                if (section.getAttribute('id')) {
+                    observer.observe(section);
+                }
+            });
+            // Data for Modals
+            const modalData = {
+                'dark-alpha-capital': { title: 'Dark Alpha Capital LLC - Full Stack Intern', meta: 'Aug 2025 - Dec 2025 • Investment Technology', description: 'Building comprehensive web scraping infrastructure and grounding platform to revolutionize how investors discover and analyze investment opportunities.', achievements: ['Developing web scraping infrastructure to collect 100+ investment opportunities from multiple databases', 'Implementing automated screening algorithms to filter deals based on firm investment criteria (sector, deal size, financials)', 'Building grounding platform that helps investors look up accurate information with advanced search capabilities', 'Creating intelligent chatbot system for investor queries with real-time data integration', 'Architecting data validation and error handling protocols to ensure data accuracy and reliability', 'Developing ranking algorithms to score opportunities by investment fit and potential returns', 'Improving AI grounding techniques to reduce hallucinations and provide factual investment insights'], techStack: ['Python', 'Web Scraping', 'Data Validation', 'Investment Analysis', 'Chatbot Development', 'Database Integration', 'AI Grounding'], url: null },
+                'starspark-current': { title: 'StarSpark AI - Fullstack & Product Intern', meta: 'Jun 2025 - Aug 2025 • AI Education Platform', description: 'Leading end-to-end product development of AI-powered educational tools, combining technical implementation with strategic product management.', achievements: ['Designed scalable AI applications with Google ADK, reducing deployment time by 40% across 3 production environments', 'Built dynamic agentic frameworks serving 10,000+ daily API requests with high availability', 'Leading "Tutor Me" product end-to-end, using Django, Ninja APIs, ADK, GCP, React and PostgreSQL', 'Scraped 1,500+ SAT questions using advanced scraping techniques with BeautifulSoup', 'Handled dynamic content and bypassed rate limits for comprehensive educational content', 'Managed API product strategy and coordinated cross-functional teams for optimal user experience'], techStack: ['Django', 'React', 'Google ADK', 'GCP', 'PostgreSQL', 'Ninja APIs', 'BeautifulSoup', 'Python'], url: null },
+                'pinpoint': { title: 'Pinpoint - Technical Product Manager & Lead', meta: 'Sep 2024 - Jun 2025 • UC Davis Lost & Found Platform', description: 'Led cross-functional product development for UC Davis campus platform, managing both technical implementation and product strategy.', achievements: ['Led product strategy and roadmap for UC Davis Lost and Found platform serving 40,000+ students', 'Managed 8-person cross-functional team using agile methodologies and sprint planning', 'Conducted user interviews and market research to drive feature prioritization', 'Optimized database queries reducing page load times by 60% to support 500+ concurrent users', 'Drove A/B testing and performance optimization initiatives based on user behavior analytics', 'Facilitated sprint planning and coordinated between backend, frontend, and design teams', 'Implemented key features including user authentication, geolocation services, and real-time notifications'], techStack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Agile/Scrum'], url: null },
+                'ferreira': { title: 'Ferriera Lab - Undergraduate Researcher', meta: 'Nov 2024 - Present • UC Davis Psycholinguistics Research', description: 'Conducting computational research in psycholinguistics, applying machine learning and data analysis to understand language processing.', achievements: ['Processed 15,000+ hours of audio data improving transcription accuracy by 75% using Python scripts', 'Applied OpenAI Whisper for advanced speech recognition in psycholinguistic studies', 'Conducted quantitative data analysis using Python and Praat software for computational methods', 'Collaborated on eye-tracking research with participants, contributing to visual processing findings', 'Established correlations between visual processing and speech research outcomes', 'Demonstrated proficiency in computational methods for psycholinguistic studies'], techStack: ['Python', 'OpenAI Whisper', 'Praat', 'Data Analysis', 'Research Methods', 'Statistical Analysis'], url: null },
+                'starspark-previous': { title: 'StarSpark AI - ML & Product Intern', meta: 'May 2024 - Aug 2024 • AI Education Platform', description: 'Developed machine learning models and product features for AI-powered educational platform, focusing on mathematical problem generation.', achievements: ['Built question classification model using GPT-4.0 achieving 92% accuracy on 50,000+ test samples', 'Designed Django ORM data model supporting 100,000+ mathematical tasks with sub-200ms response times', 'Enhanced data preparation pipeline processing 25,000+ samples daily, reducing labeling time by 70%', 'Developed backend features including parent dashboard and automated problem generation', 'Conducted customer interviews and analyzed feedback to inform product strategy', 'Contributed to data labeling, cleaning, and augmentation for machine learning model training', 'Ensured alignment with user needs and drove increased product adoption through feedback analysis'], techStack: ['GPT-4.0', 'Django ORM', 'Python', 'ML Pipeline', 'Data Labeling', 'Customer Research'], url: null },
+                'usc': { title: 'USC ACT Lab - Multi-Robot Research Intern', meta: 'May 2020 - Oct 2021 • USC Viterbi Engineering', description: 'Conducted advanced robotics research in multi-agent systems, developing autonomous navigation and pathfinding algorithms.', achievements: ['Worked on solving multi-robot pathfinding (MAPF) with drones using PyTorch and reinforcement learning', 'Implemented collision avoidance algorithms with PyTorch for safe autonomous navigation', 'Developed localization, path-planning, visual odometry, and SLAM systems', 'Applied A* and depth-first search algorithms for optimized autonomous navigation', 'Prototyped autonomous snow-blowing robot with advanced navigation capabilities', 'Analyzed user requirements for autonomous navigation in real-world applications', 'Published research contributions in multi-robot systems and autonomous vehicle coordination'], techStack: ['PyTorch', 'OpenCV', 'SLAM', 'Reinforcement Learning', 'MATLAB', 'Robotics', 'Computer Vision'], url: null },
+                'noteparrot': { title: 'NoteParrot.com - AI Study Platform', meta: 'Founder & Lead Engineer · Jun 2024 - Present', description: 'AI-powered study platform that revolutionizes how students learn and study. Built from the ground up with advanced AI integration and user-centered design.', achievements: ['Scaled from 0 to 500+ users worldwide through strategic customer development and go-to-market execution', 'Integrated GPT-4.0 and Gemini 1.5 Flash APIs to reduce response hallucinations by 65%', 'Implemented contextually grounded question generation system for personalized learning paths', 'Led full product lifecycle from market research and competitive analysis to MVP launch', 'Conducted extensive user interviews and feedback sessions to drive product-market fit', 'Built scalable backend architecture supporting concurrent user sessions', 'Implemented advanced AI algorithms for adaptive learning and content recommendation'], techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript'], url: 'https://noteparrot.com' },
+                'carecart': { title: 'CareCart - Personalized Health-Focused Grocery Platform', meta: 'Full-Stack Developer · Health-Tech Platform', description: 'Comprehensive full-stack web application empowering users with health conditions to make informed grocery choices through personalized product recommendations and intelligent shopping lists.', achievements: ['Analyzed over 200,000 products from 12 major retailers with health-specific ratings for 30+ medical conditions', 'Built intelligent health analysis algorithms for diabetes, heart disease, celiac disease, and PCOS', 'Developed Python-powered web scraping pipeline processing nutritional data at scale', 'Implemented advanced React patterns with Server and Client Components using Next.js 14 App Router', 'Architected real-time database operations with Supabase and Row Level Security (RLS)', 'Created sophisticated design system using Tailwind CSS with custom health-focused color palette', 'Deployed production-ready application with proper error handling, loading states, and accessibility', 'Integrated cloud storage for optimized image processing and real-time data synchronization'], techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Vercel'], url: 'https://carecart.vercel.app' },
+                'roadmap': { title: 'Roadmap - Car Customization Platform', meta: 'Full-Stack Developer · June 2025', description: 'Comprehensive automotive platform enabling users to design, share, and build their dream vehicles with AI-powered recommendations and community features.', achievements: ['Built AI-powered car matchmaker quiz with machine learning recommendation engine', 'Implemented geolocation-based mod shop directory with real-time search capabilities', 'Developed visual car modification tools with 3D preview functionality', 'Architected Row Level Security (RLS) system for user data protection', 'Created responsive design optimized for both desktop and mobile experiences', 'Integrated third-party APIs for car specifications and pricing data', 'Implemented user authentication and profile management system'], techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js'], url: 'https://roadmap-omega-sable.vercel.app/' },
+                'substack': { title: 'Tech in Progress - Weekly Newsletter', meta: 'Content Creation · Tech Journey Documentation', description: 'Weekly Substack newsletter chronicling my tech journey, sharing insights from product development, engineering challenges, and entrepreneurial experiences.', achievements: ['Document weekly progress and learnings from building tech products', 'Share practical insights on product development, coding challenges, and startup experiences', 'Create valuable content for the tech community focusing on real-world applications', 'Build consistent writing discipline while documenting the intersection of technology and entrepreneurship', 'Provide transparent look into the journey of building and scaling technical products', 'Connect with fellow entrepreneurs and developers through authentic storytelling'], techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Weekly Updates', 'Community Building', 'Storytelling'], url: 'https://techinprogress.substack.com' },
+                'portfolio': { title: 'Portfolio Website - Interactive Portfolio', meta: 'Full-Stack Development · Live Site', description: 'Modern, responsive portfolio website showcasing technical skills and projects with interactive animations and GitHub-inspired design.', achievements: ['Designed and developed responsive portfolio website with mobile-first approach', 'Implemented interactive background effects with floating particle animations', 'Created smooth scrolling navigation with intersection observer animations', 'Built modal popup system for detailed project and experience information', 'Optimized for performance with vanilla JavaScript and efficient CSS', 'Deployed via GitHub Pages with automated CI/CD pipeline', 'Achieved 100% accessibility score and mobile responsiveness'], techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Performance Optimization'], url: 'https://vrindabansal.github.io/about/' }
+            };
+
+            // Toggle Functionality
+            const toggles = document.querySelectorAll('.toggle-header');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.toggle('open');
+                    const content = toggle.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+
+            // Modal Functionality
+            const modal = document.getElementById('itemModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMeta = document.getElementById('modalMeta');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalAchievements = document.getElementById('modalAchievements');
+            const modalTechStack = document.getElementById('modalTechStack');
+            const closeBtn = modal.querySelector('.close');
+
+            const openModal = (modalId) => {
+                const data = modalData[modalId];
+                if (data) {
+                    modalTitle.textContent = data.title;
+                    modalMeta.textContent = data.meta;
+                    modalDescription.textContent = data.description;
+                    modalAchievements.innerHTML = data.achievements.map(item => `<li>${item}</li>`).join('');
+                    
+                    const pillColors = ['blue', 'green', 'orange', 'purple', 'pink', 'red', 'gray', 'brown', 'yellow'];
+                    modalTechStack.innerHTML = data.techStack.map((tech, index) => `<span class="notion-pill pill-${pillColors[index % pillColors.length]}">${tech}</span>`).join('');
+                    
+                    // Show/hide visit site button
+                    const modalActions = document.getElementById('modalActions');
+                    const visitSiteBtn = document.getElementById('visitSiteBtn');
+                    if (data.url) {
+                        modalActions.style.display = 'block';
+                        visitSiteBtn.onclick = () => window.open(data.url, '_blank');
+                    } else {
+                        modalActions.style.display = 'none';
+                    }
+                    
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            };
+
+            document.querySelectorAll('[data-modal-id]').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    // Don't open modal if clicking on a title link
+                    if (event.target.tagName === 'A' && event.target.closest('.title')) {
+                        return;
+                    }
+                    openModal(item.dataset.modalId);
+                });
+            });
+            
+            // Prevent title links from triggering modal
+            document.querySelectorAll('.title a').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+        });
+    </script>
+</body>
+</html>
