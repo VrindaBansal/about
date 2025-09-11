@@ -1213,6 +1213,37 @@
                 padding: 16px;
             }
         }
+
+        /* Easter Egg Footer */
+        .easter-egg-footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .footer-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0.6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-logo:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-logo.current {
+            opacity: 1;
+            box-shadow: 0 0 0 2px #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -2243,5 +2274,12 @@
             scrollToTop();
         }, 500);
     </script>
+
+    <!-- Easter Egg Footer -->
+    <div class="easter-egg-footer">
+        <img src="favicon3.png" alt="GitHub Version" class="footer-logo current" title="Current: GitHub Version">
+        <img src="notionfavicon.png" alt="Notion Version" class="footer-logo" onclick="window.location.href='notion/'" title="View Notion Version">
+        <img src="faviconfigma2.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='figma/'" title="View Figma Version">
+    </div>
 </body>
 </html>
