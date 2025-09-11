@@ -588,24 +588,24 @@
         }
         
         .footer-logo {
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
             cursor: pointer;
-            filter: grayscale(0.3);
+            transition: all 0.2s ease;
+            opacity: 0.6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         
         .footer-logo:hover {
-            transform: scale(1.1);
-            filter: grayscale(0);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         .footer-logo.current {
-            opacity: 0.4;
-            cursor: default;
-            transform: none;
+            opacity: 1;
+            box-shadow: 0 0 0 2px var(--color-text-blue);
         }
         
         .footer-logo.current:hover {
@@ -998,9 +998,9 @@
     
     <!-- Easter Egg Footer Navigation -->
     <div class="easter-egg-footer">
-        <img src="../faviconfigma2.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='../figma/'" title="View Figma Version">
-        <img src="../favicon3.png" alt="GitHub Version" class="footer-logo" onclick="window.location.href='../github/'" title="View GitHub Version">
+        <img src="../favicon3.png" alt="GitHub Version" class="footer-logo" onclick="window.location.href='../'" title="View GitHub Version">
         <img src="../notionfavicon.png" alt="Notion Version" class="footer-logo current" title="Current: Notion Version">
+        <img src="../faviconfigma2.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='../figma/'" title="View Figma Version">
     </div>
 
     <div id="itemModal" class="modal">
