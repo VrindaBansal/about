@@ -404,6 +404,39 @@
             font-size: 13px;
         }
 
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #21262d;
+            background-color: #0d1117;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .visit-site-btn {
+            background-color: #238636;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .visit-site-btn:hover {
+            background-color: #2ea043;
+            text-decoration: none;
+            color: white;
+        }
+
+        .visit-site-btn i {
+            font-size: 12px;
+        }
+
         .modal-meta {
             color: #7c3aed;
             margin-bottom: 12px;
@@ -1506,6 +1539,7 @@
                             </h3>
                             <div class="modal-tech-stack" id="modalTechStack"></div>
                         </div>
+                        <div class="modal-footer" id="modalFooter"></div>
                     </div>
                 </div>
             </div>
@@ -1516,7 +1550,7 @@
                     <div style="font-size: 12px; color: #7d8590;">Product Development • Founder Experience • Technical Innovation</div>
                 </div>
                 <div class="cards-grid">
-                    <div class="card featured-card" data-experience="substack">
+                    <div class="card" data-experience="substack">
                         <div class="card-header">
                             <a href="https://techinprogress.substack.com" class="card-title" target="_blank">
                                 <i class="fas fa-newspaper"></i>
@@ -1540,7 +1574,7 @@
                         <div class="click-hint">Click to explore</div>
                     </div>
 
-                    <div class="card" data-experience="noteparrot">
+                    <div class="card featured-card" data-experience="noteparrot">
                         <div class="card-header">
                             <a href="https://noteparrot.com" class="card-title" target="_blank">
                                 <i class="fas fa-feather-alt"></i>
@@ -1561,6 +1595,32 @@
                                 <span class="tech-tag">Vertex AI</span>
                             </div>
                             <div class="card-impact">500+ global users</div>
+                        </div>
+                        <div class="click-hint">Click to explore</div>
+                    </div>
+
+                    <div class="card" data-experience="stocky">
+                        <div class="card-header">
+                            <a href="https://vrindabansal.github.io/stocky/" class="card-title" target="_blank">
+                                <i class="fas fa-chart-line"></i>
+                                Stocky
+                            </a>
+                            <span class="private-badge">Public</span>
+                        </div>
+                        <div class="card-meta">Founder & Lead Engineer · Sep 2024 - Present</div>
+                        <div class="card-description">
+                            Gamified stock market learning platform that teaches investment fundamentals through interactive simulation. Built with React and modern web technologies for responsive cross-platform experience.
+                        </div>
+                        <div class="card-footer">
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Redux Toolkit</span>
+                                <span class="tech-tag">Vite</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Framer Motion</span>
+                                <span class="tech-tag">Recharts</span>
+                            </div>
+                            <div class="card-impact">Trading simulation</div>
                         </div>
                         <div class="click-hint">Click to explore</div>
                     </div>
@@ -1617,32 +1677,6 @@
                         <div class="click-hint">Click to explore</div>
                     </div>
 
-                    <div class="card" data-experience="stocky">
-                        <div class="card-header">
-                            <a href="https://vrindabansal.github.io/stocky/" class="card-title" target="_blank">
-                                <i class="fas fa-chart-line"></i>
-                                Stocky
-                            </a>
-                            <span class="private-badge">Public</span>
-                        </div>
-                        <div class="card-meta">Founder & Lead Engineer · Sep 2024 - Present</div>
-                        <div class="card-description">
-                            Gamified stock market learning platform that teaches investment fundamentals through interactive simulation. Built with React and modern web technologies for responsive cross-platform experience.
-                        </div>
-                        <div class="card-footer">
-                            <div class="tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Redux Toolkit</span>
-                                <span class="tech-tag">Vite</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">Framer Motion</span>
-                                <span class="tech-tag">Recharts</span>
-                            </div>
-                            <div class="card-impact">Trading simulation</div>
-                        </div>
-                        <div class="click-hint">Click to explore</div>
-                    </div>
-
                     <div class="card" data-experience="portfolio">
                         <div class="card-header">
                             <a href="https://vrindabansal.github.io/about/" class="card-title" target="_blank">
@@ -1651,9 +1685,9 @@
                             </a>
                             <span class="private-badge">Public</span>
                         </div>
-                        <div class="card-meta">Full-Stack Development · Live Site</div>
+                        <div class="card-meta">Full-Stack Development · Three Unique Designs</div>
                         <div class="card-description">
-                            Responsive portfolio website with interactive binary background effects and smooth animations. GitHub-inspired design with full frontend/backend functionality, optimized for both desktop and mobile experiences.
+                            Interactive portfolio featuring three distinct design implementations: <strong>GitHub-inspired</strong> (main), <strong>Notion-style</strong> (/notion/), and <strong>Figma-inspired</strong> (/figma/) themes. Each showcases different design philosophies while maintaining consistent content and functionality with cross-navigation easter eggs.
                         </div>
                         <div class="card-footer">
                             <div class="tech-stack">
@@ -1908,7 +1942,8 @@
                     'Built scalable backend architecture supporting concurrent user sessions',
                     'Implemented advanced AI algorithms for adaptive learning and content recommendation'
                 ],
-                techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript']
+                techStack: ['Django', 'GPT-4.0', 'Gemini 1.5', 'Heroku-22', 'Vertex AI', 'PostgreSQL', 'Python', 'JavaScript'],
+                url: 'https://noteparrot.com'
             },
             'roadmap': {
                 title: 'Roadmap - Car Customization Platform',
@@ -1923,22 +1958,25 @@
                     'Integrated third-party APIs for car specifications and pricing data',
                     'Implemented user authentication and profile management system'
                 ],
-                techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js']
+                techStack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Vercel', 'Next.js'],
+                url: 'https://roadmap-omega-sable.vercel.app/'
             },
             'portfolio': {
-                title: 'Portfolio Website - Interactive Portfolio',
-                meta: 'Full-Stack Development · Live Site',
-                description: 'Modern, responsive portfolio website showcasing technical skills and projects with interactive animations and GitHub-inspired design.',
+                title: 'Portfolio Website - Three Unique Design Implementations',
+                meta: 'Full-Stack Development · Three Distinct Themes',
+                description: 'Interactive portfolio featuring three completely different design implementations: GitHub-inspired (main), Notion-style (/notion/), and Figma-inspired (/figma/) themes, each showcasing different design philosophies.',
                 achievements: [
-                    'Designed and developed responsive portfolio website with mobile-first approach',
-                    'Implemented interactive background effects with floating particle animations',
-                    'Created smooth scrolling navigation with intersection observer animations',
-                    'Built modal popup system for detailed project and experience information',
-                    'Optimized for performance with vanilla JavaScript and efficient CSS',
-                    'Deployed via GitHub Pages with automated CI/CD pipeline',
-                    'Achieved 100% accessibility score and mobile responsiveness'
+                    'Designed and implemented three distinct portfolio themes with unique visual identities',
+                    'GitHub theme: Dark mode with terminal aesthetics, floating particle animations, and code-inspired design',
+                    'Notion theme: Clean database-style interface with modal popups and organized content blocks',
+                    'Figma theme: Colorful design system with draggable cards and interactive canvas elements',
+                    'Built cross-navigation easter egg footer system allowing seamless theme switching',
+                    'Maintained consistent content structure and functionality across all three designs',
+                    'Optimized for performance with vanilla JavaScript and responsive design patterns',
+                    'Deployed via GitHub Pages with automated CI/CD pipeline for all variants'
                 ],
-                techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Performance Optimization']
+                techStack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Responsive Design', 'Animation', 'Multiple Design Systems'],
+                url: 'https://vrindabansal.github.io/about/'
             },
             'substack': {
                 title: 'Tech in Progress - Weekly Newsletter',
@@ -1952,7 +1990,8 @@
                     'Provide transparent look into the journey of building and scaling technical products',
                     'Connect with fellow entrepreneurs and developers through authentic storytelling'
                 ],
-                techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Weekly Updates', 'Community Building', 'Storytelling']
+                techStack: ['Substack', 'Content Writing', 'Tech Documentation', 'Weekly Updates', 'Community Building', 'Storytelling'],
+                url: 'https://techinprogress.substack.com'
             },
             'stocky': {
                 title: 'Stocky - Gamified Stock Market Learning Platform',
@@ -1968,7 +2007,8 @@
                     'Architected modular component system with Framer Motion animations for smooth UX',
                     'Integrated educational content system with progressive skill-building and achievement tracking'
                 ],
-                techStack: ['React', 'Redux Toolkit', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'React Router', 'Lucide Icons', 'JavaScript', 'GitHub Pages']
+                techStack: ['React', 'Redux Toolkit', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'React Router', 'Lucide Icons', 'JavaScript', 'GitHub Pages'],
+                url: 'https://vrindabansal.github.io/stocky/'
             },
             'carecart': {
                 title: 'CareCart - Personalized Health-Focused Grocery Platform',
@@ -1984,7 +2024,8 @@
                     'Deployed production-ready application with proper error handling, loading states, and accessibility',
                     'Integrated cloud storage for optimized image processing and real-time data synchronization'
                 ],
-                techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Vercel']
+                techStack: ['Next.js 14', 'React 18', 'TypeScript', 'Supabase', 'PostgreSQL', 'Python', 'Tailwind CSS', 'Vercel'],
+                url: 'https://carecart.vercel.app'
             }
         };
 
@@ -2024,6 +2065,18 @@
                         span.textContent = tech;
                         modalTechStack.appendChild(span);
                     });
+                    
+                    // Clear and populate footer with Visit Site button if URL exists
+                    const modalFooter = document.getElementById('modalFooter');
+                    modalFooter.innerHTML = '';
+                    if (data.url) {
+                        const visitBtn = document.createElement('a');
+                        visitBtn.href = data.url;
+                        visitBtn.target = '_blank';
+                        visitBtn.className = 'visit-site-btn';
+                        visitBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> Visit Site';
+                        modalFooter.appendChild(visitBtn);
+                    }
                     
                     modal.style.display = 'block';
                     document.body.style.overflow = 'hidden';
