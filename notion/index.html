@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vrinda Bansal - Portfolio</title>
     <link rel="icon" href="../notionfavicon.png" type="image/png">
+    
+    <!-- Preload critical images for faster loading -->
+    <link rel="preload" as="image" href="../notionbannercode_optimized.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -101,7 +104,7 @@
         .notion-banner {
             width: 100%;
             height: var(--banner-height);
-            background-image: url('../notionbannercode.jpeg');
+            background-image: url('../notionbannercode_optimized.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1007,9 +1010,9 @@
     
     <!-- Easter Egg Footer Navigation -->
     <div class="easter-egg-footer">
-        <img src="../favicon3.png" alt="GitHub Version" class="footer-logo" onclick="window.location.href='../'" title="View GitHub Version">
-        <img src="../notionfavicon.png" alt="Notion Version" class="footer-logo current" title="Current: Notion Version">
-        <img src="../faviconfigma2.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='../figma/'" title="View Figma Version">
+        <img src="../favicon3_optimized.png" alt="GitHub Version" class="footer-logo" onclick="window.location.href='../'" title="View GitHub Version" loading="lazy">
+        <img src="../notionfavicon_optimized.png" alt="Notion Version" class="footer-logo current" title="Current: Notion Version" loading="lazy">
+        <img src="../faviconfigma2_optimized.png" alt="Figma Version" class="footer-logo" onclick="window.location.href='../figma/'" title="View Figma Version" loading="lazy">
     </div>
 
     <div id="itemModal" class="modal">
