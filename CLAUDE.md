@@ -21,6 +21,7 @@ The entire application is contained within a single `index.html` file that inclu
 - **Experience Section**: Interactive cards with modal popups showing detailed experience information
 - **Projects Section**: Featured projects with external links
 - **Education Section**: Educational background display
+- **Research Page** (`research/index.html`, served at `/research`): Standalone, Google Scholar-style page listing papers, posters, research, and applied work, with type tabs, interest filters, search, and sort. Paper PDFs live in `assets/papers/`, poster images in `assets/images/posters/`
 
 ### Interactive Features
 
