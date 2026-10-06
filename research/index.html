@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrinda Bansal - Research</title>
+    <meta name="description" content="Research by Vrinda Bansal: psycholinguistics, computational social science, human-computer interaction, and multi-agent systems.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a4fd6'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='32' font-weight='700' fill='white' text-anchor='middle'%3EVB%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        // Apply a saved theme before first paint to avoid a flash
+        try {
+            const savedTheme = localStorage.getItem('research-theme');
+            if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+        } catch (e) {}
+    </script>
+
+    <style>
+        :root {
+            --bg: #fbfaf8;
+            --surface: #ffffff;
+            --surface-2: #f4f2ee;
+            --border: #e6e2db;
+            --text: #1d1d1f;
+            --muted: #5c6168;
+            --faint: #878c94;
+            --accent: #1a4fd6;
+            --accent-soft: #e9effd;
+            --pub: #9a5800;
+            --pub-soft: #fcf0dc;
+            --research: #1a4fd6;
+            --research-soft: #e9effd;
+            --applied: #1d7348;
+            --applied-soft: #e2f3e9;
+            --shadow: 0 1px 2px rgba(20, 20, 30, 0.04), 0 4px 16px rgba(20, 20, 30, 0.04);
+            --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0e1013;
+                --surface: #15181d;
+                --surface-2: #1c2027;
+                --border: #2a2f37;
+                --text: #e8eaed;
+                --muted: #a3a9b3;
+                --faint: #767d88;
+                --accent: #8ab4ff;
+                --accent-soft: rgba(138, 180, 255, 0.12);
+                --pub: #f2c071;
+                --pub-soft: rgba(242, 192, 113, 0.12);
+                --research: #8ab4ff;
+                --research-soft: rgba(138, 180, 255, 0.12);
+                --applied: #7fd4a4;
+                --applied-soft: rgba(127, 212, 164, 0.12);
+                --shadow: none;
+                color-scheme: dark;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0e1013;
+            --surface: #15181d;
+            --surface-2: #1c2027;
+            --border: #2a2f37;
+            --text: #e8eaed;
+            --muted: #a3a9b3;
+            --faint: #767d88;
+            --accent: #8ab4ff;
+            --accent-soft: rgba(138, 180, 255, 0.12);
+            --pub: #f2c071;
+            --pub-soft: rgba(242, 192, 113, 0.12);
+            --research: #8ab4ff;
+            --research-soft: rgba(138, 180, 255, 0.12);
+            --applied: #7fd4a4;
+            --applied-soft: rgba(127, 212, 164, 0.12);
+            --shadow: none;
+            color-scheme: dark;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--sans);
+            font-size: 15px;
+            line-height: 1.55;
+            background-color: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* ---------- Top bar ---------- */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: color-mix(in srgb, var(--bg) 88%, transparent);
+            backdrop-filter: saturate(160%) blur(10px);
+            -webkit-backdrop-filter: saturate(160%) blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--faint);
+            font-weight: 500;
+        }
+
+        .brand:hover {
+            text-decoration: none;
+        }
+
+        .topbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .topbar-nav a,
+        .icon-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 34px;
+            padding: 0 12px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .topbar-nav a:hover,
+        .icon-button:hover {
+            background-color: var(--surface-2);
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .icon-button {
+            width: 34px;
+            padding: 0;
+            justify-content: center;
+        }
+
+        /* ---------- Layout ---------- */
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+
+        /* ---------- Profile ---------- */
+        .profile {
+            display: grid;
+            grid-template-columns: 128px 1fr;
+            gap: 28px;
+            align-items: start;
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-photo {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 38%;
+            border: 1px solid var(--border);
+            background-color: var(--surface-2);
+        }
+
+        .profile h1 {
+            font-family: var(--serif);
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .affiliation {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .affiliation strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .statement {
+            margin-top: 14px;
+            max-width: 68ch;
+            color: var(--text);
+            font-size: 15.5px;
+        }
+
+        .profile-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .pill-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            height: 32px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background-color: var(--surface);
+            color: var(--text);
+            font-size: 13.5px;
+            font-weight: 500;
+        }
+
+        .pill-link i {
+            color: var(--muted);
+        }
+
+        .pill-link:hover {
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .interests {
+            margin-top: 20px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--faint);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .chip {
+            height: 30px;
+            padding: 0 12px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background-color: var(--surface-2);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .chip:hover {
+            border-color: var(--border);
+        }
+
+        .chip[aria-pressed="true"] {
+            background-color: var(--accent-soft);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ---------- Content grid ---------- */
+        .content {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 320px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ---------- Works list ---------- */
+        .section-heading {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .tabs {
+            display: inline-flex;
+            padding: 3px;
+            border-radius: 10px;
+            background-color: var(--surface-2);
+        }
+
+        .tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 30px;
+            padding: 0 12px;
+            border: none;
+            border-radius: 8px;
+            background: none;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .tab .count {
+            color: var(--faint);
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .tab[aria-pressed="true"] {
+            background-color: var(--surface);
+            color: var(--text);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+
+        .search {
+            position: relative;
+            flex: 1 1 200px;
+            min-width: 0;
+        }
+
+        .search i {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--faint);
+            font-size: 13px;
+            pointer-events: none;
+        }
+
+        .search input {
+            width: 100%;
+            height: 36px;
+            padding: 0 12px 0 32px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background-color: var(--surface);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .search input::placeholder {
+            color: var(--faint);
+        }
+
+        .search input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .select,
+        .text-button {
+            height: 36px;
+            padding: 0 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background-color: var(--surface);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .select:hover,
+        .text-button:hover {
+            border-color: var(--faint);
+        }
+
+        .active-filter {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+
+        .active-filter.visible {
+            display: flex;
+        }
+
+        .active-filter button {
+            border: none;
+            background: none;
+            color: var(--accent);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .works {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background-color: var(--surface);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .works-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            color: var(--faint);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .work + .work {
+            border-top: 1px solid var(--border);
+        }
+
+        .work summary {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 20px;
+            padding: 18px 20px;
+            list-style: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        .work summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .work summary:hover {
+            background-color: color-mix(in srgb, var(--surface-2) 55%, transparent);
+        }
+
+        .work-title {
+            display: flex;
+            gap: 8px;
+            font-family: var(--serif);
+            font-size: 17.5px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--accent);
+        }
+
+        .work-title::before {
+            content: '';
+            flex: 0 0 auto;
+            width: 6px;
+            height: 6px;
+            margin: 9px 4px 0 0;
+            border-right: 1.5px solid var(--faint);
+            border-bottom: 1.5px solid var(--faint);
+            transform: rotate(-45deg);
+            transition: transform 0.2s ease;
+        }
+
+        .work details[open] .work-title::before {
+            transform: rotate(45deg);
+        }
+
+        .work summary:hover .work-title span {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .work-authors,
+        .work-venue {
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        .work-authors {
+            margin-top: 4px;
+            color: var(--muted);
+        }
+
+        .work-authors strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .work-venue {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 10px;
+            margin-top: 6px;
+            color: var(--faint);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            height: 22px;
+            padding: 0 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-publication {
+            background-color: var(--pub-soft);
+            color: var(--pub);
+        }
+
+        .poster-thumb {
+            display: block;
+            max-width: 420px;
+            margin-top: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .poster-thumb img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .badge-research {
+            background-color: var(--research-soft);
+            color: var(--research);
+        }
+
+        .badge-applied {
+            background-color: var(--applied-soft);
+            color: var(--applied);
+        }
+
+        .highlight {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .highlight i {
+            margin-right: 4px;
+            color: var(--faint);
+            font-size: 11px;
+        }
+
+        .work-year {
+            color: var(--muted);
+            font-size: 14px;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+        }
+
+        .work-body {
+            padding: 0 20px 22px 38px;
+            animation: reveal 0.2s ease;
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .work-body p {
+            max-width: 70ch;
+            color: var(--text);
+        }
+
+        .work-body h4 {
+            margin: 16px 0 6px;
+            color: var(--faint);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .work-body ul {
+            max-width: 70ch;
+            padding-left: 18px;
+        }
+
+        .work-body li + li {
+            margin-top: 4px;
+        }
+
+        .work-body li::marker {
+            color: var(--faint);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 2px 9px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--muted);
+            font-size: 12.5px;
+        }
+
+        .work-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .empty-state {
+            display: none;
+            padding: 40px 20px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .empty-state.visible {
+            display: block;
+        }
+
+        .empty-state button {
+            margin-top: 10px;
+        }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .panel {
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background-color: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .panel h2 {
+            margin-bottom: 14px;
+            font-family: var(--serif);
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background-color: var(--border);
+        }
+
+        .stat {
+            padding: 12px 14px;
+            background-color: var(--surface);
+        }
+
+        .stat-value {
+            font-family: var(--serif);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.35;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .timeline-row {
+            font-size: 12.5px;
+        }
+
+        .timeline-name {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .timeline-name span:last-child {
+            color: var(--faint);
+            white-space: nowrap;
+        }
+
+        .timeline-track {
+            position: relative;
+            height: 6px;
+            border-radius: 3px;
+            background-color: var(--surface-2);
+        }
+
+        .timeline-bar {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            min-width: 6px;
+            border-radius: 3px;
+        }
+
+        .timeline-bar.research { background-color: var(--research); }
+        .timeline-bar.applied { background-color: var(--applied); }
+        .timeline-bar.publication { background-color: var(--pub); }
+
+        .timeline-axis {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            color: var(--faint);
+            font-size: 11px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .people {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .person {
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .avatar {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--surface-2);
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .person a {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .person div div {
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.4;
+        }
+
+        .panel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+            font-size: 13.5px;
+        }
+
+        .panel-list .meta {
+            color: var(--muted);
+            font-size: 12.5px;
+        }
+
+        .panel .tags + .label {
+            margin-top: 14px;
+        }
+
+        .coursework {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 12.5px;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 24px 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+            color: var(--faint);
+            font-size: 13px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 960px) {
+            .content {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .topbar-inner,
+            .page,
+            .footer {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .page {
+                padding-top: 28px;
+            }
+
+            .topbar-nav .nav-text {
+                display: none;
+            }
+
+            .profile {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .profile-photo {
+                width: 96px;
+                height: 96px;
+            }
+
+            .profile h1 {
+                font-size: 28px;
+            }
+
+            .tabs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+            }
+
+            .tab {
+                justify-content: center;
+            }
+
+            .toolbar-actions {
+                width: 100%;
+            }
+
+            .toolbar-actions > * {
+                flex: 1;
+            }
+
+            .work summary {
+                padding: 16px;
+                gap: 12px;
+            }
+
+            .work-body {
+                padding: 0 16px 20px 34px;
+            }
+
+            .works-header {
+                padding: 10px 16px;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media print {
+            .topbar,
+            .toolbar,
+            .active-filter,
+            .footer {
+                display: none;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="../" class="brand">Vrinda Bansal <span>/ research</span></a>
+            <nav class="topbar-nav" aria-label="Site">
+                <a href="../"><i class="fas fa-arrow-left"></i><span class="nav-text">Portfolio</span></a>
+                <a href="mailto:VrindaBansal2@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i><span class="nav-text">Contact</span></a>
+                <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <!-- Profile -->
+        <section class="profile" aria-label="Profile">
+            <img class="profile-photo" src="../assets/images/profile/DSC_0010_optimized.jpg" alt="Portrait of Vrinda Bansal" width="128" height="128">
+            <div>
+                <h1>Vrinda Bansal</h1>
+                <p class="affiliation">
+                    <strong>Applied AI Engineer, StarSpark AI</strong> &middot;
+                    B.S. Computational Cognitive Science, University of California, Davis
+                </p>
+                <p class="statement">
+                    I study how people and AI systems use language: speech and eye movements in psycholinguistics, and how
+                    AI agents talk to each other online. I apply cognitive science to build AI tools that help people learn.
+                </p>
+                <div class="profile-links">
+                    <a class="pill-link" href="mailto:VrindaBansal2@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a class="pill-link" href="https://www.linkedin.com/in/vrinda-bansal/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a class="pill-link" href="https://github.com/vrindabansal" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                    <a class="pill-link" href="../"><i class="fas fa-user"></i> Portfolio</a>
+                </div>
+                <div class="interests">
+                    <span class="label" id="interestsLabel">Research interests</span>
+                    <div class="chips" role="group" aria-labelledby="interestsLabel">
+                        <button class="chip" type="button" data-interest="psycholinguistics" aria-pressed="false">Psycholinguistics</button>
+                        <button class="chip" type="button" data-interest="social" aria-pressed="false">Computational social science</button>
+                        <button class="chip" type="button" data-interest="hci" aria-pressed="false">Human-computer interaction</button>
+                        <button class="chip" type="button" data-interest="agents" aria-pressed="false">Multi-agent systems</button>
+                        <button class="chip" type="button" data-interest="llm" aria-pressed="false">LLMs &amp; evaluation</button>
+                        <button class="chip" type="button" data-interest="learning" aria-pressed="false">Learning science</button>
+                        <button class="chip" type="button" data-interest="robotics" aria-pressed="false">Robotics</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content">
+            <!-- Works -->
+            <section aria-labelledby="worksHeading">
+                <h2 class="section-heading" id="worksHeading">Publications &amp; Research</h2>
+
+                <div class="toolbar">
+                    <div class="tabs" role="group" aria-label="Filter by type">
+                        <button class="tab" type="button" data-type="all" aria-pressed="true">All <span class="count"></span></button>
+                        <button class="tab" type="button" data-type="publication" aria-pressed="false">Papers &amp; posters <span class="count"></span></button>
+                        <button class="tab" type="button" data-type="research" aria-pressed="false">Research <span class="count"></span></button>
+                        <button class="tab" type="button" data-type="applied" aria-pressed="false">Applied <span class="count"></span></button>
+                    </div>
+                    <label class="search">
+                        <i class="fas fa-search"></i>
+                        <input type="search" id="searchInput" placeholder="Search titles, methods, labs" aria-label="Search research">
+                    </label>
+                    <div class="toolbar-actions">
+                        <select class="select" id="sortSelect" aria-label="Sort by">
+                            <option value="year">Sort: Year</option>
+                            <option value="title">Sort: Title</option>
+                        </select>
+                        <button class="text-button" type="button" id="expandAll">Expand all</button>
+                    </div>
+                </div>
+
+                <div class="active-filter" id="activeFilter" aria-live="polite">
+                    <span id="activeFilterText"></span>
+                    <button type="button" id="clearInterest">Clear</button>
+                </div>
+
+                <div class="works">
+                    <div class="works-header" aria-hidden="true">
+                        <span>Title</span>
+                        <span>Year</span>
+                    </div>
+
+                    <div id="worksList">
+                        <article class="work" data-type="publication" data-year="2025" data-tags="hci">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>CareCart: A Solution for College Students &amp; Grocery Shopping Struggles</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong>, P Singh, R Li, C Chandu, A Ramachandran, A Zhang</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-publication">Paper</span>
+                                            <span>Human-Computer Interaction, UC Davis &middot; Sep 2025 &middot; 5 pages</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2025</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        For many college students, grocery shopping is stressful: a limited weekly budget, the pressures of
+                                        university life, and health needs ranging from medical conditions to food intolerances. CareCart is a
+                                        student-centered platform that suggests affordable, diet-friendly alternatives and offers a community
+                                        space for recipe sharing and peer support. Using HCI methods and design thinking, we interviewed
+                                        students, identified pain points, and prototyped from sketches to a high-fidelity platform, with
+                                        usability heuristics guiding a design built for clarity and ease of use.
+                                    </p>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">User interviews</span>
+                                        <span class="tag">Thematic analysis</span>
+                                        <span class="tag">Affinity diagramming</span>
+                                        <span class="tag">Personas</span>
+                                        <span class="tag">Journey mapping</span>
+                                        <span class="tag">Prototyping</span>
+                                        <span class="tag">Usability testing</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="../assets/papers/carecart-paper.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+                                        <a class="pill-link" href="https://carecart.vercel.app/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> CareCart</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="research" data-year="2026" data-tags="social agents">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Detecting embedded humans in an AI-agent social network through conversational tone</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; C2 Lab, UC Davis (PI: Martin Hilbert)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Undergraduate research &middot; Jan &ndash; Jul 2026</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        A social network analysis of Moltbook, a social platform where AI agents post and reply to one
+                                        another. The project asked whether humans placed among the agents could be detected from shifts
+                                        in conversational tone.
+                                    </p>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Social network analysis</span>
+                                        <span class="tag">Tone analysis</span>
+                                        <span class="tag">LLM agents</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://c2.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> C2 Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="research" data-year="2026" data-tags="social agents llm">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Cross-lingual comparison of AI-agent discourse in Chinese, Russian, French, and English</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; C2 Lab, UC Davis (PI: Martin Hilbert)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Led analysis &middot; Jan &ndash; Jul 2026</span>
+                                            <span class="highlight"><i class="fas fa-language"></i>4 languages</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        A comparison of Moltbook posts written in Chinese, Russian, French, and English. It looked at
+                                        political topics, tone, and technical depth in each language group.
+                                    </p>
+                                    <h4>Key finding</h4>
+                                    <ul>
+                                        <li>Chinese-language conversations were significantly more technical (for example, focused on coding) than the other language groups</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Cross-lingual analysis</span>
+                                        <span class="tag">Topic analysis</span>
+                                        <span class="tag">Tone analysis</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://c2.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> C2 Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="research" data-year="2025" data-tags="psycholinguistics">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Large-scale speech transcription for psycholinguistics with OpenAI Whisper</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; Ferreira Lab, UC Davis (PI: Fernanda Ferreira)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Undergraduate research &middot; Sep 2024 &ndash; Nov 2025</span>
+                                            <span class="highlight"><i class="fas fa-wave-square"></i>15,000+ hours, +75% accuracy</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2025</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        A transcription pipeline for the lab's recorded speech data, built with Python and OpenAI Whisper.
+                                        It processed more than 15,000 hours of audio and improved transcription accuracy by 75%.
+                                    </p>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Speech recognition</span>
+                                        <span class="tag">Audio annotation</span>
+                                        <span class="tag">OpenAI Whisper</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://ferreiralab.faculty.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> Ferreira Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="research" data-year="2025" data-tags="psycholinguistics">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Eye-tracking and speech: relating visual processing to speech outcomes</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; Ferreira Lab, UC Davis (PI: Fernanda Ferreira)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Collaborator &middot; Sep 2024 &ndash; Nov 2025</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2025</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        Collaboration on the lab's eye-tracking studies, contributing to findings that correlate visual
+                                        processing with speech outcomes. Included quantitative analysis of participant data in Python
+                                        and Praat.
+                                    </p>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Eye-tracking</span>
+                                        <span class="tag">Experimental design</span>
+                                        <span class="tag">Praat</span>
+                                        <span class="tag">Statistical analysis</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://ferreiralab.faculty.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> Ferreira Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="research" data-year="2021" data-tags="robotics agents">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Multi-agent pathfinding for drone fleets</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; USC ACT Lab, Viterbi School of Engineering</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Research intern &middot; 2020 &ndash; 2021</span>
+                                            <span class="highlight"><i class="fas fa-bolt"></i>30% faster planning</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2021</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        Work on multi-agent pathfinding (MAPF) for fleets of drones: planning routes for many drones at
+                                        once without collisions, and testing them in simulated environments with dense obstacles.
+                                    </p>
+                                    <h4>Contributions</h4>
+                                    <ul>
+                                        <li>Applied A* and depth-first search, with collision avoidance built on PyTorch, SLAM, and visual odometry</li>
+                                        <li>Cut path-planning execution time by 30% by refining the search heuristics</li>
+                                        <li>Built high-fidelity simulation environments to test low-latency navigation around obstacles</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">A* search</span>
+                                        <span class="tag">SLAM</span>
+                                        <span class="tag">Visual odometry</span>
+                                        <span class="tag">PyTorch</span>
+                                        <span class="tag">Simulation</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://x.com/uscact" target="_blank" rel="noopener"><i class="fas fa-flask"></i> USC ACT Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="publication" data-year="2021" data-tags="robotics agents">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Pathfinding for Snow Blowing</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; ACT Lab, USC Viterbi (PI: Nora Ayanian)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-publication">Poster</span>
+                                            <span>USC Viterbi SHINE 2021</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2021</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        Route planning for an autonomous snow-blowing robot built on a JetBot (NVIDIA Jetson Nano). The final
+                                        system localized with QR codes and planned with a finite-state algorithm. It followed a zig-zag pattern
+                                        that clears a driveway without scouting it first, which saves battery and time. The project also explored
+                                        collision avoidance with PyTorch object detection, visual odometry, and camera-based snow-depth estimation.
+                                    </p>
+                                    <a class="poster-thumb" href="../assets/images/posters/snow-blowing-pathfinding-2021.jpg" target="_blank" rel="noopener">
+                                        <img src="../assets/images/posters/snow-blowing-pathfinding-2021-thumb.jpg" alt="Poster: Pathfinding for Snow Blowing" width="640" height="480" loading="lazy">
+                                    </a>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Path planning</span>
+                                        <span class="tag">Jetson Nano</span>
+                                        <span class="tag">Visual odometry</span>
+                                        <span class="tag">OpenCV</span>
+                                        <span class="tag">PyTorch</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="../assets/images/posters/snow-blowing-pathfinding-2021.jpg" target="_blank" rel="noopener"><i class="fas fa-image"></i> Poster</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="publication" data-year="2020" data-tags="robotics agents">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Multi-Robot Path-Finding</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; ACT Lab, USC Viterbi (PI: Nora Ayanian)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-publication">Poster</span>
+                                            <span>USC Viterbi SHINE 2020</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2020</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        Multi-agent path finding: moving many robots to their own goals in a shared space without collisions,
+                                        like robots moving goods around a warehouse. Agents were trained with deep reinforcement learning in
+                                        PyTorch, with convolutional layers feeding an Advantage Actor-Critic model. The work progressed from
+                                        single-agent path finding to many agents in environments with obstacles.
+                                    </p>
+                                    <a class="poster-thumb" href="../assets/images/posters/multi-robot-path-finding-2020.jpg" target="_blank" rel="noopener">
+                                        <img src="../assets/images/posters/multi-robot-path-finding-2020-thumb.jpg" alt="Poster: Multi-Robot Path-Finding" width="640" height="480" loading="lazy">
+                                    </a>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Reinforcement learning</span>
+                                        <span class="tag">Actor-critic</span>
+                                        <span class="tag">PyTorch</span>
+                                        <span class="tag">OpenAI Gym</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="../assets/images/posters/multi-robot-path-finding-2020.jpg" target="_blank" rel="noopener"><i class="fas fa-image"></i> Poster</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="applied" data-year="2026" data-tags="llm learning">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Cognitively informed prompting to reduce LLM hallucination</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; NoteParrot (founder &amp; lead engineer)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-applied">Applied</span>
+                                            <span>Jun 2024 &ndash; present</span>
+                                            <span class="highlight"><i class="fas fa-arrow-trend-down"></i>65% fewer hallucinations</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        A prompting strategy for NoteParrot, an AI study platform, based on two memory principles: retrieval
+                                        cues and encoding specificity. It cut hallucinated responses by 65%.
+                                    </p>
+                                    <h4>Contributions</h4>
+                                    <ul>
+                                        <li>Designed and tested the prompting strategy against the existing approach</li>
+                                        <li>Ran systematic evaluations of model output quality in production</li>
+                                        <li>The platform serves 1,000+ users and handles 5,000+ API calls a day</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Prompt design</span>
+                                        <span class="tag">LLM evaluation</span>
+                                        <span class="tag">Memory research</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://noteparrot.com/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> NoteParrot</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="applied" data-year="2026" data-tags="llm learning">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Standards-aligned lecture generation with retrieval-augmented generation</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; StarSpark AI (Applied AI Engineer)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-applied">Applied</span>
+                                            <span>Mar 2026 &ndash; present</span>
+                                            <span class="highlight"><i class="fas fa-circle-check"></i>2,000+ lectures, 95% pass rate</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        RAG systems that generate lecture content aligned with AP course standards. More than 2,000
+                                        lectures have been generated, and 95% pass automated standards checks.
+                                    </p>
+                                    <h4>Contributions</h4>
+                                    <ul>
+                                        <li>Built the RAG pipelines and the automated standards validation</li>
+                                        <li>Lead a weekly reading group on learning tiers and teaching strategies</li>
+                                        <li>Run A/B tests comparing implementations by their effect on student engagement</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">RAG</span>
+                                        <span class="tag">A/B testing</span>
+                                        <span class="tag">Automated evaluation</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://www.starspark.ai/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> StarSpark AI</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+                    </div>
+
+                    <div class="empty-state" id="emptyState">
+                        <p>Nothing matches these filters.</p>
+                        <button class="text-button" type="button" id="resetFilters">Reset filters</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <section class="panel">
+                    <h2>At a glance</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Research labs</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Papers &amp; posters</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">15k+</div>
+                            <div class="stat-label">Hours of speech processed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">4</div>
+                            <div class="stat-label">Languages compared</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>Timeline</h2>
+                    <div class="timeline" id="timeline">
+                        <div class="timeline-row" data-start="2020-01" data-end="2021-12" data-kind="research">
+                            <div class="timeline-name"><span>USC ACT Lab</span><span>2020 &ndash; 21</span></div>
+                            <div class="timeline-track"><div class="timeline-bar research"></div></div>
+                        </div>
+                        <div class="timeline-row" data-start="2024-06" data-end="present" data-kind="applied">
+                            <div class="timeline-name"><span>NoteParrot</span><span>2024 &ndash; now</span></div>
+                            <div class="timeline-track"><div class="timeline-bar applied"></div></div>
+                        </div>
+                        <div class="timeline-row" data-start="2024-09" data-end="2025-11" data-kind="research">
+                            <div class="timeline-name"><span>Ferreira Lab</span><span>2024 &ndash; 25</span></div>
+                            <div class="timeline-track"><div class="timeline-bar research"></div></div>
+                        </div>
+                        <div class="timeline-row" data-start="2025-09" data-end="present" data-kind="publication">
+                            <div class="timeline-name"><span>CareCart</span><span>2025 &ndash; now</span></div>
+                            <div class="timeline-track"><div class="timeline-bar publication"></div></div>
+                        </div>
+                        <div class="timeline-row" data-start="2026-01" data-end="2026-07" data-kind="research">
+                            <div class="timeline-name"><span>C2 Lab</span><span>2026</span></div>
+                            <div class="timeline-track"><div class="timeline-bar research"></div></div>
+                        </div>
+                        <div class="timeline-row" data-start="2026-03" data-end="present" data-kind="applied">
+                            <div class="timeline-name"><span>StarSpark AI</span><span>2026 &ndash; now</span></div>
+                            <div class="timeline-track"><div class="timeline-bar applied"></div></div>
+                        </div>
+                    </div>
+                    <div class="timeline-axis" id="timelineAxis"></div>
+                </section>
+
+                <section class="panel">
+                    <h2>Labs &amp; mentors</h2>
+                    <ul class="people">
+                        <li class="person">
+                            <span class="avatar" aria-hidden="true">MH</span>
+                            <div>
+                                <a href="https://c2.ucdavis.edu/" target="_blank" rel="noopener">Martin Hilbert</a>
+                                <div>C2 Lab, UC Davis</div>
+                            </div>
+                        </li>
+                        <li class="person">
+                            <span class="avatar" aria-hidden="true">FF</span>
+                            <div>
+                                <a href="https://ferreiralab.faculty.ucdavis.edu/" target="_blank" rel="noopener">Fernanda Ferreira</a>
+                                <div>Ferreira Lab, Psycholinguistics, UC Davis</div>
+                            </div>
+                        </li>
+                        <li class="person">
+                            <span class="avatar" aria-hidden="true">NA</span>
+                            <div>
+                                <a href="https://x.com/uscact" target="_blank" rel="noopener">Nora Ayanian</a>
+                                <div>ACT Lab, USC Viterbi</div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="panel">
+                    <h2>Methods &amp; tools</h2>
+                    <span class="label">Research methods</span>
+                    <div class="tags">
+                        <span class="tag">Experimental design</span>
+                        <span class="tag">Quantitative analysis</span>
+                        <span class="tag">Eye-tracking</span>
+                        <span class="tag">Audio transcription &amp; annotation</span>
+                        <span class="tag">Statistical analysis</span>
+                        <span class="tag">Social network analysis</span>
+                        <span class="tag">Thematic analysis</span>
+                    </div>
+                    <span class="label">Tools</span>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">R</span>
+                        <span class="tag">Praat</span>
+                        <span class="tag">OpenAI Whisper</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">OpenCV</span>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>Education</h2>
+                    <ul class="panel-list">
+                        <li>
+                            <div>University of California, Davis</div>
+                            <div class="meta">B.S. Computational Cognitive Science, Computer Science minor &middot; 2022 &ndash; 2026 &middot; GPA 3.87</div>
+                            <div class="coursework">
+                                Research Methods, Introduction to AI, Computer Vision, Neuroscience, Computational Linguistics,
+                                Minds Brains &amp; Computers, Human-Computer Interaction, Text Processing &amp; Corpus Linguistics
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="panel">
+                    <h2>Certifications</h2>
+                    <ul class="panel-list">
+                        <li>
+                            <a href="https://www.citiprogram.org/verify/?w278aa312-b0fa-4d5b-a795-23d700bff8ba-68116406" target="_blank" rel="noopener">Social and Behavioral Research</a>
+                            <div class="meta">CITI Program &middot; Feb 2025, valid through Feb 2028</div>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/file/d/1QLqtFBKImouZPhfvLypEILkNDxEaT-PK/view" target="_blank" rel="noopener">Lab Safety Training</a>
+                            <div class="meta">USC Environmental Health &amp; Safety &middot; Jun 2020</div>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <span>Vrinda Bansal &middot; Research</span>
+        <a href="../">Back to portfolio</a>
+    </footer>
+
+    <script>
+        const works = Array.from(document.querySelectorAll('.work'));
+        const worksList = document.getElementById('worksList');
+        const tabs = document.querySelectorAll('.tab');
+        const chips = document.querySelectorAll('.chip');
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const expandAllButton = document.getElementById('expandAll');
+        const emptyState = document.getElementById('emptyState');
+        const activeFilter = document.getElementById('activeFilter');
+        const activeFilterText = document.getElementById('activeFilterText');
+
+        const state = { type: 'all', interest: null, query: '' };
+        const typeOrder = { publication: 0, research: 1, applied: 2 };
+
+        // Tab counts
+        tabs.forEach(tab => {
+            const type = tab.dataset.type;
+            const count = type === 'all' ? works.length : works.filter(w => w.dataset.type === type).length;
+            tab.querySelector('.count').textContent = count;
+        });
+
+        function applyFilters() {
+            const query = state.query.trim().toLowerCase();
+            let visible = 0;
+
+            works.forEach(work => {
+                const matchesType = state.type === 'all' || work.dataset.type === state.type;
+                const matchesInterest = !state.interest || work.dataset.tags.split(' ').includes(state.interest);
+                const matchesQuery = !query || work.textContent.toLowerCase().includes(query);
+                const show = matchesType && matchesInterest && matchesQuery;
+                work.hidden = !show;
+                if (show) visible++;
+            });
+
+            emptyState.classList.toggle('visible', visible === 0);
+
+            const activeChip = document.querySelector('.chip[aria-pressed="true"]');
+            activeFilter.classList.toggle('visible', Boolean(activeChip));
+            activeFilterText.textContent = activeChip
+                ? `Showing ${visible} result${visible === 1 ? '' : 's'} for ${activeChip.textContent}`
+                : '';
+        }
+
+        function sortWorks() {
+            const byTitle = (a, b) => a.querySelector('.work-title').textContent
+                .localeCompare(b.querySelector('.work-title').textContent);
+            const byYear = (a, b) => (b.dataset.year - a.dataset.year)
+                || (typeOrder[a.dataset.type] - typeOrder[b.dataset.type]);
+
+            works
+                .slice()
+                .sort(sortSelect.value === 'title' ? byTitle : byYear)
+                .forEach(work => worksList.appendChild(work));
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                state.type = tab.dataset.type;
+                tabs.forEach(t => t.setAttribute('aria-pressed', String(t === tab)));
+                applyFilters();
+            });
+        });
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const isActive = chip.getAttribute('aria-pressed') === 'true';
+                state.interest = isActive ? null : chip.dataset.interest;
+                chips.forEach(c => c.setAttribute('aria-pressed', String(!isActive && c === chip)));
+                applyFilters();
+            });
+        });
+
+        function clearInterest() {
+            state.interest = null;
+            chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+            applyFilters();
+        }
+
+        document.getElementById('clearInterest').addEventListener('click', clearInterest);
+
+        document.getElementById('resetFilters').addEventListener('click', () => {
+            state.type = 'all';
+            state.query = '';
+            searchInput.value = '';
+            tabs.forEach(t => t.setAttribute('aria-pressed', String(t.dataset.type === 'all')));
+            clearInterest();
+        });
+
+        searchInput.addEventListener('input', () => {
+            state.query = searchInput.value;
+            applyFilters();
+        });
+
+        sortSelect.addEventListener('change', sortWorks);
+
+        // Expand / collapse all
+        function syncExpandButton() {
+            const allOpen = works.every(w => w.querySelector('details').open);
+            expandAllButton.textContent = allOpen ? 'Collapse all' : 'Expand all';
+        }
+
+        expandAllButton.addEventListener('click', () => {
+            const open = expandAllButton.textContent === 'Expand all';
+            works.forEach(w => { w.querySelector('details').open = open; });
+            syncExpandButton();
+        });
+
+        works.forEach(w => w.querySelector('details').addEventListener('toggle', syncExpandButton));
+
+        // Timeline bars, positioned between Jan of the first year and the end of the current year
+        (function renderTimeline() {
+            const now = new Date();
+            const rows = document.querySelectorAll('.timeline-row');
+            const toMonths = value => {
+                if (value === 'present') return now.getFullYear() * 12 + now.getMonth() + 1;
+                const [year, month] = value.split('-').map(Number);
+                return year * 12 + (month - 1);
+            };
+
+            const startYear = Math.min(...Array.from(rows, r => Number(r.dataset.start.slice(0, 4))));
+            const endYear = now.getFullYear() + 1;
+            const axisStart = startYear * 12;
+            const span = endYear * 12 - axisStart;
+
+            rows.forEach(row => {
+                const start = toMonths(row.dataset.start) - axisStart;
+                const end = row.dataset.end === 'present'
+                    ? toMonths('present') - axisStart
+                    : toMonths(row.dataset.end) + 1 - axisStart;
+                const bar = row.querySelector('.timeline-bar');
+                bar.style.left = `${(start / span) * 100}%`;
+                bar.style.width = `${((end - start) / span) * 100}%`;
+            });
+
+            const axis = document.getElementById('timelineAxis');
+            const midYear = Math.round((startYear + endYear) / 2);
+            [startYear, midYear, endYear].forEach(year => {
+                const tick = document.createElement('span');
+                tick.textContent = year;
+                axis.appendChild(tick);
+            });
+        })();
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+
+        function currentTheme() {
+            const explicit = document.documentElement.getAttribute('data-theme');
+            if (explicit) return explicit;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function syncThemeIcon() {
+            const dark = currentTheme() === 'dark';
+            themeToggle.querySelector('i').className = dark ? 'fas fa-sun' : 'fas fa-moon';
+            themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const next = currentTheme() === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('research-theme', next); } catch (e) {}
+            syncThemeIcon();
+        });
+
+        sortWorks();
+        applyFilters();
+        syncThemeIcon();
+    </script>
+</body>
+</html>
