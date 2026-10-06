@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vrinda Bansal - Research</title>
-    <meta name="description" content="Research by Vrinda Bansal: psycholinguistics, computational social science, human-computer interaction, and multi-agent systems.">
+    <meta name="description" content="Research by Vrinda Bansal at the intersection of human-computer interaction, AI, and computational cognitive science.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a4fd6'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='32' font-weight='700' fill='white' text-anchor='middle'%3EVB%3C/text%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -22,47 +22,25 @@
 
     <style>
         :root {
-            --bg: #fbfaf8;
-            --surface: #ffffff;
-            --surface-2: #f4f2ee;
-            --border: #e6e2db;
-            --text: #1d1d1f;
-            --muted: #5c6168;
-            --faint: #878c94;
-            --accent: #1a4fd6;
-            --accent-soft: #e9effd;
-            --pub: #9a5800;
-            --pub-soft: #fcf0dc;
-            --research: #1a4fd6;
-            --research-soft: #e9effd;
-            --applied: #1d7348;
-            --applied-soft: #e2f3e9;
-            --shadow: 0 1px 2px rgba(20, 20, 30, 0.04), 0 4px 16px rgba(20, 20, 30, 0.04);
+            --bg: #f4f2ed;
+            --surface: #faf9f6;
+            --surface-2: #ece9e2;
+            --border: #dfdad0;
+            --text: #24221e;
+            --muted: #5b5850;
+            --faint: #8a867c;
+            --accent: #2a4fae;
+            --accent-soft: #e4e8f3;
+            --pub: #8a5410;
+            --pub-soft: #f3e8d6;
+            --research: #2a4fae;
+            --research-soft: #e4e8f3;
+            --applied: #2b6a46;
+            --applied-soft: #e1ede4;
+            --shadow: none;
             --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
             --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
             color-scheme: light;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --bg: #0e1013;
-                --surface: #15181d;
-                --surface-2: #1c2027;
-                --border: #2a2f37;
-                --text: #e8eaed;
-                --muted: #a3a9b3;
-                --faint: #767d88;
-                --accent: #8ab4ff;
-                --accent-soft: rgba(138, 180, 255, 0.12);
-                --pub: #f2c071;
-                --pub-soft: rgba(242, 192, 113, 0.12);
-                --research: #8ab4ff;
-                --research-soft: rgba(138, 180, 255, 0.12);
-                --applied: #7fd4a4;
-                --applied-soft: rgba(127, 212, 164, 0.12);
-                --shadow: none;
-                color-scheme: dark;
-            }
         }
 
         :root[data-theme="dark"] {
@@ -242,7 +220,9 @@
             margin-top: 14px;
             max-width: 68ch;
             color: var(--text);
-            font-size: 15.5px;
+            font-family: var(--serif);
+            font-size: 17px;
+            line-height: 1.6;
         }
 
         .profile-links {
@@ -579,7 +559,7 @@
 
         .poster-thumb {
             display: block;
-            max-width: 420px;
+            max-width: 480px;
             margin-top: 14px;
             overflow: hidden;
             border: 1px solid var(--border);
@@ -630,9 +610,17 @@
             to { opacity: 1; transform: none; }
         }
 
-        .work-body p {
-            max-width: 70ch;
+        .work-body p,
+        .work-body li {
+            max-width: 72ch;
             color: var(--text);
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .work-body li strong {
+            font-weight: 600;
         }
 
         .work-body h4 {
@@ -994,8 +982,9 @@
                     B.S. Computational Cognitive Science, University of California, Davis
                 </p>
                 <p class="statement">
-                    I study how people and AI systems use language: speech and eye movements in psycholinguistics, and how
-                    AI agents talk to each other online. I apply cognitive science to build AI tools that help people learn.
+                    I study how to model human thinking computationally, and how to use those models to build AI systems
+                    that understand the intricacies of human experience and are seamless to use. My research sits where
+                    human-computer interaction, AI, and computational cognitive science meet.
                 </p>
                 <div class="profile-links">
                     <a class="pill-link" href="mailto:VrindaBansal2@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -1006,12 +995,12 @@
                 <div class="interests">
                     <span class="label" id="interestsLabel">Research interests</span>
                     <div class="chips" role="group" aria-labelledby="interestsLabel">
-                        <button class="chip" type="button" data-interest="psycholinguistics" aria-pressed="false">Psycholinguistics</button>
-                        <button class="chip" type="button" data-interest="social" aria-pressed="false">Computational social science</button>
+                        <button class="chip" type="button" data-interest="cogsci" aria-pressed="false">Computational cognitive science</button>
                         <button class="chip" type="button" data-interest="hci" aria-pressed="false">Human-computer interaction</button>
-                        <button class="chip" type="button" data-interest="agents" aria-pressed="false">Multi-agent systems</button>
                         <button class="chip" type="button" data-interest="llm" aria-pressed="false">LLMs &amp; evaluation</button>
+                        <button class="chip" type="button" data-interest="psycholinguistics" aria-pressed="false">Psycholinguistics</button>
                         <button class="chip" type="button" data-interest="learning" aria-pressed="false">Learning science</button>
+                        <button class="chip" type="button" data-interest="agents" aria-pressed="false">Multi-agent systems</button>
                         <button class="chip" type="button" data-interest="robotics" aria-pressed="false">Robotics</button>
                     </div>
                 </div>
@@ -1055,6 +1044,160 @@
                     </div>
 
                     <div id="worksList">
+                        <article class="work" data-type="research" data-year="2026" data-tags="agents llm">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Detecting humans and comparing languages in an AI-agent social network</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; C2 Lab, UC Davis (PI: Martin Hilbert)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
+                                            <span>Undergraduate research &middot; Jan &ndash; Jul 2026</span>
+                                            <span class="highlight"><i class="fas fa-language"></i>4 languages</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        Moltbook launched in January 2026 as a Reddit-style network where only AI agents, mostly built on
+                                        the OpenClaw framework, can post, comment, and vote. Humans are meant to only watch. That makes it an
+                                        unusual dataset: a social network whose members are language models. This project used social network
+                                        analysis to study it from two directions.
+                                    </p>
+                                    <h4>Research questions</h4>
+                                    <ul>
+                                        <li><strong>Can embedded humans be detected?</strong> Some accounts are steered or written by people. The project tested whether human participation shows up as measurable shifts in conversational tone, compared with the agent-generated threads around it.</li>
+                                        <li><strong>Does agent discourse differ by language?</strong> I led a comparative analysis of posts written in Chinese, Russian, French, and English, comparing each language group on political topics, tone, and technical depth.</li>
+                                    </ul>
+                                    <h4>Key finding</h4>
+                                    <ul>
+                                        <li>Chinese-language conversations were significantly more technical (for example, focused on coding) than the Russian, French, and English groups.</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">Social network analysis</span>
+                                        <span class="tag">Tone analysis</span>
+                                        <span class="tag">Cross-lingual comparison</span>
+                                        <span class="tag">Topic analysis</span>
+                                        <span class="tag">LLM agents</span>
+                                        <span class="tag">Python</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://c2.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> C2 Lab</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="applied" data-year="2026" data-tags="cogsci llm learning">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Grounded quiz generation from student notes: cutting LLM hallucination with validation and retrieval</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; NoteParrot (founder &amp; lead engineer)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-applied">Applied</span>
+                                            <span>Jun 2024 &ndash; present</span>
+                                            <span class="highlight"><i class="fas fa-arrow-trend-down"></i>65% fewer hallucinated questions</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        NoteParrot turns a student's own notes (PDFs, photos of handwritten pages, pasted text, or YouTube
+                                        lectures) into ten-question practice quizzes. It is built on retrieval practice, one of the most
+                                        reliable findings in memory research. Its prompting draws on two memory principles, retrieval cues and
+                                        encoding specificity, so questions cue material the way it appears in the student's own notes. The hard
+                                        requirement is grounding: every question has to be answerable from the uploaded notes, not from what
+                                        the model already knows.
+                                    </p>
+                                    <h4>System</h4>
+                                    <ul>
+                                        <li><strong>Ingestion.</strong> One router turns every input into plain text: pdfplumber for PDFs, Tesseract OCR for photos, and transcript chunking plus summarization for YouTube. Unsupported file types fail before any model call.</li>
+                                        <li><strong>Generation.</strong> An orchestrator plans each job (how many questions, whether the notes contain math), calls GPT-4o at temperature 0.7 with a six-line positional output format, parses by line position, and requests replacements until it has ten valid questions, up to a retry cap.</li>
+                                        <li><strong>Validation.</strong> Each question is checked against a JSON schema (four choices, exactly one correct, a real explanation), deduplicated, and rendered through MathJax so no raw LaTeX reaches a student. The system fails closed: a broken question is discarded and logged, never shown.</li>
+                                        <li><strong>Retrieval for long uploads.</strong> Notes are chunked by section with overlap, embedded with OpenAI embeddings into pgvector (every search filtered to that quiz), queried once per section heading so every topic is covered, and reranked with a cross-encoder before generation. Short uploads skip this and use the full notes.</li>
+                                        <li><strong>Provenance.</strong> Every question stores the chunks and source file it came from, so an audit grades it against the exact passage that produced it.</li>
+                                    </ul>
+                                    <h4>What went wrong, and why</h4>
+                                    <ul>
+                                        <li><strong>Ungrounded questions.</strong> Where the notes had gaps, the model filled them in from its own knowledge.</li>
+                                        <li><strong>Lost in the middle.</strong> On long uploads, middle sections got no questions, matching known attention effects in long contexts.</li>
+                                        <li><strong>Answer-length cue.</strong> Students learned that the longest option was usually correct and stopped reading. A validator rule now keeps all four choices within a similar length band.</li>
+                                    </ul>
+                                    <p>
+                                        The first two shared one cause, what context the model sees, and retrieval fixed both. The third was a
+                                        bias in how distractors were written, fixed in validation.
+                                    </p>
+                                    <h4>Evaluation</h4>
+                                    <ul>
+                                        <li>LLM-as-judge on a fixed test set of real notes, with a four-part rubric: answerable from the notes, correct key, explanation consistent with the notes, structurally complete. The judge was checked against hand-graded questions before it was trusted.</li>
+                                        <li>The same test set graded before and after the changes: 65% fewer hallucinated questions.</li>
+                                        <li>A weekly production audit samples recent questions and grades each one against its stored source.</li>
+                                        <li>1,000+ registered users and 5,000+ OpenAI calls a day at peak.</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">GPT-4o</span>
+                                        <span class="tag">RAG</span>
+                                        <span class="tag">pgvector</span>
+                                        <span class="tag">Cross-encoder reranking</span>
+                                        <span class="tag">LLM-as-judge</span>
+                                        <span class="tag">OCR</span>
+                                        <span class="tag">Django</span>
+                                        <span class="tag">PostgreSQL</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://noteparrot.com/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> NoteParrot</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
+                        <article class="work" data-type="applied" data-year="2026" data-tags="cogsci llm learning">
+                            <details>
+                                <summary>
+                                    <div>
+                                        <h3 class="work-title"><span>Standards-aligned lecture generation with retrieval-augmented generation</span></h3>
+                                        <p class="work-authors"><strong>V Bansal</strong> &middot; StarSpark AI (Applied AI Engineer)</p>
+                                        <p class="work-venue">
+                                            <span class="badge badge-applied">Applied</span>
+                                            <span>Mar 2026 &ndash; present</span>
+                                            <span class="highlight"><i class="fas fa-circle-check"></i>2,000+ lectures, 95% pass rate</span>
+                                        </p>
+                                    </div>
+                                    <span class="work-year">2026</span>
+                                </summary>
+                                <div class="work-body">
+                                    <p>
+                                        A system that generates lecture content for AP courses and checks each lecture against the AP
+                                        standards it is supposed to teach before it is used. The research side asks which teaching strategies
+                                        actually change how students engage, and tests them in the product.
+                                    </p>
+                                    <h4>Contributions</h4>
+                                    <ul>
+                                        <li>Built RAG pipelines on Google ADK that generate AP-aligned lecture content.</li>
+                                        <li>Built the standards validation layer and an evaluation harness that scores every generated lecture: 95% of 2,000+ lectures pass automated standards checks.</li>
+                                        <li>Lead a weekly research reading group on learning tiers and pedagogical strategies.</li>
+                                        <li>Turn those strategies into A/B tests that compare implementations by their effect on student engagement.</li>
+                                    </ul>
+                                    <h4>Methods</h4>
+                                    <div class="tags">
+                                        <span class="tag">RAG</span>
+                                        <span class="tag">Google ADK</span>
+                                        <span class="tag">Automated evaluation</span>
+                                        <span class="tag">A/B testing</span>
+                                        <span class="tag">Learning science</span>
+                                    </div>
+                                    <div class="work-links">
+                                        <a class="pill-link" href="https://www.starspark.ai/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> StarSpark AI</a>
+                                    </div>
+                                </div>
+                            </details>
+                        </article>
+
                         <article class="work" data-type="publication" data-year="2025" data-tags="hci">
                             <details>
                                 <summary>
@@ -1073,9 +1216,20 @@
                                         For many college students, grocery shopping is stressful: a limited weekly budget, the pressures of
                                         university life, and health needs ranging from medical conditions to food intolerances. CareCart is a
                                         student-centered platform that suggests affordable, diet-friendly alternatives and offers a community
-                                        space for recipe sharing and peer support. Using HCI methods and design thinking, we interviewed
-                                        students, identified pain points, and prototyped from sketches to a high-fidelity platform, with
-                                        usability heuristics guiding a design built for clarity and ease of use.
+                                        space for recipe sharing and peer support. The paper follows the human-centered design process from
+                                        interviews to a tested high-fidelity prototype.
+                                    </p>
+                                    <h4>Method</h4>
+                                    <ul>
+                                        <li><strong>Needfinding.</strong> Semi-structured interviews with three UC Davis students, ten open-ended questions each, moving from meal planning to dietary restrictions, feelings about food, and experience with nutrition apps. Thematic analysis found six pain points, led by time pressure, confusing labels and hidden ingredients, and overwhelming nutrition apps.</li>
+                                        <li><strong>Synthesis.</strong> Two personas (a time-pressed pre-med student, and a lactose-intolerant student on a tight budget) and a journey map of a rushed grocery trip.</li>
+                                        <li><strong>Ideation.</strong> 20+ concepts, including barcode scanning, affordable swaps, recipe sharing, and meal planning, narrowed by affinity diagramming to four design principles: personalization, affordability, simplicity, and community.</li>
+                                        <li><strong>Conceptual model.</strong> A "personal assistant" interface metaphor that knows your health needs and budget, plus a cooking-blog metaphor for community recipe sharing.</li>
+                                        <li><strong>Evaluation.</strong> Lo-fi to hi-fi prototypes, tested with three users and analyzed thematically. The community feed, clean layout, fast scanner, and traffic-light ratings worked. The meal planner felt overwhelming, alternatives were too expensive, and mandatory reminders annoyed people, which drove the next round of changes.</li>
+                                    </ul>
+                                    <p>
+                                        The live CareCart platform grew out of this work and now covers 200,000+ scraped products, with
+                                        recommendations for 30+ medical conditions.
                                     </p>
                                     <h4>Methods</h4>
                                     <div class="tags">
@@ -1095,81 +1249,11 @@
                             </details>
                         </article>
 
-                        <article class="work" data-type="research" data-year="2026" data-tags="social agents">
+                        <article class="work" data-type="research" data-year="2025" data-tags="cogsci psycholinguistics">
                             <details>
                                 <summary>
                                     <div>
-                                        <h3 class="work-title"><span>Detecting embedded humans in an AI-agent social network through conversational tone</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; C2 Lab, UC Davis (PI: Martin Hilbert)</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-research">Research</span>
-                                            <span>Undergraduate research &middot; Jan &ndash; Jul 2026</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2026</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        A social network analysis of Moltbook, a social platform where AI agents post and reply to one
-                                        another. The project asked whether humans placed among the agents could be detected from shifts
-                                        in conversational tone.
-                                    </p>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
-                                        <span class="tag">Social network analysis</span>
-                                        <span class="tag">Tone analysis</span>
-                                        <span class="tag">LLM agents</span>
-                                        <span class="tag">Python</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://c2.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> C2 Lab</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="research" data-year="2026" data-tags="social agents llm">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Cross-lingual comparison of AI-agent discourse in Chinese, Russian, French, and English</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; C2 Lab, UC Davis (PI: Martin Hilbert)</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-research">Research</span>
-                                            <span>Led analysis &middot; Jan &ndash; Jul 2026</span>
-                                            <span class="highlight"><i class="fas fa-language"></i>4 languages</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2026</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        A comparison of Moltbook posts written in Chinese, Russian, French, and English. It looked at
-                                        political topics, tone, and technical depth in each language group.
-                                    </p>
-                                    <h4>Key finding</h4>
-                                    <ul>
-                                        <li>Chinese-language conversations were significantly more technical (for example, focused on coding) than the other language groups</li>
-                                    </ul>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
-                                        <span class="tag">Cross-lingual analysis</span>
-                                        <span class="tag">Topic analysis</span>
-                                        <span class="tag">Tone analysis</span>
-                                        <span class="tag">Python</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://c2.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> C2 Lab</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="research" data-year="2025" data-tags="psycholinguistics">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Large-scale speech transcription for psycholinguistics with OpenAI Whisper</span></h3>
+                                        <h3 class="work-title"><span>Computational methods for psycholinguistics: large-scale speech transcription and eye-tracking analysis</span></h3>
                                         <p class="work-authors"><strong>V Bansal</strong> &middot; Ferreira Lab, UC Davis (PI: Fernanda Ferreira)</p>
                                         <p class="work-venue">
                                             <span class="badge badge-research">Research</span>
@@ -1181,46 +1265,26 @@
                                 </summary>
                                 <div class="work-body">
                                     <p>
-                                        A transcription pipeline for the lab's recorded speech data, built with Python and OpenAI Whisper.
-                                        It processed more than 15,000 hours of audio and improved transcription accuracy by 75%.
+                                        The Ferreira Lab studies how people produce and understand language in real time. I worked on the
+                                        computational side of that research: turning large volumes of recorded speech into analyzable text, and
+                                        analyzing participant data from speech and eye-tracking studies.
                                     </p>
+                                    <h4>Speech transcription</h4>
+                                    <ul>
+                                        <li>Built a Python transcription pipeline around OpenAI Whisper and ran it over 15,000+ hours of recorded participant speech.</li>
+                                        <li>Improved transcription accuracy by 75%, which made the lab's speech recordings usable for quantitative analysis at scale.</li>
+                                    </ul>
+                                    <h4>Eye-tracking and acoustic analysis</h4>
+                                    <ul>
+                                        <li>Collaborated on eye-tracking studies, contributing to findings that correlate visual processing with speech outcomes.</li>
+                                        <li>Ran quantitative analyses of participant data in Python, and acoustic analysis of speech recordings in Praat.</li>
+                                    </ul>
                                     <h4>Methods</h4>
                                     <div class="tags">
                                         <span class="tag">Speech recognition</span>
-                                        <span class="tag">Audio annotation</span>
                                         <span class="tag">OpenAI Whisper</span>
-                                        <span class="tag">Python</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://ferreiralab.faculty.ucdavis.edu/" target="_blank" rel="noopener"><i class="fas fa-flask"></i> Ferreira Lab</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="research" data-year="2025" data-tags="psycholinguistics">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Eye-tracking and speech: relating visual processing to speech outcomes</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; Ferreira Lab, UC Davis (PI: Fernanda Ferreira)</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-research">Research</span>
-                                            <span>Collaborator &middot; Sep 2024 &ndash; Nov 2025</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2025</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        Collaboration on the lab's eye-tracking studies, contributing to findings that correlate visual
-                                        processing with speech outcomes. Included quantitative analysis of participant data in Python
-                                        and Praat.
-                                    </p>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
+                                        <span class="tag">Audio annotation</span>
                                         <span class="tag">Eye-tracking</span>
-                                        <span class="tag">Experimental design</span>
                                         <span class="tag">Praat</span>
                                         <span class="tag">Statistical analysis</span>
                                         <span class="tag">Python</span>
@@ -1232,47 +1296,7 @@
                             </details>
                         </article>
 
-                        <article class="work" data-type="research" data-year="2021" data-tags="robotics agents">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Multi-agent pathfinding for drone fleets</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; USC ACT Lab, Viterbi School of Engineering</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-research">Research</span>
-                                            <span>Research intern &middot; 2020 &ndash; 2021</span>
-                                            <span class="highlight"><i class="fas fa-bolt"></i>30% faster planning</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2021</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        Work on multi-agent pathfinding (MAPF) for fleets of drones: planning routes for many drones at
-                                        once without collisions, and testing them in simulated environments with dense obstacles.
-                                    </p>
-                                    <h4>Contributions</h4>
-                                    <ul>
-                                        <li>Applied A* and depth-first search, with collision avoidance built on PyTorch, SLAM, and visual odometry</li>
-                                        <li>Cut path-planning execution time by 30% by refining the search heuristics</li>
-                                        <li>Built high-fidelity simulation environments to test low-latency navigation around obstacles</li>
-                                    </ul>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
-                                        <span class="tag">A* search</span>
-                                        <span class="tag">SLAM</span>
-                                        <span class="tag">Visual odometry</span>
-                                        <span class="tag">PyTorch</span>
-                                        <span class="tag">Simulation</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://x.com/uscact" target="_blank" rel="noopener"><i class="fas fa-flask"></i> USC ACT Lab</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="publication" data-year="2021" data-tags="robotics agents">
+                        <article class="work" data-type="publication" data-year="2021" data-tags="robotics">
                             <details>
                                 <summary>
                                     <div>
@@ -1287,137 +1311,93 @@
                                 </summary>
                                 <div class="work-body">
                                     <p>
-                                        Route planning for an autonomous snow-blowing robot built on a JetBot (NVIDIA Jetson Nano). The final
-                                        system localized with QR codes and planned with a finite-state algorithm. It followed a zig-zag pattern
-                                        that clears a driveway without scouting it first, which saves battery and time. The project also explored
-                                        collision avoidance with PyTorch object detection, visual odometry, and camera-based snow-depth estimation.
+                                        Coverage path planning for an autonomous snow-blowing robot: a JetBot (NVIDIA Jetson Nano) with a
+                                        snow-blower attachment, tested on a model driveway with artificial snow. The robot has to know where it
+                                        is even when markers may be buried, account for snow depth and density, and clear the whole area
+                                        efficiently.
                                     </p>
-                                    <a class="poster-thumb" href="../assets/images/posters/snow-blowing-pathfinding-2021.jpg" target="_blank" rel="noopener">
-                                        <img src="../assets/images/posters/snow-blowing-pathfinding-2021-thumb.jpg" alt="Poster: Pathfinding for Snow Blowing" width="640" height="480" loading="lazy">
+                                    <h4>Approach</h4>
+                                    <ul>
+                                        <li><strong>Localization.</strong> QR codes placed around the driveway act as landmarks. Scanning them lets the robot localize itself and replan its route.</li>
+                                        <li><strong>Visual odometry.</strong> Monocular visual odometry from the onboard camera estimates the robot's trajectory between landmarks. It is what makes the QR-code system work, solves the single-agent path-finding problem, and is a base for full SLAM.</li>
+                                        <li><strong>Snow depth.</strong> Estimated geometrically from the camera image using known heights and proportions, instead of physical depth markers.</li>
+                                        <li><strong>Collision avoidance.</strong> A PyTorch vision model detects lines and objects in the camera feed as a safety layer. It was prototyped, then paused in the final system.</li>
+                                        <li><strong>Planning.</strong> A finite-state machine drives a zig-zag (boustrophedon) coverage path between QR waypoints. That clears the driveway without a separate scouting pass, saving battery and time.</li>
+                                    </ul>
+                                    <a class="poster-thumb" href="../assets/posters/snow-blowing-pathfinding-2021.pdf" target="_blank" rel="noopener">
+                                        <img src="../assets/images/posters/snow-blowing-pathfinding-2021-thumb.jpg" alt="Poster: Pathfinding for Snow Blowing" width="1200" height="900" loading="lazy">
                                     </a>
                                     <h4>Methods</h4>
                                     <div class="tags">
-                                        <span class="tag">Path planning</span>
+                                        <span class="tag">Coverage path planning</span>
                                         <span class="tag">Jetson Nano</span>
                                         <span class="tag">Visual odometry</span>
+                                        <span class="tag">Finite-state machines</span>
                                         <span class="tag">OpenCV</span>
                                         <span class="tag">PyTorch</span>
                                     </div>
                                     <div class="work-links">
-                                        <a class="pill-link" href="../assets/images/posters/snow-blowing-pathfinding-2021.jpg" target="_blank" rel="noopener"><i class="fas fa-image"></i> Poster</a>
+                                        <a class="pill-link" href="../assets/posters/snow-blowing-pathfinding-2021.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Poster</a>
                                     </div>
                                 </div>
                             </details>
                         </article>
 
-                        <article class="work" data-type="publication" data-year="2020" data-tags="robotics agents">
+                        <article class="work" data-type="research publication" data-year="2020" data-tags="robotics agents">
                             <details>
                                 <summary>
                                     <div>
                                         <h3 class="work-title"><span>Multi-Robot Path-Finding</span></h3>
                                         <p class="work-authors"><strong>V Bansal</strong> &middot; ACT Lab, USC Viterbi (PI: Nora Ayanian)</p>
                                         <p class="work-venue">
+                                            <span class="badge badge-research">Research</span>
                                             <span class="badge badge-publication">Poster</span>
-                                            <span>USC Viterbi SHINE 2020</span>
+                                            <span>Research intern, 2020 &ndash; 2021 &middot; USC Viterbi SHINE 2020</span>
+                                            <span class="highlight"><i class="fas fa-bolt"></i>30% faster planning</span>
                                         </p>
                                     </div>
                                     <span class="work-year">2020</span>
                                 </summary>
                                 <div class="work-body">
                                     <p>
-                                        Multi-agent path finding: moving many robots to their own goals in a shared space without collisions,
-                                        like robots moving goods around a warehouse. Agents were trained with deep reinforcement learning in
-                                        PyTorch, with convolutional layers feeding an Advantage Actor-Critic model. The work progressed from
-                                        single-agent path finding to many agents in environments with obstacles.
+                                        Multi-agent path finding (MAPF): many robots share one space, each with its own goal, and all of them
+                                        have to reach their goals quickly without colliding. It is the core problem behind warehouse robot
+                                        fleets, and the ACT Lab tests its solutions on fleets of drones. This work approached MAPF with deep
+                                        reinforcement learning, alongside classical search.
                                     </p>
-                                    <a class="poster-thumb" href="../assets/images/posters/multi-robot-path-finding-2020.jpg" target="_blank" rel="noopener">
-                                        <img src="../assets/images/posters/multi-robot-path-finding-2020-thumb.jpg" alt="Poster: Multi-Robot Path-Finding" width="640" height="480" loading="lazy">
+                                    <h4>Environment</h4>
+                                    <ul>
+                                        <li>Grid-world environments built with OpenAI Gym and encoded as matrices (0 for a free cell, 1 for an agent, 2 for a goal).</li>
+                                        <li>A curriculum from single-agent path finding (SAPF), to many agents, to obstacle-dense maps and larger environments.</li>
+                                        <li>High-fidelity simulation environments to validate low-latency navigation in obstacle-dense scenarios.</li>
+                                    </ul>
+                                    <h4>Model</h4>
+                                    <ul>
+                                        <li>A PyTorch Advantage Actor-Critic (A2C) network. Each agent sees an observation window centered on itself, which passes through three convolution + ReLU layers and is then flattened into linear layers.</li>
+                                        <li>Two heads: the actor outputs a policy over five actions (up, down, left, right, stay), and the critic estimates the state value used to compute the advantage.</li>
+                                    </ul>
+                                    <h4>Training and results</h4>
+                                    <ul>
+                                        <li>Tracked loss, reward, average reward, and episode length. Reward stayed flat and negative for about the first hour (exploration), then rose and plateaued as the policy started exploiting what it had learned.</li>
+                                        <li>SAPF: after about 10 seconds of training, the agent reached its goal in three steps.</li>
+                                        <li>MAPF with obstacles: agents reached their goals without collisions and learned to cooperate, including a deadlock where two agents moved aside so a third could reach its goal.</li>
+                                        <li>Applied classical A* and depth-first search planners, and cut path-planning execution time by 30% by refining the search heuristics.</li>
+                                    </ul>
+                                    <a class="poster-thumb" href="../assets/posters/multi-robot-path-finding-2020.pdf" target="_blank" rel="noopener">
+                                        <img src="../assets/images/posters/multi-robot-path-finding-2020-thumb.jpg" alt="Poster: Multi-Robot Path-Finding" width="1200" height="900" loading="lazy">
                                     </a>
                                     <h4>Methods</h4>
                                     <div class="tags">
                                         <span class="tag">Reinforcement learning</span>
-                                        <span class="tag">Actor-critic</span>
+                                        <span class="tag">Actor-critic (A2C)</span>
                                         <span class="tag">PyTorch</span>
                                         <span class="tag">OpenAI Gym</span>
+                                        <span class="tag">A* search</span>
+                                        <span class="tag">Simulation</span>
                                     </div>
                                     <div class="work-links">
-                                        <a class="pill-link" href="../assets/images/posters/multi-robot-path-finding-2020.jpg" target="_blank" rel="noopener"><i class="fas fa-image"></i> Poster</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="applied" data-year="2026" data-tags="llm learning">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Cognitively informed prompting to reduce LLM hallucination</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; NoteParrot (founder &amp; lead engineer)</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-applied">Applied</span>
-                                            <span>Jun 2024 &ndash; present</span>
-                                            <span class="highlight"><i class="fas fa-arrow-trend-down"></i>65% fewer hallucinations</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2026</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        A prompting strategy for NoteParrot, an AI study platform, based on two memory principles: retrieval
-                                        cues and encoding specificity. It cut hallucinated responses by 65%.
-                                    </p>
-                                    <h4>Contributions</h4>
-                                    <ul>
-                                        <li>Designed and tested the prompting strategy against the existing approach</li>
-                                        <li>Ran systematic evaluations of model output quality in production</li>
-                                        <li>The platform serves 1,000+ users and handles 5,000+ API calls a day</li>
-                                    </ul>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
-                                        <span class="tag">Prompt design</span>
-                                        <span class="tag">LLM evaluation</span>
-                                        <span class="tag">Memory research</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://noteparrot.com/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> NoteParrot</a>
-                                    </div>
-                                </div>
-                            </details>
-                        </article>
-
-                        <article class="work" data-type="applied" data-year="2026" data-tags="llm learning">
-                            <details>
-                                <summary>
-                                    <div>
-                                        <h3 class="work-title"><span>Standards-aligned lecture generation with retrieval-augmented generation</span></h3>
-                                        <p class="work-authors"><strong>V Bansal</strong> &middot; StarSpark AI (Applied AI Engineer)</p>
-                                        <p class="work-venue">
-                                            <span class="badge badge-applied">Applied</span>
-                                            <span>Mar 2026 &ndash; present</span>
-                                            <span class="highlight"><i class="fas fa-circle-check"></i>2,000+ lectures, 95% pass rate</span>
-                                        </p>
-                                    </div>
-                                    <span class="work-year">2026</span>
-                                </summary>
-                                <div class="work-body">
-                                    <p>
-                                        RAG systems that generate lecture content aligned with AP course standards. More than 2,000
-                                        lectures have been generated, and 95% pass automated standards checks.
-                                    </p>
-                                    <h4>Contributions</h4>
-                                    <ul>
-                                        <li>Built the RAG pipelines and the automated standards validation</li>
-                                        <li>Lead a weekly reading group on learning tiers and teaching strategies</li>
-                                        <li>Run A/B tests comparing implementations by their effect on student engagement</li>
-                                    </ul>
-                                    <h4>Methods</h4>
-                                    <div class="tags">
-                                        <span class="tag">RAG</span>
-                                        <span class="tag">A/B testing</span>
-                                        <span class="tag">Automated evaluation</span>
-                                    </div>
-                                    <div class="work-links">
-                                        <a class="pill-link" href="https://www.starspark.ai/" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> StarSpark AI</a>
+                                        <a class="pill-link" href="../assets/posters/multi-robot-path-finding-2020.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Poster</a>
+                                        <a class="pill-link" href="https://x.com/uscact" target="_blank" rel="noopener"><i class="fas fa-flask"></i> USC ACT Lab</a>
                                     </div>
                                 </div>
                             </details>
@@ -1588,11 +1568,13 @@
 
         const state = { type: 'all', interest: null, query: '' };
         const typeOrder = { publication: 0, research: 1, applied: 2 };
+        const hasType = (work, type) => work.dataset.type.split(' ').includes(type);
+        const primaryType = work => work.dataset.type.split(' ')[0];
 
         // Tab counts
         tabs.forEach(tab => {
             const type = tab.dataset.type;
-            const count = type === 'all' ? works.length : works.filter(w => w.dataset.type === type).length;
+            const count = type === 'all' ? works.length : works.filter(w => hasType(w, type)).length;
             tab.querySelector('.count').textContent = count;
         });
 
@@ -1601,7 +1583,7 @@
             let visible = 0;
 
             works.forEach(work => {
-                const matchesType = state.type === 'all' || work.dataset.type === state.type;
+                const matchesType = state.type === 'all' || hasType(work, state.type);
                 const matchesInterest = !state.interest || work.dataset.tags.split(' ').includes(state.interest);
                 const matchesQuery = !query || work.textContent.toLowerCase().includes(query);
                 const show = matchesType && matchesInterest && matchesQuery;
@@ -1622,7 +1604,7 @@
             const byTitle = (a, b) => a.querySelector('.work-title').textContent
                 .localeCompare(b.querySelector('.work-title').textContent);
             const byYear = (a, b) => (b.dataset.year - a.dataset.year)
-                || (typeOrder[a.dataset.type] - typeOrder[b.dataset.type]);
+                || (typeOrder[primaryType(a)] - typeOrder[primaryType(b)]);
 
             works
                 .slice()
@@ -1722,9 +1704,7 @@
         const themeToggle = document.getElementById('themeToggle');
 
         function currentTheme() {
-            const explicit = document.documentElement.getAttribute('data-theme');
-            if (explicit) return explicit;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
         }
 
         function syncThemeIcon() {
