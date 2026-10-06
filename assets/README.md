@@ -16,9 +16,10 @@ assets/
 │   │   └── 1592599892797.jpeg      # Secondary profile image (69KB)
 │   ├── banners/           # Page banner images
 │   │   └── notion.jpg     # Notion page banner (174KB, 1200px max)
-│   └── posters/           # Research posters (full size + 640px thumbnails), used by research/
+│   └── posters/           # 1200px poster previews rendered from the PDFs in posters/
 ├── papers/                # Paper PDFs linked from research/
 │   └── carecart-paper.pdf
+├── posters/               # Original research poster PDFs linked from research/
 ```
 
 ## Optimization Details
